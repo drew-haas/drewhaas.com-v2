@@ -1,7 +1,9 @@
 <template>
   <div class="navigation-container">
     <div class="nav-bar">
-      <a class="logo-container" href="/"></a>
+      <a class="logo-container" href="/">
+        <div class="circle"></div>
+      </a>
       <div class="menu-icon" v-on:click="toggleNavigation">
         <div class="menu-bg"></div>
         <div class="bar-container">
@@ -118,6 +120,24 @@ export default {
   position: relative;
   cursor: pointer;
   background-color: #fff;
+  z-index: 10;
+
+  .circle {
+    width: 20px;
+    height: 20px;
+    background-color: $green;
+    border-radius: 50%;
+    position: relative;
+
+    &:before {
+      content: '';
+      width: 8px;
+      background-color: $pink;
+      height: 100%;
+      position: absolute;
+      left: 0;
+    }
+  }
 }
 
 .menu-icon {
