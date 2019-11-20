@@ -25,6 +25,11 @@
             <code>andrewfhaas@gmail.com</code>
           </span>
         </li>
+        <li class="nav-item nav-item-small">
+          <span class="nav-item-wrapper">
+            <code>credits</code>
+          </span>
+        </li>
       </ul>
     </nav>
   </div>

@@ -18,7 +18,7 @@ const store = new Vuex.Store({
     projects: [
       {
         title: "GitHub Universe",
-        description: "Copper mug synth letterpress heirloom. Bitters you probably haven't heard of them chia ethical. Hexagon hella next level swag.",
+        description: "I was fortunate enough to attend the GitHub Universe conference in November of 2019. I learned a lot about the new features in GitHub and how to apply those to production level projects. I also learned about some cool new tooling systems such as Zeit, Percy.io, Tailwind CSS and many more. Here are some snapshots I got of the conference:",
         id: "github",
         featureImage: "github/featured.jpg",
         images: [
@@ -31,15 +31,15 @@ const store = new Vuex.Store({
         title: "Apple Product Launch 2019",
         description: "Copper mug synth letterpress heirloom. Bitters you probably haven't heard of them chia ethical. Hexagon hella next level swag.",
         id: "apple-fall-2019",
-        link: "https://apple.com",
-        linkText: "apple.com",
+        link: "https://apple.com/watch",
+        linkText: "apple.com/watch",
         featureImage: "image-1.jpg"
       },
       {
         title: "The Laughing Cow",
         description: "Copper mug synth letterpress heirloom. Bitters you probably haven't heard of them chia ethical. Hexagon hella next level swag.",
         id: "laughingcow",
-        link: "https://apple.com",
+        link: "https://www.thelaughingcow.com/",
         linkText: "thelaughingcow.com",
         featureImage: "image-2.jpg"
       },
@@ -47,7 +47,7 @@ const store = new Vuex.Store({
         title: "Design Central",
         description: "Copper mug synth letterpress heirloom. Bitters you probably haven't heard of them chia ethical. Hexagon hella next level swag.",
         id: "designcentral",
-        link: "https://apple.com",
+        link: "https://www.designcentral.com/",
         linkText: "designcentral.com",
         featureImage: "image-3.jpg"
       },
@@ -55,7 +55,7 @@ const store = new Vuex.Store({
         title: "Tribue Equine Nutrition",
         description: "Copper mug synth letterpress heirloom. Bitters you probably haven't heard of them chia ethical. Hexagon hella next level swag.",
         id: "tribute",
-        link: "https://apple.com",
+        link: "https://tributeequinenutrition.com/",
         linkText: "tributeequinenutrition.com",
         featureImage: "image-4.jpg"
       }

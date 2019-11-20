@@ -283,8 +283,8 @@ export default {
       TweenMax.to(itemImg, 1.2, {
         ease: Expo.easeInOut,
         delay: 0.55,
-        width: "960px", // TODO: make this more dynamic
-        height: "506px", // TODO: make this more dynamic
+        width: this.winsize.width, // TODO: make this more dynamic
+        height: "400px", // TODO: make this more dynamic
         x: -imgRect.left,
         y: -imgRect.top,
         rotation: 0,

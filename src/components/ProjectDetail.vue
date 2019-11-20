@@ -3,12 +3,14 @@
 
     <div class="featured-image-wrapper" :style="{backgroundImage: 'url(' + require('@/assets/images/projects/' + project.featureImage) + ')'}" ></div>
 
-    <div class="content-container">
+    <div class="project-detail-content-container content-container">
       <div class="title fade-up-item">
         <h1>{{project.title}}</h1>
       </div>
 
-      <div class="description fade-up-item">{{project.description}}</div>
+      <div class="description fade-up-item">
+        <p>{{project.description}}</p>
+      </div>
 
       <div v-if="project.link" class="link fade-up-item">
         <a :href="project.link" target="_blank">{{project.linkText}}</a>
@@ -52,12 +54,26 @@ export default {
   top: 0;
 }
 
-.content-container {
-  margin-top: 100px;
+.project-detail-content-container {
+  margin: 100px auto 200px;
+  max-width: 900px;
+  width: 90%;
+  box-sizing: border-box;
+
+  @media screen and (max-width: $bp-s) {
+    margin: 60px auto;
+  }
+
+  a {
+    color: $gray-dark;
+    background-color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
 }
 
 .featured-image-wrapper {
-  width: $imageW;
+  width: 100%;
   height: $imageH;
   background-size: cover;
   background-position: center;
@@ -65,6 +81,8 @@ export default {
 
 .title {
   max-width: 80%;
+  font-family: 'Abel';
+  text-transform: uppercase;
 
   @media screen and (max-width: $bp-s) {
     max-width: 100%;
@@ -81,16 +99,29 @@ export default {
 .description {
   max-width: 500px;
   margin-bottom: 40px;
+
+  p {
+    font-size: 18px;
+    line-height: 1.7;
+  }
 }
 
 .images-container {
   margin-top: 160px;
+
+  @media screen and (max-width: $bp-s) {
+    margin-top: 80px;
+  }
 }
 
 .image-wrapper {
-  max-width: 80%;
+  width: 100%;
   margin: 0 auto;
-  margin: 0 0 30px;
+  margin: 0 0 60px;
+
+  @media screen and (max-width: $bp-s) {
+    margin-bottom: 30px;
+  }
 
   .image {
     display: block;
