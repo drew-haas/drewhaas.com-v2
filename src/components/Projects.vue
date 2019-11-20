@@ -13,52 +13,10 @@
 import Project from './Project.vue'
 
 export default {
-    name: 'Projects',
-    components: {
-      'Project': Project
-    },
-    data() {
-      return {
-        projects: [
-          {
-            title: "Apple",
-            description: "Copper mug synth letterpress heirloom. Bitters you probably haven't heard of them chia ethical. Hexagon hella next level swag.",
-            classSuffix: "apple",
-            link: "https://apple.com",
-            linkText: "apple.com",
-            route: '/apple',
-            image: "image-1.jpg"
-          },
-          {
-            title: "The Laughing Cow",
-            description: "Copper mug synth letterpress heirloom. Bitters you probably haven't heard of them chia ethical. Hexagon hella next level swag.",
-            classSuffix: "laughingcow",
-            link: "https://apple.com",
-            linkText: "thelaughingcow.com",
-            route: '/laughingcow',
-            image: "image-2.jpg"
-          },
-          {
-            title: "Design Central",
-            description: "Copper mug synth letterpress heirloom. Bitters you probably haven't heard of them chia ethical. Hexagon hella next level swag.",
-            classSuffix: "designcentral",
-            link: "https://apple.com",
-            linkText: "designcentral.com",
-            route: '/designcentral',
-            image: "image-3.jpg"
-          },
-          {
-            title: "Tribue Equine Nutrition",
-            description: "Copper mug synth letterpress heirloom. Bitters you probably haven't heard of them chia ethical. Hexagon hella next level swag.",
-            classSuffix: "tribute",
-            link: "https://apple.com",
-            linkText: "tributeequinenutrition.com",
-            route: '/tribute',
-            image: "image-4.jpg"
-          }
-        ]
-      }
-    },
+  name: 'Projects',
+  components: {
+    'Project': Project
+  }
 }
 </script>
 
@@ -71,5 +29,9 @@ export default {
     display: grid;
     grid-template-columns: 45% 45%;
     justify-content: space-between;
+
+    @media screen and (max-width: $bp-m) {
+      display: block;
+    }
   }
 </style>

@@ -107,10 +107,6 @@ export default {
   justify-content: space-between;
   align-items: center;
   box-sizing: border-box;
-
-  @media screen and (max-width: $bp-s) {
-    background-color: $gray-light;
-  }
 }
 
 .logo-container {

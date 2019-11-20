@@ -1,21 +1,31 @@
 <template>
-  <div class="project-detail-container">
-    <div
-        class="image-wrapper"
-        :style="{backgroundImage: 'url(' + require('@/assets/images/projects/' + project.image) + ')'}"
-      ></div>
+  <div class="project-detail-container" :class="'project-detail-' + project.id">
+
+    <div class="featured-image-wrapper" :style="{backgroundImage: 'url(' + require('@/assets/images/projects/' + project.featureImage) + ')'}" ></div>
 
     <div class="content-container">
-      <div class="title">
+      <div class="title fade-up-item">
         <h1>{{project.title}}</h1>
       </div>
-      <div class="description">{{project.description}}</div>
-      <div class="slideshow"></div>
+
+      <div class="description fade-up-item">{{project.description}}</div>
+
+      <div v-if="project.link" class="link fade-up-item">
+        <a :href="project.link" target="_blank">{{project.linkText}}</a>
+      </div>
+
+      <div v-if="project.images" class="images-container">
+        <div class="image-wrapper fade-up-item" v-for="(image, index) in project.images" :key="index">
+          <img class="image" :src="require('@/assets/images/projects/' + project.id + '/' + image)">
+        </div>
+      </div>
+
     </div>
   </div>
 </template>
 
 <script>
+import { TweenMax, Expo, Power1, Elastic, Back } from "gsap";
 
 export default {
   name: "ProjectDetail",
@@ -25,15 +35,13 @@ export default {
     }
   },
   mounted: function() {
-    console.log(this.$store.state.acitveProject);
-  },
-  created () {},
-  watch: {},
-  methods: {}
+    TweenMax.staggerTo(document.querySelectorAll('.fade-up-item'), 1, {opacity: 1, y: 0, ease: Expo.easeOut}, .1);
+  }
 };
 </script>
 
 <style lang="scss" scoped>
+
 .project-detail-container {
   width: 100%;
   position: absolute;
@@ -44,10 +52,55 @@ export default {
   top: 0;
 }
 
-.image-wrapper {
+.content-container {
+  margin-top: 100px;
+}
+
+.featured-image-wrapper {
   width: $imageW;
   height: $imageH;
   background-size: cover;
   background-position: center;
+}
+
+.title {
+  max-width: 80%;
+
+  @media screen and (max-width: $bp-s) {
+    max-width: 100%;
+  }
+
+  h1 {
+    font-size: 70px;
+    margin: 0 0 22px;
+    mix-blend-mode: screen;
+    line-height: 1;
+  }
+}
+
+.description {
+  max-width: 500px;
+  margin-bottom: 40px;
+}
+
+.images-container {
+  margin-top: 160px;
+}
+
+.image-wrapper {
+  max-width: 80%;
+  margin: 0 auto;
+  margin: 0 0 30px;
+
+  .image {
+    display: block;
+    width: 100%;
+    max-width: 800px;
+  }
+}
+
+.fade-up-item {
+  opacity: 0;
+  transform: translateY(20px);
 }
 </style>

@@ -17,40 +17,47 @@ const store = new Vuex.Store({
     acitveProject: 0,
     projects: [
       {
-        title: "Apple",
+        title: "GitHub Universe",
         description: "Copper mug synth letterpress heirloom. Bitters you probably haven't heard of them chia ethical. Hexagon hella next level swag.",
-        classSuffix: "apple",
+        id: "github",
+        featureImage: "github/featured.jpg",
+        images: [
+          'github-1.jpg',
+          'github-2.jpg',
+          'github-3.jpg'
+        ]
+      },
+      {
+        title: "Apple Product Launch 2019",
+        description: "Copper mug synth letterpress heirloom. Bitters you probably haven't heard of them chia ethical. Hexagon hella next level swag.",
+        id: "apple-fall-2019",
         link: "https://apple.com",
         linkText: "apple.com",
-        route: '/apple',
-        image: "image-1.jpg"
+        featureImage: "image-1.jpg"
       },
       {
         title: "The Laughing Cow",
         description: "Copper mug synth letterpress heirloom. Bitters you probably haven't heard of them chia ethical. Hexagon hella next level swag.",
-        classSuffix: "laughingcow",
+        id: "laughingcow",
         link: "https://apple.com",
         linkText: "thelaughingcow.com",
-        route: '/laughingcow',
-        image: "image-2.jpg"
+        featureImage: "image-2.jpg"
       },
       {
         title: "Design Central",
         description: "Copper mug synth letterpress heirloom. Bitters you probably haven't heard of them chia ethical. Hexagon hella next level swag.",
-        classSuffix: "designcentral",
+        id: "designcentral",
         link: "https://apple.com",
         linkText: "designcentral.com",
-        route: '/designcentral',
-        image: "image-3.jpg"
+        featureImage: "image-3.jpg"
       },
       {
         title: "Tribue Equine Nutrition",
         description: "Copper mug synth letterpress heirloom. Bitters you probably haven't heard of them chia ethical. Hexagon hella next level swag.",
-        classSuffix: "tribute",
+        id: "tribute",
         link: "https://apple.com",
         linkText: "tributeequinenutrition.com",
-        route: '/tribute',
-        image: "image-4.jpg"
+        featureImage: "image-4.jpg"
       }
     ]
   },

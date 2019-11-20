@@ -1,11 +1,11 @@
 <template>
   <div
     class="project-item"
-    :class="'project-item-' + project.classSuffix"
+    :class="'project-item-' + project.id"
     @mouseenter.self="hoverAnimation('mouseenter')"
     @mousemove.self="parallaxAnimation"
     @mouseleave.self="hoverAnimation('mouseleave')"
-    v-on:click="openProject(index, project.classSuffix)"
+    v-on:click="openProject(index, project.id)"
   >
     <div class="project-bg"></div>
 
@@ -16,7 +16,7 @@
     <div class="image-wrapper">
       <div
         class="project-item_image"
-        :style="{backgroundImage: 'url(' + require('@/assets/images/projects/' + project.image) + ')'}"
+        :style="{backgroundImage: 'url(' + require('@/assets/images/projects/' + project.featureImage) + ')'}"
       ></div>
     </div>
 
