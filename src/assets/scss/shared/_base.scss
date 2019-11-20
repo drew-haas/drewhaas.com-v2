@@ -1,0 +1,28 @@
+html, body {
+  font-family: Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  padding: 0;
+  color: $gray-dark;
+  background-color: $gray-light;
+  background-color: #e8e8e8;
+
+  &.disable-scrolling {
+    overflow: hidden;
+  }
+}
+
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
