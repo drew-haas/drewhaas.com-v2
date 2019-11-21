@@ -283,8 +283,8 @@ export default {
       TweenMax.to(itemImg, 1.2, {
         ease: Expo.easeInOut,
         delay: 0.55,
-        width: this.winsize.width, // TODO: make this more dynamic
-        height: "400px", // TODO: make this more dynamic
+        width: this.winsize.width, // TODO: make this more responsive
+        height: "400px", // TODO: make this more responsive
         x: -imgRect.left,
         y: -imgRect.top,
         rotation: 0,
@@ -294,7 +294,7 @@ export default {
           * Route to clicked Project Item!
            */
           document.querySelector('body').classList.remove('disable-scrolling', 'opening-project');
-          this.$store.commit('updateActiveProject', index);
+          this.$store.commit('updateActiveProject', index); // use mutation to track state
           this.$router.push({ path: '/projects/' + projectId});
         }
       });

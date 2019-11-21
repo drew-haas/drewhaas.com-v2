@@ -43,6 +43,17 @@ export default {
       nextProject: this.$store.state.projects[this.$store.state.activeProject + 1],
     }
   },
+  beforeCreate: function() {
+    // check if url matches active project
+    // if no match then update active project index
+    if (this.$store.state.projects[this.$store.state.acitveProject].id !== this.$route.params.projectId) {
+      this.$store.state.projects.forEach((el, i) => {
+        if (el.id === this.$route.params.projectId) {
+          this.$store.commit('updateActiveProject', i); // use mutation to track state
+        }
+      });
+    }
+  },
   mounted: function() {
     TweenMax.staggerTo(document.querySelectorAll('.fade-up-item'), 1, {opacity: 1, y: 0, ease: Expo.easeOut}, .1);
   }

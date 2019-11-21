@@ -53,6 +53,23 @@ const store = new Vuex.Store({
         ]
       },
       {
+        title: "Road Trip 2019",
+        description: "Las Vegas > Zion National Park > Page, AZ > Monument Valley > Flagstaff, AZ",
+        id: "road-trip-2019",
+        work: true,
+        featureImage: "road-trip-2019/featured.jpg",
+        images: [
+          'apple-1.png',
+          'apple-2.png'
+        ],
+        tags: [
+          'life',
+          'road trip',
+          'travel',
+          'national parks'
+        ]
+      },
+      {
         title: "The Laughing Cow",
         description: "My first taste of 3D animation... I got to create 3D animations for almost all of the products that The Laughing Cow cheese has to offer. Working closely with their product team and 3D artist I was able to create massive sprites that I could then animate based on javascript events. This was a fun one. However if I could do it now I would try to get the models into something like THREE.js. The 'gooey' nav was also a treat to animate.",
         id: "laughingcow",
