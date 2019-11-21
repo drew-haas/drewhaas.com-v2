@@ -26,3 +26,13 @@ ul {
 a {
   text-decoration: none;
 }
+
+::-moz-selection {
+  color: white;
+  background: black;
+}
+
+::selection {
+  color: white;
+  background: black;
+}

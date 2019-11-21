@@ -12,16 +12,15 @@ export default {
   components: {
     Projects
   }
-  // computed: {
-  //   username() {
-  //     // We will see what `params` is shortly
-  //     return this.$route.params.username;
-  //   }
-  // },
-  // methods: {
-  //   goBack() {
-  //     window.history.length > 1 ? this.$router.go(-1) : this.$router.push("/");
-  //   }
-  // }
 };
 </script>
+
+<style lang="scss" scoped>
+  .home-container {
+    h1 {
+      font-size: 50px;
+      font-family: 'Abel';
+      text-transform: uppercase;
+    }
+  }
+</style>

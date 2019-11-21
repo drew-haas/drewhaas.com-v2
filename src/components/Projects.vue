@@ -1,21 +1,21 @@
 <template>
   <div class="project-container">
-    <Project
+    <ProjectThumbnail
     v-for="(project, index) in this.$store.state.projects"
     :index="index"
     :key="project.classSuffix"
     :project="project">
-    </Project>
+    </ProjectThumbnail>
   </div>
 </template>
 
 <script>
-import Project from './Project.vue'
+import ProjectThumbnail from './ProjectThumbnail.vue'
 
 export default {
   name: 'Projects',
   components: {
-    'Project': Project
+    'ProjectThumbnail': ProjectThumbnail
   }
 }
 </script>

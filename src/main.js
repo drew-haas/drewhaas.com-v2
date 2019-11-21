@@ -2,6 +2,8 @@ import Vue from 'vue'
 import App from './App.vue'
 import VueRouter from 'vue-router'
 import Vuex from 'vuex'
+import createPersistedState from 'vuex-persistedstate'
+import Cookies from 'js-cookie'
 import Home from './components/Home.vue'
 import Projects from './components/Projects.vue'
 import ProjectDetail from './components/ProjectDetail.vue'
@@ -14,6 +16,8 @@ Vue.use(Vuex);
 const store = new Vuex.Store({
   state: {
     acitveProject: 0,
+    workItems: [],
+    lifeItems: [],
     projects: [
       {
         title: "GitHub Universe",
@@ -60,7 +64,7 @@ const store = new Vuex.Store({
       },
       {
         title: "Design Central",
-        description: "I would say this is some of my cleanest animation on a website. I got to animate the geometrical pattern dispersed throughout the site. I also got to animate the large capabilities infographic which is almost all done in svg. This was also a time to fine tune some of my more used animations by writing some dynamic code to perform parallaxing text, fading and sliding.",
+        description: "I would say this is some of my cleanest development and animation on a website. I got to animate the geometrical pattern dispersed throughout the site. I also got to animate the large capabilities infographic which is almost all done in svg. This was also a time to fine tune some of my more used animations by writing some dynamic code to perform parallaxing text, fading and sliding.",
         id: "designcentral",
         link: "https://www.designcentral.com/",
         linkText: "designcentral.com",
@@ -88,7 +92,12 @@ const store = new Vuex.Store({
       return state.projects.filter(project => project.life);
     }
   },
-  mutations: {}
+  plugins: [createPersistedState()],
+  mutations: {
+    updateActiveProject (state, index) {
+      state.acitveProject = index;
+    }
+  }
 })
 
 const routes = [{
@@ -115,3 +124,5 @@ new Vue({
   store,
   render: h => h(App)
 }).$mount('#app')
+
+console.log('%cThanks for visiting :)', 'color: #fff; background-color: #000; line-height: 1.7; padding: 5px 10px;')

@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Navigation></Navigation>
-    <div class="content-container">
+    <div class="main-view-wrapper">
       <router-view></router-view>
     </div>
     <Footer></Footer>
@@ -10,14 +10,12 @@
 
 <script>
 import Navigation from "./components/Navigation.vue";
-import Projects from "./components/Projects.vue";
 import Footer from "./components/Footer.vue";
 
 export default {
   name: "app",
   components: {
     Navigation,
-    Projects,
     Footer
   }
 };
@@ -32,7 +30,7 @@ export default {
   padding: 0;
 }
 
-.content-container {
-  padding: 0 60px;
+.main-view-wrapper {
+  padding: $navbar-height 60px 0;
 }
 </style>

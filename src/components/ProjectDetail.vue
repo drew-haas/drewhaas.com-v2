@@ -128,7 +128,7 @@ export default {
 .image-wrapper {
   width: 100%;
   margin: 0 auto;
-  margin: 0 0 80px;
+  margin: 0 0 140px;
 
   @media screen and (max-width: $bp-s) {
     margin-bottom: 30px;
@@ -137,7 +137,6 @@ export default {
   .image {
     display: block;
     width: 100%;
-    max-width: 800px;
   }
 }
 

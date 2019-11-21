@@ -226,8 +226,8 @@ export default {
     openProject(index, projectId) {
       if (this.isAnimating) return;
 
-      document.querySelector("body").classList.add("disable-scrolling", "opening-project");
-      event.target.classList.add("active");
+      document.querySelector('body').classList.add('disable-scrolling', 'opening-project');
+      event.target.classList.add('active');
 
       this.allowtilt = false;
       this.isAnimating = true;
@@ -294,7 +294,7 @@ export default {
           * Route to clicked Project Item!
            */
           document.querySelector('body').classList.remove('disable-scrolling', 'opening-project');
-          this.$store.state.acitveProject = index;
+          this.$store.commit('updateActiveProject', index);
           this.$router.push({ path: '/projects/' + projectId});
         }
       });
@@ -416,6 +416,12 @@ export default {
     pointer-events: none;
   }
 
+  &.active {
+    .image-wrapper {
+      filter: grayscale(0%);
+    }
+  }
+
   @media screen and (max-width: $bp-s) {
     width: 75%;
     height: 300px;
@@ -474,7 +480,7 @@ export default {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    // filter: grayscale(100%);
+    filter: grayscale(100%);
     // transition: filter 0.3s;
     pointer-events: none;
 
