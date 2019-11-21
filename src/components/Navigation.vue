@@ -14,10 +14,10 @@
     </div>
     <nav class="navigation">
       <ul>
-        <li class="nav-item nav-item-large" data-filter="work">
+        <li class="nav-item nav-item-large" data-filter="work" v-on:click="filterPage('work')">
           <span class="nav-item-wrapper">Work</span>
         </li>
-        <li class="nav-item nav-item-large link-green" data-filter="life">
+        <li class="nav-item nav-item-large link-green" data-filter="life" v-on:click="filterPage('life')">
           <span class="nav-item-wrapper">Life</span>
         </li>
         <li class="nav-item nav-item-small">
@@ -76,7 +76,16 @@ export default {
     },
 
     // TODO: create work/life filter
-    filterPage(filters) {},
+    filterPage(filter) {
+      console.log('filter');
+      if (filter === 'work') {
+        this.$store.projects = this.$store.getters.workItems;
+      } else if (filter === 'life') {
+        this.$store.projects = this.$store.getters.lifeItems;
+      }
+      console.log(this.$store.projects);
+      this.closeNav();
+    },
 
     openNav() {
       this.navigation.classList.add("open");

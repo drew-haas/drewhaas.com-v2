@@ -10,6 +10,7 @@
 
       <div class="description fade-up-item">
         <p>{{project.description}}</p>
+        <p v-if="project.reachout === true">Please reach out to learn more about the project and my role.</p>
       </div>
 
       <div v-if="project.link" class="link fade-up-item">
@@ -23,6 +24,11 @@
       </div>
 
     </div>
+
+    <div class="project-detail-navigation">
+      <div class="navigation-item-wrapper previous"></div>
+      <div class="navigation-item-wrapper next"></div>
+    </div>
   </div>
 </template>
 
@@ -33,7 +39,8 @@ export default {
   name: "ProjectDetail",
   data() {
     return {
-      project: this.$store.state.projects[this.$store.state.acitveProject]
+      project: this.$store.state.projects[this.$store.state.acitveProject],
+      nextProject: this.$store.state.projects[this.$store.state.activeProject + 1],
     }
   },
   mounted: function() {
@@ -62,6 +69,10 @@ export default {
 
   @media screen and (max-width: $bp-s) {
     margin: 60px auto;
+  }
+
+  @media screen and (max-width: $bp-xs) {
+    width: 100%;
   }
 
   a {
@@ -117,7 +128,7 @@ export default {
 .image-wrapper {
   width: 100%;
   margin: 0 auto;
-  margin: 0 0 60px;
+  margin: 0 0 80px;
 
   @media screen and (max-width: $bp-s) {
     margin-bottom: 30px;
