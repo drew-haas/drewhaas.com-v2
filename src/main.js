@@ -2,7 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import VueRouter from 'vue-router'
 import Vuex from 'vuex'
-import createPersistedState from 'vuex-persistedstate'
+// import createPersistedState from 'vuex-persistedstate' // TODO: add back in when production ready
 import Home from './components/Home.vue'
 import Projects from './components/Projects.vue'
 import ProjectDetail from './components/ProjectDetail.vue'
@@ -15,8 +15,8 @@ Vue.use(Vuex);
 const store = new Vuex.Store({
   state: {
     acitveProject: 0,
-    workItems: [],
-    lifeItems: [],
+    prevProject: 0,
+    nextProject: 0,
     projects: [
       {
         title: "GitHub Universe",
@@ -54,20 +54,9 @@ const store = new Vuex.Store({
       },
       {
         title: "Road Trip 2019",
-        description: "Las Vegas > Zion National Park > Page, AZ > Monument Valley > Flagstaff, AZ",
+        description: "Las Vegas - Zion National Park - Page, AZ - Monument Valley - Flagstaff, AZ",
         id: "road-trip-2019",
-        work: true,
-        featureImage: "road-trip-2019/featured.jpg",
-        images: [
-          'apple-1.png',
-          'apple-2.png'
-        ],
-        tags: [
-          'life',
-          'road trip',
-          'travel',
-          'national parks'
-        ]
+        featureImage: "road-trip-2019/featured.jpg"
       },
       {
         title: "The Laughing Cow",
@@ -100,18 +89,13 @@ const store = new Vuex.Store({
       }
     ]
   },
-  getters: {
-    workItems: state => {
-      return state.projects.filter(project => project.work);
-    },
-    lifeItems: state => {
-      return state.projects.filter(project => project.life);
-    }
-  },
-  plugins: [createPersistedState()],
+  getters: {},
+  // plugins: [createPersistedState()], // TODO: add back in when production ready -- optional
   mutations: {
     updateActiveProject (state, index) {
       state.acitveProject = index;
+      state.prevProject = index - 1 < 0 ? state.projects.length - 1 : index - 1; // loopable to end
+      state.nextProject = index + 1 > state.projects.length - 1 ? 0 : index + 1; // loopable to beginning
     }
   }
 })

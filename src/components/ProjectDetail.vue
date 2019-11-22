@@ -26,21 +26,30 @@
     </div>
 
     <div class="project-detail-navigation">
-      <div class="navigation-item-wrapper previous"></div>
-      <div class="navigation-item-wrapper next"></div>
+      <div class="navigation-item-wrapper previous fade-up-item" v-on:click="openProject('prev')">
+        <div class="navigation-image" :style="{backgroundImage: 'url(' + require('@/assets/images/projects/' + prevProject.featureImage) + ')'}">
+          <h2 class="nav-title">{{prevProject.title}}</h2>
+        </div>
+      </div>
+      <div class="navigation-item-wrapper next fade-up-item" v-on:click="openProject('next')">
+        <div class="navigation-image" :style="{backgroundImage: 'url(' + require('@/assets/images/projects/' + nextProject.featureImage) + ')'}">
+          <h2 class="nav-title">{{nextProject.title}}</h2>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import { TweenMax, Expo, Power1, Elastic, Back } from "gsap";
+import { TweenMax, Expo } from "gsap";
 
 export default {
   name: "ProjectDetail",
   data() {
     return {
       project: this.$store.state.projects[this.$store.state.acitveProject],
-      nextProject: this.$store.state.projects[this.$store.state.activeProject + 1],
+      prevProject: this.$store.state.projects[this.$store.state.prevProject],
+      nextProject: this.$store.state.projects[this.$store.state.nextProject],
     }
   },
   beforeCreate: function() {
@@ -56,6 +65,22 @@ export default {
   },
   mounted: function() {
     TweenMax.staggerTo(document.querySelectorAll('.fade-up-item'), 1, {opacity: 1, y: 0, ease: Expo.easeOut}, .1);
+  },
+  methods: {
+    openProject(direction) { // TODO: use index as function argument instead
+      let index = direction === 'prev' ? this.$store.state.prevProject : this.$store.state.nextProject;
+
+      // TODO: fix animation
+      // TweenMax.staggerTo(document.querySelectorAll('.fade-up-item'), 1, {opacity: 0, scale: .8, ease: Expo.easeOut, onComplete: () => {
+      //     /*
+      //     * Route to clicked Project Item!
+      //      */
+
+      //   }}, .1);
+        this.$store.commit('updateActiveProject', index); // use mutation to track state
+        console.log(this.$store.state.acitveProject);
+        this.$router.push('/projects/' + this.$store.state.projects[this.$store.state.acitveProject].id);
+    }
   }
 };
 </script>
@@ -154,5 +179,23 @@ export default {
 .fade-up-item {
   opacity: 0;
   transform: translateY(20px);
+}
+
+.project-detail-navigation {
+  display: flex;
+  color: #fff;
+
+  .navigation-item-wrapper {
+    width: 50%;
+    cursor: pointer;
+  }
+
+  .navigation-image {
+    width: 100%;
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    filter: grayscale(100%);
+  }
 }
 </style>
