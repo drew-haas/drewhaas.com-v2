@@ -1,9 +1,9 @@
 <template>
   <div class="project-container">
     <ProjectThumbnail
-    v-for="(project, index) in this.$store.state.projects"
+    v-for="(project, index) in projects"
     :index="index"
-    :key="project.classSuffix"
+    :key="project.id"
     :project="project">
     </ProjectThumbnail>
   </div>
@@ -16,6 +16,11 @@ export default {
   name: 'Projects',
   components: {
     'ProjectThumbnail': ProjectThumbnail
+  },
+  computed: {
+    projects () {
+      return this.$store.state.projects
+    }
   }
 }
 </script>

@@ -416,11 +416,11 @@ export default {
     pointer-events: none;
   }
 
-  &.active {
-    .image-wrapper {
-      filter: grayscale(0%);
-    }
-  }
+  // &.active {
+  //   .image-wrapper {
+  //     filter: grayscale(0%);
+  //   }
+  // }
 
   @media screen and (max-width: $bp-s) {
     width: 75%;
@@ -440,12 +440,12 @@ export default {
     }
   }
 
-  &:hover {
-    .image-wrapper {
-      filter: grayscale(0%);
-      transition: filter 0.3s;
-    }
-  }
+  // &:hover {
+  //   .image-wrapper {
+  //     filter: grayscale(0%);
+  //     transition: filter 0.3s;
+  //   }
+  // }
 
   &_title {
     position: absolute;
@@ -462,6 +462,8 @@ export default {
       font-size: 20px;
       margin: 0;
       color: $gray-dark;
+      text-transform: uppercase;
+      letter-spacing: 4px;
 
       @media screen and (max-width: $bp-s) {
         font-size: 18px;
@@ -480,7 +482,7 @@ export default {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    filter: grayscale(100%);
+    // filter: grayscale(100%);
     // transition: filter 0.3s;
     pointer-events: none;
 

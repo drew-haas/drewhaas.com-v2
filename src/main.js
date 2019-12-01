@@ -2,7 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import VueRouter from 'vue-router'
 import Vuex from 'vuex'
-// import createPersistedState from 'vuex-persistedstate' // TODO: add back in when production ready
+// import createPersistedState from 'vuex-persistedstate'
 import Home from './components/Home.vue'
 import Projects from './components/Projects.vue'
 import ProjectDetail from './components/ProjectDetail.vue'
@@ -90,7 +90,7 @@ const store = new Vuex.Store({
     ]
   },
   getters: {},
-  // plugins: [createPersistedState()], // TODO: add back in when production ready -- optional
+  // plugins: [createPersistedState()],
   mutations: {
     updateActiveProject (state, index) {
       state.acitveProject = index;

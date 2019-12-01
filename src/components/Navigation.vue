@@ -1,9 +1,9 @@
 <template>
   <div class="navigation-container">
     <div class="nav-bar">
-      <a class="logo-container" href="/">
+      <router-link to="/" class="logo-container">
         <div class="circle"></div>
-      </a>
+      </router-link>
       <div class="menu-icon" v-on:click="toggleNavigation">
         <div class="menu-bg"></div>
         <div class="bar-container">
@@ -77,13 +77,13 @@ export default {
 
     // TODO: create work/life filter
     filterPage(filter) {
-      console.log('filter');
+
       if (filter === 'work') {
         this.$store.projects = this.$store.getters.workItems;
       } else if (filter === 'life') {
         this.$store.projects = this.$store.getters.lifeItems;
       }
-      console.log(this.$store.projects);
+
       this.closeNav();
     },
 
@@ -239,8 +239,8 @@ export default {
     cursor: pointer;
 
     &-large {
-      font-size: 70px;
-      font-family: "Abel";
+      @extend .edition;
+      font-size: 170px;
       text-transform: uppercase;
     }
 
@@ -266,6 +266,7 @@ export default {
       transform: translateY(100%);
       opacity: 0;
       position: relative;
+      transition: color .4s;
 
       &:before {
         content: "";
@@ -280,12 +281,12 @@ export default {
 
       &:hover {
         color: $pink;
-        transition: color 0.3s;
-        transition-delay: 0.1s;
+        transition: color .4s;
+        transition-delay: .1s;
 
         &:before {
           transform: translate(100%, -50%);
-          transition: transform 0.35s cubic-bezier(0.86, 0, 0.07, 1);
+          transition: transform .35s cubic-bezier(.86, 0, .07, 1);
         }
       }
     }
