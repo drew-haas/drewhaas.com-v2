@@ -11,30 +11,21 @@ $font_path: '~@/assets/fonts/';
 }
 
 @font-face {
-  font-family: 'ArimoBold';
-  src: url($font_path + 'Arimo-Bold.ttf') format('truetype');
-  font-weight: bold;
-  font-style: normal;
+  font-family: 'Mesmerize-ul';
+  src: url($font_path + 'mesmerize-ul.otf') format('opentype');
 }
 
 @font-face {
-  font-family: 'ArimoBoldItalic';
-  src: require($font_path + 'Arimo-BoldItalic.ttf') format('truetype');
-  font-weight: bold;
+  font-family: 'Mesmerize-ul-it';
+  src: url($font_path + 'mesmerize-ul-it.otf') format('opentype');
   font-style: italic;
 }
 
 @font-face {
-  font-family: 'ArimoItalic';
-  src: require($font_path + 'Arimo-Italic.ttf') format('truetype');
-  font-weight: normal;
-  font-style: italic;
+  font-family: 'Mesmerize-lt';
+  src: url($font_path + 'mesmerize-lt.otf') format('opentype');
 }
 
-@font-face {
-  font-family: 'Arimo';
-  src: require($font_path + 'Arimo-Regular.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-
+/* Font Variables */
+$ff-ul: 'Mesmerize-ul';
+$ff-light: 'Mesmerize-lt';
