@@ -42,7 +42,6 @@ const store = new Vuex.Store({
         reachout: true,
         work: true,
         link: "https://apple.com/watch",
-        linkText: "view the site",
         featureImage: "apple-product-2019/featured.png",
         images: [
           'apple-1.png',
@@ -70,7 +69,6 @@ const store = new Vuex.Store({
         id: "laughingcow",
         reachout: true,
         link: "https://www.thelaughingcow.com/",
-        linkText: "thelaughingcow.com",
         featureImage: "laughingcow/featured.jpg",
         tags: [
           'website',
@@ -85,7 +83,6 @@ const store = new Vuex.Store({
         description: "I would say this is some of my cleanest development and animation on a website. I got to animate the geometrical pattern dispersed throughout the site. I also got to animate the large capabilities infographic which is almost all done in svg. This was also a time to fine tune some of my more used animations by writing some dynamic code to perform parallaxing text, fading and sliding.",
         id: "designcentral",
         link: "https://www.designcentral.com/",
-        linkText: "designcentral.com",
         featureImage: "designcentral/featured.jpg",
         images: [
           'image-2.jpg'
@@ -103,7 +100,6 @@ const store = new Vuex.Store({
         id: "tribute",
         reachout: true,
         link: "https://tributeequinenutrition.com/",
-        linkText: "tributeequinenutrition.com",
         featureImage: "tribute/featured.jpg",
         tags: [
           'website',
