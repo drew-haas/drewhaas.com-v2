@@ -1,7 +1,5 @@
 $font_path: '~@/assets/fonts/';
 
-@import url('https://fonts.googleapis.com/css?family=Abel');
-
 @font-face {
   font-family: 'editionregular';
   src: url($font_path + 'edition-webfont.woff') format('woff'),
@@ -11,21 +9,22 @@ $font_path: '~@/assets/fonts/';
 }
 
 @font-face {
-  font-family: 'Mesmerize-ul';
-  src: url($font_path + 'mesmerize-ul.otf') format('opentype');
+  font-family: 'Graphik-ExtralightItalic';
+  src: url($font_path + 'Graphik-ExtralightItalic.otf') format('opentype');
 }
 
 @font-face {
-  font-family: 'Mesmerize-ul-it';
-  src: url($font_path + 'mesmerize-ul-it.otf') format('opentype');
-  font-style: italic;
+  font-family: 'Graphik-ThinItalic';
+  src: url($font_path + 'Graphik-ThinItalic.otf') format('opentype');
 }
 
 @font-face {
-  font-family: 'Mesmerize-lt';
-  src: url($font_path + 'mesmerize-lt.otf') format('opentype');
+  font-family: 'Graphik-Medium';
+  src: url($font_path + 'Graphik-Medium.otf') format('opentype');
 }
 
 /* Font Variables */
-$ff-ul: 'Mesmerize-ul';
-$ff-light: 'Mesmerize-lt';
+$font-extra-light: 'Graphik-ThinItalic';
+$font-light: 'Graphik-ExtralightItalic';
+$font-book: 'Avenir';
+$font-medium: 'Graphik-Medium';

@@ -15,8 +15,8 @@ Vue.use(Vuex);
 const store = new Vuex.Store({
   state: {
     acitveProject: 0,
-    prevProject: 0,
-    nextProject: 0,
+    prevProject: 2,
+    nextProject: 1,
     projects: [
       {
         title: "GitHub Universe",
@@ -42,21 +42,27 @@ const store = new Vuex.Store({
         reachout: true,
         work: true,
         link: "https://apple.com/watch",
-        linkText: "apple.com/watch",
+        linkText: "view the site",
         featureImage: "apple-product-2019/featured.png",
         images: [
           'apple-1.png',
           'apple-2.png'
         ],
         tags: [
-          'work',
+          'website',
+          'animation',
+          'front end',
         ]
       },
       {
         title: "Road Trip 2019",
         description: "Las Vegas - Zion National Park - Page, AZ - Monument Valley - Flagstaff, AZ",
         id: "road-trip-2019",
-        featureImage: "road-trip-2019/featured.jpg"
+        featureImage: "road-trip-2019/featured.jpg",
+        tags: [
+          'road trip',
+          'life'
+        ]
       },
       {
         title: "The Laughing Cow",
@@ -65,7 +71,14 @@ const store = new Vuex.Store({
         reachout: true,
         link: "https://www.thelaughingcow.com/",
         linkText: "thelaughingcow.com",
-        featureImage: "laughingcow/featured.jpg"
+        featureImage: "laughingcow/featured.jpg",
+        tags: [
+          'website',
+          'animation',
+          'front end',
+          'drupal',
+          '3D'
+        ]
       },
       {
         title: "Design Central",
@@ -76,6 +89,12 @@ const store = new Vuex.Store({
         featureImage: "designcentral/featured.jpg",
         images: [
           'image-2.jpg'
+        ],
+        tags: [
+          'website',
+          'animation',
+          'front end',
+          'drupal'
         ]
       },
       {
@@ -85,7 +104,15 @@ const store = new Vuex.Store({
         reachout: true,
         link: "https://tributeequinenutrition.com/",
         linkText: "tributeequinenutrition.com",
-        featureImage: "tribute/featured.jpg"
+        featureImage: "tribute/featured.jpg",
+        tags: [
+          'website',
+          'animation',
+          'front end',
+          'nutrition selector',
+          'product locator',
+          'drupal'
+        ]
       }
     ]
   },

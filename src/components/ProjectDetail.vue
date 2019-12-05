@@ -13,11 +13,15 @@
         <p v-if="project.reachout === true">Please reach out to learn more about the project and my role.</p>
       </div>
 
-      <div v-if="project.link" class="link fade-up-item">
-        <a :href="project.link" target="_blank">{{project.linkText}}</a>
+      <div v-if="project.link" class="link-container">
+        <a :href="project.link" target="_blank" class="fade-up-item main-link">VIEW THE SITE</a>
       </div>
 
-      <div v-if="project.images" class="images-container fade-up-item">
+      <div v-if="project.tags" class="tags-container">
+        <div class="tag fade-up-item" v-for="(tag, index) in project.tags" v-bind:key="index">{{tag}}</div>
+      </div>
+
+      <div v-if="project.images" class="images-container">
         <div class="image-wrapper" v-for="(image, index) in project.images" :key="index">
           <img class="image" :src="require('@/assets/images/projects/' + project.id + '/' + image)">
         </div>
@@ -26,16 +30,14 @@
     </div>
 
     <div class="project-detail-navigation">
-      <div class="navigation-item-wrapper previous fade-up-item" v-on:click="openProject('prev')">
+      <div class="navigation-item-wrapper previous" v-on:click="openProject('prev')">
         <div class="navigation-image" :style="{backgroundImage: 'url(' + require('@/assets/images/projects/' + prevProject.featureImage) + ')'}">
           <h2 class="nav-title">Previous</h2>
-          <!-- <h2 class="nav-title">{{prevProject.title}}</h2> -->
         </div>
       </div>
-      <div class="navigation-item-wrapper next fade-up-item" v-on:click="openProject('next')">
+      <div class="navigation-item-wrapper next" v-on:click="openProject('next')">
         <div class="navigation-image" :style="{backgroundImage: 'url(' + require('@/assets/images/projects/' + nextProject.featureImage) + ')'}">
           <h2 class="nav-title">Next</h2>
-          <!-- <h2 class="nav-title">{{nextProject.title}}</h2> -->
         </div>
       </div>
     </div>
@@ -58,10 +60,13 @@ export default {
       return this.$store.state.projects[this.$store.state.nextProject]
     }
   },
-  beforeCreate: function() {
+  beforeCreate() {
+    window.scrollTo(0, 0);
     console.log('before create');
+
     // check if url matches active project
     // if no match then update active project index
+    // TOOD: this needs to be redirect to 404 if it doesn't match any project
     if (this.$store.state.projects[this.$store.state.acitveProject].id !== this.$route.params.projectId) {
       this.$store.state.projects.forEach((el, i) => {
         if (el.id === this.$route.params.projectId) {
@@ -70,33 +75,32 @@ export default {
       });
     }
   },
-  mounted: function() {
+  created() {
+    console.log('created');
+  },
+  beforeUpdate() {
+    console.log('before update');
+    TweenMax.set('.fade-up-item', {opacity: 0, y: '20px'}); // ran when index gets updated (next and prev buttons)
+  },
+  updated() {
+    console.log('updated');
+    TweenMax.staggerTo('.fade-up-item', 1, {delay: .1, opacity: 1, y: 0, ease: Expo.easeOut}, .2); // ran when index gets updated (next and prev buttons)
+  },
+  beforeMount() {
+    console.log('before mount');
+    TweenMax.set('.fade-up-item', {opacity: 0, y: '20px'});
+  },
+  mounted() {
     console.log('mounted');
-    TweenMax.staggerTo(document.querySelectorAll('.fade-up-item'), 1, {opacity: 1, y: 0, ease: Expo.easeOut}, .1);
+    TweenMax.staggerTo('.fade-up-item', 1, {delay: .1, opacity: 1, y: 0, ease: Expo.easeOut}, .2);
   },
   methods: {
     openProject(direction) { // TODO: use index as function argument instead
-      let index = direction === 'prev' ? this.$store.state.prevProject : this.$store.state.nextProject;
-      /*
-        * Route to clicked Project Item!
-          */
-        // this.$store.commit('updateActiveProject', index); // use mutation to track state
-        // this.$router.push('/projects/' + this.$store.state.projects[this.$store.state.acitveProject].id).catch(err => {});
+      let index = direction === 'prev' ? this.$store.state.prevProject : this.$store.state.nextProject; // update new Acti index
 
-      // // TODO: fix animation
-      TweenMax.to(document.querySelector('.featured-image-wrapper'), 1, {opacity: 0});
-      TweenMax.staggerTo(document.querySelectorAll('.fade-up-item'), 1, {opacity: 0, y: 50, ease: Expo.easeInOut}, '-.2', () => {
-        /*
-        * Route to clicked Project Item!
-          */
-        this.$store.commit('updateActiveProject', index); // use mutation to track state
-        this.$router.push('/projects/' + this.$store.state.projects[this.$store.state.acitveProject].id).catch(err => {});
-
-        window.scrollTo(0, 0);
-
-        TweenMax.set(document.querySelectorAll('.fade-up-item'), {opacity: 1, y: 0});
-        TweenMax.set(document.querySelector('.featured-image-wrapper'), {opacity: 1});
-      });
+      this.$store.commit('updateActiveProject', index); // update active project
+      window.scrollTo(0, 0);
+      this.$router.push('/projects/' + this.$store.state.projects[index].id).catch(err => {}); // changes the url
     }
   }
 };
@@ -105,23 +109,40 @@ export default {
 <style lang="scss" scoped>
 .project-detail-content-container {
   margin: 100px auto 200px;
-  max-width: 900px;
-  width: 90%;
+  padding: 0 60px;
+  max-width: 1400px;
+  width: 100%;
   box-sizing: border-box;
 
   @media screen and (max-width: $bp-s) {
     margin: 60px auto;
+    padding: 0 20px;
   }
 
-  @media screen and (max-width: $bp-xs) {
-    width: 100%;
-  }
-
-  a {
+  .main-link, .tag {
     color: $gray-dark;
+    font-family: $font-medium;
+    text-transform: uppercase;
+    font-family: $font-medium;
+    letter-spacing: 3.5px;
+    font-size: 10px;
+    display: inline-block;
+  }
+
+  .main-link {
+    padding: 11px 13px;
     background-color: #fff;
-    padding: 5px 10px;
-    border-radius: 5px;
+  }
+
+  .tags-container {
+    margin-top: 70px;
+  }
+
+  .tag {
+    background: #e0e0e0;
+    border-radius: 20px;
+    padding: 12px 14px 10px 16px;
+    margin: 0 15px 15px 0;
   }
 }
 
@@ -134,7 +155,7 @@ export default {
 
 .title {
   max-width: 80%;
-  font-family: 'Abel';
+  font-family: $font-medium;
   text-transform: uppercase;
 
   @media screen and (max-width: $bp-s) {
@@ -144,15 +165,17 @@ export default {
   h1 {
     font-size: 70px;
     margin: 0 0 22px;
-    mix-blend-mode: screen;
     color: $gray-dark;
     line-height: 1;
+    font-family: $font-light;
+    font-weight: lighter;
+    line-height: 1.2;
   }
 }
 
 .description {
   max-width: 500px;
-  margin-bottom: 40px;
+  margin-bottom: 60px;
 
   p {
     font-size: 18px;
@@ -202,6 +225,10 @@ export default {
         filter:grayscale(0%);
         transition: all .3s;
       }
+    }
+
+    @media screen and (max-width: $bp-s) {
+      padding: 0;
     }
   }
 

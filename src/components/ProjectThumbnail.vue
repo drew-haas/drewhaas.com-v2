@@ -410,17 +410,17 @@ export default {
   position: relative;
   text-align: left;
   cursor: pointer;
-  font-family: "Abel";
+  font-family: $font-book;
 
   body.opening-project & {
     pointer-events: none;
   }
 
-  // &.active {
-  //   .image-wrapper {
-  //     filter: grayscale(0%);
-  //   }
-  // }
+  &.active {
+    .image-wrapper {
+      filter: grayscale(0%);
+    }
+  }
 
   @media screen and (max-width: $bp-s) {
     width: 75%;
@@ -440,12 +440,12 @@ export default {
     }
   }
 
-  // &:hover {
-  //   .image-wrapper {
-  //     filter: grayscale(0%);
-  //     transition: filter 0.3s;
-  //   }
-  // }
+  &:hover {
+    .image-wrapper {
+      filter: grayscale(0%);
+      transition: filter 0.3s;
+    }
+  }
 
   &_title {
     position: absolute;
@@ -453,6 +453,7 @@ export default {
     left: -37px;
     writing-mode: vertical-rl;
     transform: rotate(180deg);
+    font-family: $font-light;
 
     @media screen and (max-width: $bp-s) {
       left: -34px;
@@ -482,8 +483,8 @@ export default {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    // filter: grayscale(100%);
-    // transition: filter 0.3s;
+    filter: grayscale(100%);
+    transition: filter 0.3s;
     pointer-events: none;
 
     .project-item_image {
@@ -498,7 +499,7 @@ export default {
   &_number {
     line-height: 1;
     font-size: 82px;
-    font-weight: lighter;
+    font-family: $font-light;
     color: $gray-medium;
     position: absolute;
     bottom: -40px;

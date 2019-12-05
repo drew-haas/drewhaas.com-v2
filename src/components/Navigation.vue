@@ -2,7 +2,8 @@
   <div class="navigation-container">
     <div class="nav-bar">
       <router-link to="/" class="logo-container">
-        <div class="circle"></div>
+        <!-- <div class="circle"></div> -->
+        <img :src="require('@/assets/images/dru-logo-02.svg')" alt="Dru" class="logo">
       </router-link>
       <div class="menu-icon" v-on:click="toggleNavigation">
         <div class="menu-bg"></div>
@@ -126,14 +127,14 @@ export default {
 }
 
 .logo-container {
-  width: $navbar-height;
-  height: $navbar-height;
+  // width: $navbar-height;
+  // height: $navbar-height;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
   cursor: pointer;
-  background-color: #fff;
+  // background-color: #fff;
   z-index: 10;
 
   .circle {
@@ -151,6 +152,11 @@ export default {
       position: absolute;
       left: 0;
     }
+  }
+
+  .logo {
+    width: 80px;
+    padding-left: 17px;
   }
 }
 
