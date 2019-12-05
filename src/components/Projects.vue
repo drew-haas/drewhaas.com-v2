@@ -29,7 +29,7 @@ export default {
   .project-container {
     width: 100%;
     height: 100%;
-    padding: 200px 5%;
+    padding: 200px 5% 100px;
     box-sizing: border-box;
     display: grid;
     grid-template-columns: 45% 45%;

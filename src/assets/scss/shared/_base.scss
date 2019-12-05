@@ -13,6 +13,16 @@ html, body {
   }
 }
 
+::-moz-selection {
+  color: white;
+  background: black;
+}
+
+::selection {
+  color: white;
+  background: black;
+}
+
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
 }
@@ -25,16 +35,6 @@ ul {
 
 a {
   text-decoration: none;
-}
-
-::-moz-selection {
-  color: white;
-  background: black;
-}
-
-::selection {
-  color: white;
-  background: black;
 }
 
 .edition {
