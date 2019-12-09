@@ -29,4 +29,8 @@ export default {
   margin: 0;
   padding: 0;
 }
+
+.main-view-wrapper {
+  overflow: hidden;
+}
 </style>

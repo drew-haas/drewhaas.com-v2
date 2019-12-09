@@ -6,6 +6,7 @@ import Vuex from 'vuex'
 import Home from './components/Home.vue'
 import Projects from './components/Projects.vue'
 import ProjectDetail from './components/ProjectDetail.vue'
+import Credits from './components/Credits.vue'
 import 'es6-promise/auto'
 
 Vue.config.productionTip = false;
@@ -22,7 +23,6 @@ const store = new Vuex.Store({
         title: "GitHub Universe",
         description: "I was fortunate enough to attend the GitHub Universe conference in November of 2019. I learned a lot about the new features in GitHub and how to apply those to production level projects. I also learned about some cool new tooling systems such as Zeit, Percy.io, Tailwind CSS and many more. Here are some snapshots I got of the conference:",
         id: "github",
-        work: true,
         featureImage: "github/featured.jpg",
         images: [
           'github-1.jpg',
@@ -37,10 +37,9 @@ const store = new Vuex.Store({
       },
       {
         title: "Apple Product Launch 2019",
-        description: "While (currently) employed by Critical Mass I work on site at Apple's Headquarters in Sunnyvale, CA, I was a developer on the Product Launch team for Apple Watch when we released the website for Series 5, Edition, and some other miscelaneous pages.",
+        description: "While working on site at Apple as a web developer on the Apple Watch team. I helped in the release of the website for Apple Watch Series 5, Apple Watch Edition, and some other miscellaneous pages. I was able to create animations, build layouts, and even help with some of the front end tooling that launched on apple.com.",
         id: "apple-product-2019",
         reachout: true,
-        work: true,
         link: "https://apple.com/watch",
         featureImage: "apple-product-2019/featured.png",
         images: [
@@ -134,6 +133,10 @@ const routes = [{
   {
     path: '/projects/:projectId',
     component: ProjectDetail,
+  },
+  {
+    path: '/credits',
+    component: Credits,
   }
 ]
 

@@ -1,10 +1,9 @@
 <template>
   <div class="navigation-container">
     <div class="nav-bar">
-      <router-link to="/" class="logo-container">
-        <!-- <div class="circle"></div> -->
+      <div class="logo-container" v-on:click="routeTo('/')">
         <img :src="require('@/assets/images/dru-logo-02.svg')" alt="Dru" class="logo">
-      </router-link>
+      </div>
       <div class="menu-icon" v-on:click="toggleNavigation">
         <div class="menu-bg"></div>
         <div class="bar-container">
@@ -23,11 +22,11 @@
         </li>
         <li class="nav-item nav-item-small">
           <span class="nav-item-wrapper">
-            <code>andrewfhaas@gmail.com</code>
+            <a href="mailto:andrewfhaas@gmail.com?Subject=Hey%20There" target="_top"><code>andrewfhaas@gmail.com</code></a>
           </span>
         </li>
         <li class="nav-item nav-item-small">
-          <span class="nav-item-wrapper">
+          <span class="nav-item-wrapper" v-on:click="routeTo('/credits')">
             <code>credits</code>
           </span>
         </li>
@@ -52,6 +51,7 @@ export default {
     this.navigation = document.querySelector(".navigation");
     this.menuIcon = document.querySelector(".menu-icon");
     this.body = document.querySelector("body");
+    this.menuTl = new TimelineMax({ paused: true });
 
     this.createTimeline();
   },
@@ -76,30 +76,38 @@ export default {
         );
     },
 
+    routeTo(path) {
+      if (this.state.navigationOpen) {
+        this.closeNav();
+      }
+
+      this.$router.push(path).catch(err => {});
+    },
+
     // TODO: create work/life filter
     filterPage(filter) {
-
       if (filter === 'work') {
         this.$store.projects = this.$store.getters.workItems;
       } else if (filter === 'life') {
         this.$store.projects = this.$store.getters.lifeItems;
       }
 
+      this.$router.push('/').catch(err => {});
       this.closeNav();
     },
 
     openNav() {
-      this.navigation.classList.add("open");
-      this.menuIcon.classList.add("open");
-      this.body.classList.add("disable-scrolling");
+      this.navigation.classList.add('open');
+      this.menuIcon.classList.add('open');
+      this.body.classList.add('disable-scrolling');
       this.state.navigationOpen = true;
       this.menuTl.play();
     },
 
     closeNav() {
-      this.navigation.classList.remove("open");
-      this.menuIcon.classList.remove("open");
-      this.body.classList.remove("disable-scrolling");
+      this.navigation.classList.remove('open');
+      this.menuIcon.classList.remove('open');
+      this.body.classList.remove('disable-scrolling');
       this.state.navigationOpen = false;
       this.menuTl.reverse();
     },
@@ -112,6 +120,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+a {
+  color: $gray-dark;
+}
+
 .navigation-container {
   position: fixed;
   width: 100%;
@@ -253,6 +265,10 @@ export default {
     &-small {
       font-size: 17px;
       margin-top: 20px;
+
+      &:hover {
+        color: $pink;
+      }
     }
 
     &.link-green {

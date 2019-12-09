@@ -35,7 +35,7 @@ import ProjectDetail from "./ProjectDetail.vue";
 export default {
   name: "Project",
   props: ["project", "index"],
-  created: function() {
+  created() {
     /*
      * Global Vars and functions for this Component
      */
@@ -465,6 +465,7 @@ export default {
       color: $gray-dark;
       text-transform: uppercase;
       letter-spacing: 4px;
+      font-weight: bold;
 
       @media screen and (max-width: $bp-s) {
         font-size: 18px;

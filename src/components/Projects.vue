@@ -1,11 +1,11 @@
 <template>
   <div class="project-container">
-    <ProjectThumbnail
+    <project-thumbnail
     v-for="(project, index) in projects"
     :index="index"
     :key="project.id"
     :project="project">
-    </ProjectThumbnail>
+    </project-thumbnail>
   </div>
 </template>
 
@@ -15,7 +15,7 @@ import ProjectThumbnail from './ProjectThumbnail.vue'
 export default {
   name: 'Projects',
   components: {
-    'ProjectThumbnail': ProjectThumbnail
+    'project-thumbnail': ProjectThumbnail
   },
   computed: {
     projects () {

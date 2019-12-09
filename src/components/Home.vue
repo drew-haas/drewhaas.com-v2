@@ -1,25 +1,16 @@
 <template>
   <div class="home-container">
+
     <div class="hero-container">
-      <!-- <div class="buildings">
-        <img class="building-2" src="~@/assets/images/home/building-2.png" alt="Buildings">
-      </div> -->
-
-      <!-- <div class="buildings">
-        <img class="building-3" src="~@/assets/images/home/building-3.png" alt="Buildings">
-      </div> -->
-
       <h1>Hello World</h1>
-
-      <!-- <div class="buildings">
-        <img class="building-1" src="~@/assets/images/home/building-1.png" alt="Buildings">
-      </div> -->
-
     </div>
+
     <div class="description-container">
-      <p>My name’s Drew and I’m a Web Developer among other things. Dive in to learn more of what I know and do. Feel free to reach out to either talk shop or shoot the breeze.</p>
+      <p>My name’s Drew and I’m a Web Developer currently employed by Critical Mass. I like to travel, play <span>soccer</span>, and enjoy a new <span data-icon=":beer:" data-text="IPA">IPA</span> in my free time. Feel free to reach out and talk shop or just shoot the <span>shit</span>.</p>
     </div>
+
     <Projects></Projects>
+
   </div>
 </template>
 
@@ -30,6 +21,9 @@ export default {
   name: "Home",
   components: {
     Projects
+  },
+  beforeCreate() {
+    window.scrollTo(0, 0);
   }
 };
 </script>

@@ -27,6 +27,31 @@ html, body {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
 }
 
+h1, h2 {
+  font-family: $font-light;
+  font-size: 74px;
+  font-weight: lighter;
+  margin: 0;
+}
+
+p {
+  font-size: 21px;
+  line-height: 2;
+  color: $gray-dark;
+
+  &.paragraph-smaller {
+    font-size: 18px;
+    line-height: 1.5;
+    margin: 10px 0 40px;
+  }
+
+  a {
+    font-family: serif;
+    font-style: italic;
+    text-decoration: underline;
+  }
+}
+
 ul {
   margin: 0;
   padding: 0;
@@ -35,8 +60,17 @@ ul {
 
 a {
   text-decoration: none;
+  color: $gray-dark;
 }
 
 .edition {
   font-family: 'editionregular';
+}
+
+.basic-content-container {
+  margin: 100px auto 200px;
+  padding: 0 60px;
+  max-width: 1400px;
+  width: 100%;
+  box-sizing: border-box;
 }
