@@ -4,11 +4,11 @@
     <HeroThree></HeroThree>
 
     <div class="hero-container">
-      <h1>hello world</h1>
+      <!-- <h1 id="hero-title">hello world</h1> -->
     </div>
 
     <div class="description-container">
-      <p>My name’s Drew and I’m a Web Developer currently employed by Critical Mass. Feel free to reach out and talk shop or just shoot the <span>shit</span>.</p>
+      <p>My name’s Drew and I’m a Web Developer currently employed by Critical Mass. Here's a snap shot of what I do at work and in life. Feel free to reach out and talk shop or just shoot the <span>shit</span>.</p>
     </div>
 
     <Projects></Projects>
@@ -32,9 +32,11 @@ export default {
   },
   mounted() {
     // set h1 to individual chars
-    let title = document.querySelector('h1');
-    title.innerHTML = this.wrapString(title.innerHTML).join('');
-    TweenMax.staggerTo('.letter', .7, {delay: .5, opacity: 1, y: '0', ease: Expo.easeOut}, .04);
+    if (document.getElementById('hero-title')) {
+      let title = document.querySelector('h1');
+      title.innerHTML = this.wrapString(title.innerHTML).join('');
+      TweenMax.staggerTo('.letter', .7, {delay: .5, opacity: 1, y: '0', ease: Expo.easeOut}, .04);
+    }
   },
   methods: {
     wrapString(string) {

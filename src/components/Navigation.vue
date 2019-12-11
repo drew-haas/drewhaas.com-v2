@@ -159,7 +159,7 @@ a {
     &:before {
       content: '';
       width: 8px;
-      background-color: $pink;
+      background-color: $red;
       height: 100%;
       position: absolute;
       left: 0;
@@ -192,7 +192,7 @@ a {
 
   &:hover {
     .menu-bar {
-      background-color: $pink;
+      background-color: $red;
       transition: all 0.3s;
     }
   }
@@ -267,7 +267,7 @@ a {
       margin-top: 20px;
 
       &:hover {
-        color: $pink;
+        color: $red;
       }
     }
 
@@ -297,12 +297,12 @@ a {
         width: 100%;
         height: 2px;
         top: 50%;
-        background-color: $pink;
+        background-color: $red;
         transform: translate(-100%, -50%);
       }
 
       &:hover {
-        color: $pink;
+        color: $red;
         transition: color .4s;
         transition-delay: .1s;
 
