@@ -58,6 +58,8 @@ export default {
         {name: 'Vanilla JS', class: 'vanillajs', icon: 'js.svg', url: 'http://vanilla-js.com/'},
         {name: 'Sass', class: 'sass', icon: 'sass.svg', url: 'https://sass-lang.com/'},
         {name: 'GSAP', class: 'gsap', icon: 'gsap.svg', url: 'https://greensock.com/gsap/'},
+        {name: 'WebGl', class: 'webgl', icon: 'webgl.svg', url: 'https://greensock.com/gsap/'},
+        {name: 'THREE', class: 'three', icon: 'three.png', url: 'https://greensock.com/gsap/'},
         {name: 'Node', class: 'node', icon: 'node.svg', url: 'https://nodejs.org/'},
         {name: 'GitHub', class: 'github', icon: 'github.svg', url: 'https://github.com/'},
         {name: 'Zeit', class: 'zeit', icon: 'zeit.svg', url: 'https://zeit.co/'},
@@ -181,6 +183,12 @@ p {
     img {
       padding: 3px;
       margin-top: 17px;
+    }
+  }
+
+  &.webgl {
+    img {
+      padding: 12px;
     }
   }
 }
