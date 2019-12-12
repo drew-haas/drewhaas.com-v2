@@ -74,3 +74,19 @@ a {
   width: 100%;
   box-sizing: border-box;
 }
+
+.hero-container {
+  h1 .letter {
+    display: inline-block;
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}
+
+// dat gui
+.dg.ac {
+  z-index: 11 !important;
+  left: 50% !important;
+  right: auto !important;
+  display: none !important;
+}

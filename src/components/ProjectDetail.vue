@@ -80,7 +80,7 @@ export default {
     this.windowH = window.innerHeight;
     this.windowW = window.innerWidth;
     this.images = document.querySelectorAll('.image-wrapper');
-    this.controller = new ScrollMagic.Controller();
+    // this.controller = new ScrollMagic.Controller();
   },
   beforeUpdate() {
     // all styles that have changed need to be reset here

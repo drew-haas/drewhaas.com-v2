@@ -1,12 +1,14 @@
 <template>
   <div class="home-container">
 
+    <HeroThree></HeroThree>
+
     <div class="hero-container">
-      <h1>Hello World</h1>
+      <h1 id="hero-title">hello world</h1>
     </div>
 
     <div class="description-container">
-      <p>My name’s Drew and I’m a Web Developer currently employed by Critical Mass. I like to travel, play <span>soccer</span>, and enjoy a new <span data-icon=":beer:" data-text="IPA">IPA</span> in my free time. Feel free to reach out and talk shop or just shoot the <span>shit</span>.</p>
+      <p>My name’s Drew and I’m a Web Developer currently employed by Critical Mass. Feel free to reach out and talk shop or shoot the <span>shit</span>.</p>
     </div>
 
     <Projects></Projects>
@@ -15,15 +17,34 @@
 </template>
 
 <script>
-import Projects from "./Projects.vue";
+import HeroThree from './HeroThree.vue';
+import Projects from './Projects.vue';
+import {TweenMax, Expo} from 'gsap';
 
 export default {
   name: "Home",
   components: {
-    Projects
+    Projects,
+    HeroThree
   },
   beforeCreate() {
     window.scrollTo(0, 0);
+  },
+  mounted() {
+    // set h1 to individual chars
+    if (document.getElementById('hero-title')) {
+      let title = document.querySelector('h1');
+      title.innerHTML = this.wrapString(title.innerHTML).join('');
+      TweenMax.staggerTo('.letter', .7, {delay: .5, opacity: 1, y: '0', ease: Expo.easeOut}, .04);
+    }
+  },
+  methods: {
+    wrapString(string) {
+      let newString = [];
+      string = string.split('');
+      string.forEach(element => newString.push('<span class="letter">' + element + '</span>'));
+      return newString;
+    }
   }
 };
 </script>
@@ -39,18 +60,21 @@ export default {
     width: 100%;
 
     h1 {
-      position: absolute;
-      top: calc(50%);
-      width: 100%;
-      transform: translateY(-50%);
+      color: $gray-dark;
       font-size: 100px;
-      text-transform: uppercase;
       font-family: $font-extra-light;
       font-style: italic;
       font-weight: lighter;
-      color: #888;
+      position: absolute;
+      top: calc(50%);
+      transform: translateY(-50%);
+      text-transform: uppercase;
       text-align: center;
+      width: 100%;
       margin: 0;
+      overflow: hidden;
+      position: relative;
+      pointer-events: none;
     }
 
     .name {
@@ -101,5 +125,16 @@ export default {
     line-height: 3;
     font-size: 24px;
     font-family: $font-book;
+    position: relative;
+  }
+
+  .cement {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    opacity: .15;
+    background-size: cover;
   }
 </style>
