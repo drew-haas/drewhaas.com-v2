@@ -45,8 +45,6 @@
 
 <script>
 import { TweenMax, TimelineMax, Expo } from 'gsap';
-// import ScrollMagic from 'scrollmagic';
-// import 'animation.gsap';
 
 export default {
   name: "ProjectDetail",
@@ -82,7 +80,6 @@ export default {
     this.windowH = window.innerHeight;
     this.windowW = window.innerWidth;
     this.images = document.querySelectorAll('.image-wrapper');
-    // this.controller = new ScrollMagic.Controller();
   },
   beforeUpdate() {
     // all styles that have changed need to be reset here
@@ -95,33 +92,18 @@ export default {
   updated() {
     // ran when index (or global state) gets updated (next and previous buttons)
     this.images = document.querySelectorAll('.image-wrapper');
-    // this.images.forEach((e, i) => {
-    //   console.log(e, i);
-    //   let scene = new ScrollMagic.Scene({
-    //     triggerElement: e,
-    //   })
-    //   .setTween(e, 1, {y: 0, opacity: 1, ease: Expo.easeOut})
-    //   .addToController(this.controller);
-    // });
 
     // tweens to be updated
     TweenMax.staggerTo('.fade-up-item', 1, {delay: .1, opacity: 1, y: 0, ease: Expo.easeOut}, .2);
-
-
     TweenMax.staggerTo('.image-wrapper', 1, {delay: .1, opacity: 1, y: 0, ease: Expo.easeOut}, .2);
   },
-  // beforeMount() {
-  // TweenMax.set('.fade-up-item', {opacity: 0, y: '20px'});
-  // },
   mounted() {
     TweenMax.staggerTo('.fade-up-item', 1, {delay: .1, opacity: 1, y: 0, ease: Expo.easeOut}, .2);
     TweenMax.staggerTo('.image-wrapper', 1, {delay: .1, opacity: 1, y: 0, ease: Expo.easeOut}, .2);
   },
   methods: {
-    reset() {
-      // TODO: all styles that have changed need to be reset here
-    },
-    openProject(direction, ev) { // TODO: use index as function argument instead of direction
+    openProject(direction, ev) {
+      // TODO: use index as function argument instead of direction
       // grab all animating objects
       const backgrounds = document.querySelectorAll('.project-detail-background');
       let index = direction === 'previous' ? this.$store.state.prevProject : this.$store.state.nextProject; // update new active index
@@ -131,7 +113,7 @@ export default {
       let oppositeImage = direction === 'previous' ? document.querySelectorAll('.next .navigation-image') : document.querySelectorAll('.previous .navigation-image');
       let oppositeTitle = direction === 'previous' ? document.querySelectorAll('.next .navigation-title') : document.querySelectorAll('.previous .navigation-title');
       let resetItems = [image, title, oppositeImage, oppositeTitle, document.querySelector('.featured-image-wrapper'), backgrounds];
-      console.log(rect);
+
       // disable scrolling
       document.querySelector('body').classList.add('disable-scrolling', 'opening-project');
       image.classList.add('active');
@@ -183,7 +165,7 @@ export default {
     text-transform: uppercase;
     font-family: $font-medium;
     letter-spacing: 3.5px;
-    font-size: 12px;
+    font-size: 11px;
     display: inline-block;
 
     @media screen and (max-width: $bp-s) {
@@ -250,7 +232,7 @@ export default {
   }
 
   h1 {
-    font-size: 74px;
+    font-size: 65px;
     margin: 0 0 22px;
     color: $gray-dark;
     line-height: 1;
@@ -269,7 +251,7 @@ export default {
   margin-bottom: 60px;
 
   p {
-    font-size: 21px;
+    font-size: 18px;
     line-height: 2;
 
     @media screen and (max-width: $bp-s) {
@@ -345,15 +327,10 @@ export default {
           transition: opacity .3s;
         }
       }
-
-      .navigation-title {
-        color: #fff;
-        transition: color .3s;
-      }
     }
 
     .project-detail-background {
-      background-color: #fff;
+      background-color: $gray-medium;
       width: 100%;
       height: 100%;
       position: absolute;
@@ -391,6 +368,7 @@ export default {
     font-style: italic;
     transition: transform .3s;
     display: inline-block;
+    color: #fff;
 
     @media screen and (max-width: $bp-s) {
       font-size: 40px;

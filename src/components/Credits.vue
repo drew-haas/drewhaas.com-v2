@@ -2,7 +2,7 @@
   <div class="credits-container basic-content-container">
     <div class="tech-stack">
       <h1 class="fade-up-item">Tech Stack</h1>
-      <p class="paragraph-smaller fade-up-item">Here are some of the technologies used to create&nbsp;this&nbsp;website.</p>
+      <p class="paragraph-smaller fade-up-item">Some of the technologies used to create&nbsp;this&nbsp;website.</p>
       <div class="icons-container">
         <a
         class="icon fade-up-item"
@@ -23,7 +23,7 @@
     </div>
     <div class="extra-credit-container">
       <h2 class="fade-up-item">Credits</h2>
-      <p class="paragraph-smaller fade-up-item">These companies were responsible for some of the posts on&nbsp;this&nbsp;website.</p>
+      <p class="paragraph-smaller fade-up-item">Companies responsible for some of the posts on&nbsp;this&nbsp;website.</p>
       <div class="icons-container">
         <a
         class="icon fade-up-item"
