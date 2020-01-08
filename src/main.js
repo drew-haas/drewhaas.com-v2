@@ -60,6 +60,11 @@ const store = new Vuex.Store({
         tags: [
           'road trip',
           'life'
+        ],
+        images: [
+          'road-trip-1.jpg',
+          'road-trip-2.jpg',
+          'road-trip-3.jpg'
         ]
       },
       {
@@ -75,6 +80,10 @@ const store = new Vuex.Store({
           'front end',
           'drupal',
           '3D'
+        ],
+        images: [
+          'image-home.jpg',
+          'image-project-detail.jpg'
         ]
       },
       {
@@ -84,7 +93,9 @@ const store = new Vuex.Store({
         link: "https://www.designcentral.com/",
         featureImage: "designcentral/featured.jpg",
         images: [
-          'image-2.jpg'
+          'image-home.jpg',
+          'image-2.jpg',
+          'image-capabilities.jpg'
         ],
         tags: [
           'website',
@@ -107,6 +118,10 @@ const store = new Vuex.Store({
           'nutrition selector',
           'product locator',
           'drupal'
+        ],
+        images: [
+          'image-home.jpg',
+          'image-nutrition.jpg'
         ]
       }
     ]
