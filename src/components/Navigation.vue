@@ -40,7 +40,10 @@ import { TweenMax, TimelineMax, Expo } from "gsap";
 
 export default {
   name: "Navigation",
-  mounted: function() {
+  created() {
+    window.addEventListener('resize', this.resizeHandler);
+  },
+  mounted() {
     // global vars for this component
     this.state = {
       navigationOpen: false,
@@ -114,6 +117,10 @@ export default {
 
     toggleNavigation() {
       return this.state.navigationOpen ? this.closeNav() : this.openNav();
+    },
+
+    resizeHandler() {
+      this.createTimeline();
     }
   }
 };
@@ -257,6 +264,11 @@ a {
       font-size: 90px;
       text-transform: uppercase;
       font-family: $font-extra-light;
+
+      @media screen and (max-width: $bp-s) {
+        font-size: 50px;
+        margin-bottom: 20px;
+      }
     }
 
     &-small {
@@ -265,6 +277,10 @@ a {
 
       &:hover {
         color: $green;
+      }
+
+      @media screen and (max-width: $bp-s) {
+        font-size: 14px;
       }
     }
 

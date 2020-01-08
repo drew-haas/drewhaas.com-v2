@@ -55,7 +55,7 @@ export default {
   }
 
   .hero-container {
-    height: 100vh;
+    min-height: 100vh;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -65,6 +65,10 @@ export default {
       max-width: 700px;
       text-align: left;
       padding: 0 55px;
+
+      @media screen and (max-width: $bp-s) {
+        padding: 0 20px;
+      }
     }
 
     .hero-subtitle {

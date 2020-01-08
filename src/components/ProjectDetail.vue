@@ -131,7 +131,7 @@ export default {
       let oppositeImage = direction === 'previous' ? document.querySelectorAll('.next .navigation-image') : document.querySelectorAll('.previous .navigation-image');
       let oppositeTitle = direction === 'previous' ? document.querySelectorAll('.next .navigation-title') : document.querySelectorAll('.previous .navigation-title');
       let resetItems = [image, title, oppositeImage, oppositeTitle, document.querySelector('.featured-image-wrapper'), backgrounds];
-
+      console.log(rect);
       // disable scrolling
       document.querySelector('body').classList.add('disable-scrolling', 'opening-project');
       image.classList.add('active');
@@ -152,9 +152,8 @@ export default {
              .to(title, .3, {opacity: 0}, '-=0.5')
              .to(backgrounds, .7, {opacity: 0, scale: .2, ease: Expo.easeInOut}, '-=0.5')
              .to(image, 1, {
-              x: direction === 'previous' ? -rect.left : '-31px',
+              x: -(rect.left),
               y: -(rect.top),
-              left: direction === 'previous' ? 0 : 0 - (window.innerWidth / 2),
               rotation: 0,
               width: window.innerWidth + 1,
               height: '400px',
