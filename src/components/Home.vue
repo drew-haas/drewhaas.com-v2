@@ -1,14 +1,11 @@
 <template>
   <div class="home-container">
 
-    <HeroThree></HeroThree>
-
     <div class="hero-container">
-      <h1 id="hero-title">hello world</h1>
-    </div>
-
-    <div class="description-container">
-      <p>My name’s Drew and I’m a Web Developer currently employed by Critical Mass. Feel free to reach out and talk shop or shoot the <span>shit</span>.</p>
+      <div class="hero-copy-container">
+        <h1 id="hero-title">hello world</h1>
+        <p class="hero-subtitle">My name’s Drew and I’m a Web Developer currently employed by Critical Mass (on site at Apple) in Sunnyvale, CA. Feel free to reach out and talk shop or shoot the <span>shit</span>.</p>
+      </div>
     </div>
 
     <Projects></Projects>
@@ -19,7 +16,7 @@
 <script>
 import HeroThree from './HeroThree.vue';
 import Projects from './Projects.vue';
-import {TweenMax, Expo} from 'gsap';
+import {TweenMax, TimelineMax, Expo} from 'gsap';
 
 export default {
   name: "Home",
@@ -35,7 +32,9 @@ export default {
     if (document.getElementById('hero-title')) {
       let title = document.querySelector('h1');
       title.innerHTML = this.wrapString(title.innerHTML).join('');
-      TweenMax.staggerTo('.letter', .7, {delay: .5, opacity: 1, y: '0', ease: Expo.easeOut}, .04);
+      var tl = new TimelineMax();
+      tl.staggerTo('.letter', .7, {delay: .2, opacity: 1, y: '0', ease: Expo.easeOut}, .04)
+        .to('.hero-subtitle', .7, {opacity: 1, y: '0', ease: Expo.easeOut}, '-=0.6');
     }
   },
   methods: {
@@ -58,6 +57,19 @@ export default {
   .hero-container {
     height: 100vh;
     width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .hero-copy-container {
+      max-width: 700px;
+      text-align: left;
+    }
+
+    .hero-subtitle {
+      opacity: 0;
+      transform: translateY(20px);
+    }
 
     h1 {
       color: $gray-dark;
@@ -65,11 +77,7 @@ export default {
       font-family: $font-extra-light;
       font-style: italic;
       font-weight: lighter;
-      position: absolute;
-      top: calc(50%);
-      transform: translateY(-50%);
       text-transform: uppercase;
-      text-align: center;
       width: 100%;
       margin: 0;
       overflow: hidden;
@@ -88,34 +96,6 @@ export default {
       transform-origin: 0 0;
       transform: rotate(-90deg);
       line-height: 1;
-    }
-
-    .buildings {
-      width: 421px;
-      height: 693px;
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      pointer-events: none;
-
-      .building-1 {
-        position: absolute;
-        right: 0;
-        bottom: 35px;
-      }
-
-      .building-2 {
-        position: absolute;
-        bottom: 31px;
-        left: 49px;
-      }
-
-      .building-3 {
-        position: absolute;
-        bottom: 127px;
-        left: 0;
-      }
     }
   }
 

@@ -30,12 +30,14 @@
 
     <div class="project-detail-navigation">
       <div class="navigation-item-wrapper previous" v-on:click="openProject('previous')">
-        <h2 class="navigation-title">Previous</h2>
+        <div class="project-detail-background"></div>
         <div class="navigation-image" :style="{backgroundImage: 'url(' + require('@/assets/images/projects/' + prevProject.featureImage) + ')'}"></div>
+        <h2 class="navigation-title">Previous</h2>
       </div>
       <div class="navigation-item-wrapper next" v-on:click="openProject('next')">
-        <h2 class="navigation-title">Next</h2>
+        <div class="project-detail-background"></div>
         <div class="navigation-image" :style="{backgroundImage: 'url(' + require('@/assets/images/projects/' + nextProject.featureImage) + ')'}"></div>
+        <h2 class="navigation-title">Next</h2>
       </div>
     </div>
   </div>
@@ -117,17 +119,18 @@ export default {
   },
   methods: {
     reset() {
-      // all styles that have changed need to be reset here
+      // TODO: all styles that have changed need to be reset here
     },
-    openProject(direction, ev) { // TODO: use index as function argument instead
+    openProject(direction, ev) { // TODO: use index as function argument instead of direction
+      // grab all animating objects
+      const backgrounds = document.querySelectorAll('.project-detail-background');
       let index = direction === 'previous' ? this.$store.state.prevProject : this.$store.state.nextProject; // update new active index
       let image = document.querySelector('.' + direction + ' .navigation-image');
       let title = document.querySelector('.' + direction + ' .navigation-title');
       let rect = image.getBoundingClientRect();
       let oppositeImage = direction === 'previous' ? document.querySelectorAll('.next .navigation-image') : document.querySelectorAll('.previous .navigation-image');
       let oppositeTitle = direction === 'previous' ? document.querySelectorAll('.next .navigation-title') : document.querySelectorAll('.previous .navigation-title');
-
-      let resetItems = [image, title, oppositeImage, oppositeTitle, document.querySelector('.featured-image-wrapper')];
+      let resetItems = [image, title, oppositeImage, oppositeTitle, document.querySelector('.featured-image-wrapper'), backgrounds];
 
       // disable scrolling
       document.querySelector('body').classList.add('disable-scrolling', 'opening-project');
@@ -146,9 +149,10 @@ export default {
              .to('.featured-image-wrapper', .5, {opacity: 0}, '-=.5')
              .to(oppositeImage, .5, {opacity: 0, y: 20}, '-=0.5')
              .to(oppositeTitle, .5, {opacity: 0, y: 20}, '-=0.4')
-             .to(title, .5, {opacity: 0, y: 20}, '-=0.5')
+             .to(title, .3, {opacity: 0}, '-=0.5')
+             .to(backgrounds, .7, {opacity: 0, scale: .2, ease: Expo.easeInOut}, '-=0.5')
              .to(image, 1, {
-              x: 0,
+              x: direction === 'previous' ? -rect.left : '-31px',
               y: -(rect.top),
               left: direction === 'previous' ? 0 : 0 - (window.innerWidth / 2),
               rotation: 0,
@@ -295,32 +299,40 @@ export default {
 }
 
 .project-detail-navigation {
-  display: flex;
-  color: #fff;
-  margin-bottom: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 60px;
+  color: $gray-medium;
+  margin: 0 auto 60px;
+  width: calc(100% - 120px);
 
   .navigation-item-wrapper {
-    width: 50%;
     cursor: pointer;
     position: relative;
     box-sizing: border-box;
+    height: 230px;
 
     &:hover {
+      .navigation-image {
+        &:not(.active) {
+          opacity: 1;
+          transition: opacity .3s;
+        }
+      }
+
       .navigation-title {
-        transition: .6s transform $easeOut;
+        color: #fff;
+        transition: color .3s;
       }
+    }
 
-      &.previous {
-        .navigation-title {
-          transform: translateX(-20px);
-        }
-      }
-
-      &.next {
-        .navigation-title {
-          transform: translateX(20px);
-        }
-      }
+    .project-detail-background {
+      background-color: #fff;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
     }
 
     @media screen and (max-width: $bp-s) {
@@ -329,31 +341,34 @@ export default {
   }
 
   .navigation-image {
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80%;
-    height: 15px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background-size: cover;
     background-position: center;
     filter: grayscale(100%);
+    opacity: 0;
 
     &.active {
       filter: grayscale(0%);
+      opacity: 1;
     }
   }
 
   .navigation-title {
     font-family: $font-light;
-    color: #fff;
     font-weight: lighter;
-    font-size: 80px;
-    text-align: center;
+    font-size: 60px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     margin: 0;
     position: relative;
     font-style: italic;
-    padding: 24px 0 18px;
     transition: transform .3s;
+    display: inline-block;
   }
 }
 </style>

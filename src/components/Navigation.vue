@@ -17,7 +17,7 @@
         <li class="nav-item nav-item-large" data-filter="work" v-on:click="filterPage('work')">
           <span class="nav-item-wrapper">Work</span>
         </li>
-        <li class="nav-item nav-item-large link-green" data-filter="life" v-on:click="filterPage('life')">
+        <li class="nav-item nav-item-large link-blue" data-filter="life" v-on:click="filterPage('life')">
           <span class="nav-item-wrapper">Life</span>
         </li>
         <li class="nav-item nav-item-small">
@@ -139,14 +139,11 @@ a {
 }
 
 .logo-container {
-  // width: $navbar-height;
-  // height: $navbar-height;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
   cursor: pointer;
-  // background-color: #fff;
   z-index: 10;
 
   .circle {
@@ -257,9 +254,9 @@ a {
     cursor: pointer;
 
     &-large {
-      @extend .edition;
-      font-size: 170px;
+      font-size: 90px;
       text-transform: uppercase;
+      font-family: $font-extra-light;
     }
 
     &-small {
@@ -267,18 +264,18 @@ a {
       margin-top: 20px;
 
       &:hover {
-        color: $red;
+        color: $green;
       }
     }
 
-    &.link-green {
+    &.link-blue {
       .nav-item-wrapper {
         &:before {
-          background-color: $green;
+          background-color: $blue;
         }
 
         &:hover {
-          color: $green;
+          color: $blue;
         }
       }
     }
@@ -297,12 +294,12 @@ a {
         width: 100%;
         height: 2px;
         top: 50%;
-        background-color: $red;
+        background-color: $green;
         transform: translate(-100%, -50%);
       }
 
       &:hover {
-        color: $red;
+        color: $green;
         transition: color .4s;
         transition-delay: .1s;
 
