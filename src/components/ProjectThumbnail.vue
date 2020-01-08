@@ -468,7 +468,7 @@ export default {
       font-weight: bold;
 
       @media screen and (max-width: $bp-s) {
-        font-size: 18px;
+        font-size: 16px;
       }
     }
   }

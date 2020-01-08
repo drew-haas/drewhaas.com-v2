@@ -186,6 +186,10 @@ export default {
     letter-spacing: 3.5px;
     font-size: 12px;
     display: inline-block;
+
+    @media screen and (max-width: $bp-s) {
+      font-size: 10px;
+    }
   }
 
   .main-link {
@@ -219,7 +223,7 @@ export default {
   }
 
   .tags-container {
-    margin-top: 70px;
+    margin-top: 40px;
   }
 
   .tag {
@@ -254,6 +258,10 @@ export default {
     font-family: $font-light;
     font-weight: lighter;
     line-height: 1.2;
+
+    @media screen and (max-width: $bp-s) {
+      font-size: 50px;
+    }
   }
 }
 
@@ -264,6 +272,10 @@ export default {
   p {
     font-size: 21px;
     line-height: 2;
+
+    @media screen and (max-width: $bp-s) {
+      font-size: 16px;
+    }
   }
 }
 
@@ -305,12 +317,27 @@ export default {
   color: $gray-medium;
   margin: 0 auto 60px;
   width: calc(100% - 120px);
+  max-width: 1400px;
+
+  @media screen and (max-width: $bp-s) {
+    margin-bottom: 30px;
+    width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+    display: block;
+  }
 
   .navigation-item-wrapper {
     cursor: pointer;
     position: relative;
     box-sizing: border-box;
     height: 230px;
+
+    @media screen and (max-width: $bp-s) {
+      padding: 0;
+      height: 120px;
+      margin-bottom: 20px;
+    }
 
     &:hover {
       .navigation-image {
@@ -333,10 +360,6 @@ export default {
       position: absolute;
       top: 0;
       left: 0;
-    }
-
-    @media screen and (max-width: $bp-s) {
-      padding: 0;
     }
   }
 
@@ -369,6 +392,10 @@ export default {
     font-style: italic;
     transition: transform .3s;
     display: inline-block;
+
+    @media screen and (max-width: $bp-s) {
+      font-size: 40px;
+    }
   }
 }
 </style>

@@ -64,11 +64,16 @@ export default {
     .hero-copy-container {
       max-width: 700px;
       text-align: left;
+      padding: 0 55px;
     }
 
     .hero-subtitle {
       opacity: 0;
       transform: translateY(20px);
+
+      @media screen and (max-width: $bp-s) {
+        font-size: 16px;
+      }
     }
 
     h1 {
@@ -83,19 +88,10 @@ export default {
       overflow: hidden;
       position: relative;
       pointer-events: none;
-    }
 
-    .name {
-      position: absolute;
-      left: -22px;
-      top: 75%;
-      font-family: $font-extra-light;
-      font-style: italic;
-      opacity: 0.1;
-      font-size: 111px;
-      transform-origin: 0 0;
-      transform: rotate(-90deg);
-      line-height: 1;
+      @media screen and (max-width: $bp-s) {
+        font-size: 50px;
+      }
     }
   }
 
@@ -106,15 +102,5 @@ export default {
     font-size: 24px;
     font-family: $font-book;
     position: relative;
-  }
-
-  .cement {
-    width: 100vw;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
-    opacity: .15;
-    background-size: cover;
   }
 </style>
