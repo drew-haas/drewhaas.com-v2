@@ -4,6 +4,15 @@
     <div class="main-view-wrapper">
       <router-view></router-view>
     </div>
+
+    <audio id="clickSound">
+    <source :src="require('@/assets/sounds/mouse-clicks-1.mp3')" type="audio/mpeg">
+    Your browser does not support the audio element.
+    </audio>
+
+    <audio id="hintSound">
+      <source :src="require('@/assets/sounds/hint-sound.mp3')" type="audio/mpeg">
+    </audio>
   </div>
 </template>
 

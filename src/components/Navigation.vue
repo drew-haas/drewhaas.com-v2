@@ -1,10 +1,10 @@
 <template>
   <div class="navigation-container">
     <div class="nav-bar">
-      <div class="logo-container" v-on:click="routeTo('/')">
+      <div class="logo-container" v-on:click="routeTo('/', 'clickSound')">
         <img :src="require('@/assets/images/dru-logo-02.svg')" alt="Dru" class="logo">
       </div>
-      <div class="menu-icon" v-on:click="toggleNavigation">
+      <div class="menu-icon" v-on:click="toggleNavigation('clickSound')">
         <div class="menu-bg"></div>
         <div class="bar-container">
           <span class="menu-bar bar-1"></span>
@@ -26,7 +26,7 @@
           </span>
         </li>
         <li class="nav-item nav-item-small">
-          <span class="nav-item-wrapper" v-on:click="routeTo('/credits')">
+          <span class="nav-item-wrapper" v-on:click="routeTo('/credits', 'clickSound')">
             <code>credits</code>
           </span>
         </li>
@@ -76,7 +76,9 @@ export default {
         .staggerTo(document.querySelectorAll('.social-list .icon'), .5, {y: 0, opacity: 1, ease: Expo.easeOut }, .1, '-=.5');
     },
 
-    routeTo(path) {
+    routeTo(path, soundId) {
+      this.playSound(soundId);
+
       if (this.state.navigationOpen) {
         this.closeNav();
       }
@@ -112,8 +114,13 @@ export default {
       this.menuTl.reverse();
     },
 
-    toggleNavigation() {
+    toggleNavigation(soundId) {
+      this.playSound(soundId);
       return this.state.navigationOpen ? this.closeNav() : this.openNav();
+    },
+
+    playSound(soundId) {
+      document.getElementById(soundId).play();
     },
 
     resizeHandler() {

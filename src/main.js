@@ -33,6 +33,10 @@ const store = new Vuex.Store({
           'adventure',
           'snow',
           'hike'
+        ],
+        images: [
+          'tahoe-paddleboarder.jpg',
+          'tahoe-snow-trees.jpg'
         ]
       },
       {
@@ -131,6 +135,27 @@ const store = new Vuex.Store({
           'drupal',
           'javascript animations',
           'pattern animation'
+        ]
+      },
+      {
+        title: 'Yosemite',
+        description: 'There\'s not much to say other than this place is magical. It\'s hard to take a bad photo in this National Park.',
+        id: 'yosemite',
+        life: true,
+        featureImage: 'yosemite/featured.jpg',
+        tags: [
+          'life',
+          'adventure',
+          'mountains',
+          'hikes'
+        ],
+        images: [
+          'glacier-point-3.jpg',
+          'tenaya-lake-1.jpg',
+          'glacier-point-2.jpg',
+          'clouds-rest-1.jpg',
+          'tenaya-lake-2.jpg',
+          'clouds-rest-2.jpg'
         ]
       },
       {

@@ -7,7 +7,7 @@
       </div>
       <div class="hero-copy-container">
         <h1 id="hero-title">hello</h1>
-        <p class="hero-subtitle">My name's Drew and I'm a Web Developer with a focus on design and animation. Work - Life Balance below.</p>
+        <p class="hero-subtitle">My name's Drew and I'm a Web Developer with a focus on design and animation. Work/Life Balance below.</p>
       </div>
     </div>
 

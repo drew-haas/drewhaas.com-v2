@@ -5,7 +5,7 @@
     @mouseenter.self="hoverAnimation('mouseenter')"
     @mousemove.self="parallaxAnimation"
     @mouseleave.self="hoverAnimation('mouseleave')"
-    v-on:click="openProject(index, project.id)"
+    v-on:click="openProject(index, project.id, 'hintSound')"
   >
     <div class="project-bg"></div>
 
@@ -223,8 +223,11 @@ export default {
     /*
      * Open Clicked Project
      */
-    openProject(index, projectId) {
+    openProject(index, projectId, soundId) {
+
       if (this.isAnimating) return;
+
+      document.getElementById(soundId).play();
 
       document.querySelector('body').classList.add('disable-scrolling', 'opening-project');
       event.target.classList.add('active');

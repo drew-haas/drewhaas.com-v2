@@ -29,12 +29,12 @@
     </div>
 
     <div class="project-detail-navigation">
-      <div class="navigation-item-wrapper previous" v-on:click="openProject('previous')">
+      <div class="navigation-item-wrapper previous" v-on:click="openProject('previous', 'clickSound')">
         <div class="project-detail-background"></div>
         <div class="navigation-image" :style="{backgroundImage: 'url(' + require('@/assets/images/projects/' + prevProject.featureImage) + ')'}"></div>
         <h2 class="navigation-title">Previous</h2>
       </div>
-      <div class="navigation-item-wrapper next" v-on:click="openProject('next')">
+      <div class="navigation-item-wrapper next" v-on:click="openProject('next', 'clickSound')">
         <div class="project-detail-background"></div>
         <div class="navigation-image" :style="{backgroundImage: 'url(' + require('@/assets/images/projects/' + nextProject.featureImage) + ')'}"></div>
         <h2 class="navigation-title">Next</h2>
@@ -102,7 +102,8 @@ export default {
     TweenMax.staggerTo('.image-wrapper', 1, {delay: .1, opacity: 1, y: 0, ease: Expo.easeOut}, .2);
   },
   methods: {
-    openProject(direction, ev) {
+    openProject(direction, soundId) {
+      document.getElementById(soundId).play();
       // TODO: use index as function argument instead of direction
       // grab all animating objects
       const backgrounds = document.querySelectorAll('.project-detail-background');
