@@ -103,7 +103,6 @@ export default {
   },
   methods: {
     openProject(direction, soundId) {
-      document.getElementById(soundId).play();
       // TODO: use index as function argument instead of direction
       // grab all animating objects
       const backgrounds = document.querySelectorAll('.project-detail-background');
@@ -263,7 +262,7 @@ export default {
 
 .images-container {
   margin-top: 160px;
-  max-width: 1000px;
+  max-width: 800px;
   margin-left: auto;
   margin-right: auto;
 
@@ -275,7 +274,7 @@ export default {
 .image-wrapper {
   width: 100%;
   margin: 0 auto;
-  margin: 0 0 140px;
+  margin: 0 0 120px;
 
   @media screen and (max-width: $bp-s) {
     margin-bottom: 30px;

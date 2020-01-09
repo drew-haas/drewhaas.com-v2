@@ -227,8 +227,6 @@ export default {
 
       if (this.isAnimating) return;
 
-      document.getElementById(soundId).play();
-
       document.querySelector('body').classList.add('disable-scrolling', 'opening-project');
       event.target.classList.add('active');
 

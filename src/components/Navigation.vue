@@ -77,7 +77,7 @@ export default {
     },
 
     routeTo(path, soundId) {
-      this.playSound(soundId);
+      // this.playSound(soundId);
 
       if (this.state.navigationOpen) {
         this.closeNav();
@@ -115,7 +115,7 @@ export default {
     },
 
     toggleNavigation(soundId) {
-      this.playSound(soundId);
+      // this.playSound(soundId);
       return this.state.navigationOpen ? this.closeNav() : this.openNav();
     },
 

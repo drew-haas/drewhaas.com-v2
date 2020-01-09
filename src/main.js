@@ -36,6 +36,11 @@ const store = new Vuex.Store({
         ],
         images: [
           'tahoe-paddleboarder.jpg',
+          'idi-2.jpg',
+          'drew-1.jpg',
+          'lake-1.jpg',
+          'idi-1.jpg',
+          'lake-2.jpg',
           'tahoe-snow-trees.jpg'
         ]
       },
