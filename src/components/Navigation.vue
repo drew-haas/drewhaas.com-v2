@@ -14,12 +14,12 @@
     </div>
     <nav class="navigation">
       <ul>
-        <li class="nav-item nav-item-large" data-filter="work" v-on:click="filterPage('work')">
+        <!-- <li class="nav-item nav-item-large" data-filter="work" v-on:click="routeTo('/work')">
           <span class="nav-item-wrapper">Work</span>
         </li>
-        <li class="nav-item nav-item-large link-blue" data-filter="life" v-on:click="filterPage('life')">
+        <li class="nav-item nav-item-large link-blue" data-filter="life" v-on:click="routeTo('/life')">
           <span class="nav-item-wrapper">Life</span>
-        </li>
+        </li> -->
         <li class="nav-item nav-item-small">
           <span class="nav-item-wrapper">
             <a href="mailto:andrewfhaas@gmail.com?Subject=Hey%20There" target="_top"><code>andrewfhaas@gmail.com</code></a>
@@ -46,7 +46,7 @@
 import { TweenMax, TimelineMax, Expo } from "gsap";
 
 export default {
-  name: "Navigation",
+  name: 'Navigation',
   created() {
     window.addEventListener('resize', this.resizeHandler);
   },
@@ -126,6 +126,10 @@ export default {
 <style lang="scss" scoped>
 a {
   color: $gray-dark;
+
+  &:hover {
+    color: $green;
+  }
 }
 
 .navigation-container {

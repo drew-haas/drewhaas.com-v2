@@ -2,9 +2,12 @@
   <div class="home-container">
 
     <div class="hero-container">
+      <div class="scroll-image">
+        <img :src="require('@/assets/images/img-drew-flying.png')" alt="Drew flying through the website">
+      </div>
       <div class="hero-copy-container">
-        <h1 id="hero-title">hello world</h1>
-        <p class="hero-subtitle">My name’s Drew and I’m a Web Developer currently employed by Critical Mass (on site at Apple) in Sunnyvale, CA. Feel free to reach out and talk shop or shoot the <span>shit</span>.</p>
+        <h1 id="hero-title">hello</h1>
+        <p class="hero-subtitle">My name's Drew and I'm a Web Developer with a focus on design and animation. Work - Life Balance below.</p>
       </div>
     </div>
 
@@ -14,12 +17,12 @@
 </template>
 
 <script>
-import HeroThree from './HeroThree.vue';
-import Projects from './Projects.vue';
+import HeroThree from '../components/HeroThree.vue';
+import Projects from '../components/Projects.vue';
 import {TweenMax, TimelineMax, Expo} from 'gsap';
 
 export default {
-  name: "Home",
+  name: 'Home',
   components: {
     Projects,
     HeroThree
@@ -28,6 +31,11 @@ export default {
     window.scrollTo(0, 0);
   },
   mounted() {
+    window.addEventListener('scroll', this.handleScroll);
+    this.rotationEl = document.querySelector('.scroll-image');
+
+    // this.$store.activeSet = 'all'; // TODO: create active set to cycle through when enabling work/life filters
+
     // set h1 to individual chars
     if (document.getElementById('hero-title')) {
       let title = document.querySelector('h1');
@@ -37,12 +45,22 @@ export default {
         .to('.hero-subtitle', .7, {opacity: 1, y: '0', ease: Expo.easeOut}, '-=0.6');
     }
   },
+  destroyed() {
+    window.removeEventListener('scroll', this.handleScroll);
+  },
   methods: {
     wrapString(string) {
       let newString = [];
       string = string.split('');
       string.forEach(element => newString.push('<span class="letter">' + element + '</span>'));
       return newString;
+    },
+    handleScroll(event) {
+        let scrollTop = event.target.scrollingElement.scrollTop,
+            itemRotation = scrollTop * .2,
+            opacity = 1 - (itemRotation / 100);
+
+        TweenMax.to(this.rotationEl, 2, {x: itemRotation * 1.75 + 'px', y: itemRotation * 1.5 + 'px', opacity: opacity, rotation: itemRotation, ease: Expo.easeOut});
     }
   }
 };
@@ -56,15 +74,17 @@ export default {
 
   .hero-container {
     min-height: 100vh;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 100vw;
+    position: relative;
 
     .hero-copy-container {
-      max-width: 700px;
+      max-width: 500px;
       text-align: left;
       padding: 0 55px;
+      top: 50%;
+      left: 0%;
+      transform: translate(0, -50%);
+      position: absolute;
 
       @media screen and (max-width: $bp-s) {
         padding: 0 20px;
@@ -107,4 +127,15 @@ export default {
     font-family: $font-book;
     position: relative;
   }
+
+.scroll-image {
+  position: absolute;
+  right: 20px;
+  top: 10%;
+  max-width: 50vw;
+
+  img {
+    width: 100%;
+  }
+}
 </style>

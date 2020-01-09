@@ -2,12 +2,14 @@ import Vue from 'vue'
 import App from './App.vue'
 import VueRouter from 'vue-router'
 import Vuex from 'vuex'
-// import createPersistedState from 'vuex-persistedstate'
-import Home from './components/Home.vue'
+import Home from './pages/Home.vue'
 import Projects from './components/Projects.vue'
-import ProjectDetail from './components/ProjectDetail.vue'
-import Credits from './components/Credits.vue'
+import ProjectDetail from './pages/ProjectDetail.vue'
+import Credits from './pages/Credits.vue'
+import Work from './pages/Work.vue'
+import Life from './pages/Life.vue'
 import 'es6-promise/auto'
+// import createPersistedState from 'vuex-persistedstate'
 
 Vue.config.productionTip = false;
 Vue.use(VueRouter);
@@ -15,15 +17,30 @@ Vue.use(Vuex);
 
 const store = new Vuex.Store({
   state: {
+    activeSet: 'all', // all, work, or life
     acitveProject: 0,
     prevProject: 2,
     nextProject: 1,
     projects: [
       {
+        title: 'Lake Tahoe',
+        description: 'I love me some Tahoe. Hike up the mountains in the summer and ski down them in the winter.',
+        id: 'tahoe',
+        featureImage: 'tahoe/featured.jpg',
+        life: true,
+        tags: [
+          'life',
+          'adventure',
+          'snow',
+          'hike'
+        ]
+      },
+      {
         title: "GitHub Universe",
-        description: "I was fortunate enough to attend the GitHub Universe conference in November of 2019. I learned a lot about the new features in GitHub and how to apply those to production level projects. I also learned about some cool new tooling systems such as Zeit, Percy.io, Tailwind CSS and many more. Here are some snapshots I got of the conference:",
+        description: "I attended the GitHub Universe conference in November of 2019. I learned a lot about the new features in GitHub and how to apply those to production level projects. I also learned about some cool new tooling systems such as Zeit, Percy.io, Tailwind CSS and many more.",
         id: "github",
         featureImage: "github/featured.jpg",
+        work: true,
         images: [
           'github-1.jpg',
           'github-2.jpg',
@@ -37,9 +54,10 @@ const store = new Vuex.Store({
       },
       {
         title: "Apple Product Launch 2019",
-        description: "While working on site at Apple as a web developer on the Apple Watch team. I helped in the release of the website for Apple Watch Series 5, Apple Watch Edition, and some other miscellaneous pages. I was able to create animations, build layouts, and even help with some of the front end tooling that launched on apple.com.",
+        description: "Very fortunate to work on custom animations and layouts for one of the largest websites in the world.",
         id: "apple-product-2019",
         reachout: true,
+        work: true,
         link: "https://apple.com/watch",
         featureImage: "apple-product-2019/featured.png",
         images: [
@@ -50,16 +68,19 @@ const store = new Vuex.Store({
           'website',
           'animation',
           'front end',
+          'javascript'
         ]
       },
       {
         title: "Road Trip 2019",
-        description: "Las Vegas - Zion National Park - Page, AZ - Monument Valley - Flagstaff, AZ",
+        description: "An Epic road trip hitting some national parks in the wild west.",
         id: "road-trip-2019",
         featureImage: "road-trip-2019/featured.jpg",
+        life: true,
         tags: [
           'road trip',
-          'life'
+          'life',
+          'mountains'
         ],
         images: [
           'road-trip-1.jpg',
@@ -69,9 +90,10 @@ const store = new Vuex.Store({
       },
       {
         title: "The Laughing Cow",
-        description: "My first taste of 3D animation... I got to create 3D animations for almost all of the products that The Laughing Cow cheese has to offer. Working closely with their product team and 3D artist I was able to create massive sprites that I could then animate based on javascript events. This was a fun one. However if I could do it now I would try to get the models into something like THREE.js. The 'gooey' nav was also a treat to animate.",
+        description: "New and old techniques used on this playful website for this well known dairy company. 3D animations using sprites for the product pages. Gooey SVG animation for the navigation.",
         id: "laughingcow",
         reachout: true,
+        work: true,
         link: "https://www.thelaughingcow.com/",
         featureImage: "laughingcow/featured.jpg",
         tags: [
@@ -79,7 +101,10 @@ const store = new Vuex.Store({
           'animation',
           'front end',
           'drupal',
-          '3D'
+          '3D',
+          'svg',
+          'sprites',
+          'javascript animations'
         ],
         images: [
           'image-home.jpg',
@@ -88,10 +113,12 @@ const store = new Vuex.Store({
       },
       {
         title: "Design Central",
-        description: "I would say this is some of my cleanest development and animation on a website. I got to animate the geometrical pattern dispersed throughout the site. I also got to animate the large capabilities infographic which is almost all done in svg. This was also a time to fine tune some of my more used animations by writing some dynamic code to perform parallaxing text, fading and sliding.",
+        description: "An Interactive website for a product design and engineering company. Created with Drupal and custom Javascript animations and solutions.",
         id: "designcentral",
         link: "https://www.designcentral.com/",
         featureImage: "designcentral/featured.jpg",
+        work: true,
+        reachout: true,
         images: [
           'image-home.jpg',
           'image-2.jpg',
@@ -101,14 +128,17 @@ const store = new Vuex.Store({
           'website',
           'animation',
           'front end',
-          'drupal'
+          'drupal',
+          'javascript animations',
+          'pattern animation'
         ]
       },
       {
         title: "Tribue Equine Nutrition",
-        description: "Copper mug synth letterpress heirloom. Bitters you probably haven't heard of them chia ethical. Hexagon hella next level swag.",
+        description: "The coolest horse feed website you'll find. A lot of custom solutions went into this such as a product locator, a nutrition selector to determine which feed is right for your horse, and some custom animations.",
         id: "tribute",
         reachout: true,
+        work: true,
         link: "https://tributeequinenutrition.com/",
         featureImage: "tribute/featured.jpg",
         tags: [
@@ -117,7 +147,8 @@ const store = new Vuex.Store({
           'front end',
           'nutrition selector',
           'product locator',
-          'drupal'
+          'drupal',
+          'google maps api'
         ],
         images: [
           'image-home.jpg',
@@ -126,7 +157,23 @@ const store = new Vuex.Store({
       }
     ]
   },
-  getters: {},
+  getters: {
+    lifePosts: state => {
+      return state.projects.filter(project => project.life);
+    },
+    workPosts: state => {
+      return state.projects.filter(project => project.work);
+    },
+    lifePostCount: (state, getters) => {
+      return getters.lifePosts.length;
+    },
+    workPostCount: (state, getters) => {
+      return getters.workPosts.length;
+    },
+    getProjectsById: (state) => (id) => {
+      return state.projects.find(project => project.id === id);
+    }
+  },
   // plugins: [createPersistedState()],
   mutations: {
     updateActiveProject (state, index) {
@@ -150,6 +197,14 @@ const routes = [{
     component: ProjectDetail,
   },
   {
+    path: '/work',
+    component: Work,
+  },
+  {
+    path: '/life',
+    component: Life,
+  },
+  {
     path: '/credits',
     component: Credits,
   }
@@ -166,4 +221,5 @@ new Vue({
   render: h => h(App)
 }).$mount('#app')
 
-console.log('%cThanks for visiting :)', 'color: #fff; background-color: #000; line-height: 1.7; padding: 5px 10px;')
+console.log('%cThanks for visiting :)', 'color: #fff; background-color: #000; line-height: 1.7; padding: 5px 10px;');
+

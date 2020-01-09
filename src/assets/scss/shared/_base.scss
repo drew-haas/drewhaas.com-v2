@@ -67,12 +67,26 @@ a {
   font-family: 'editionregular';
 }
 
-.basic-content-container {
+.basic-page-container {
   margin: 100px auto 200px;
   padding: 0 60px;
   max-width: 1400px;
   width: 100%;
   box-sizing: border-box;
+}
+
+.project-container {
+  width: 100%;
+  height: 100%;
+  padding: 0 5% 100px;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 45% 45%;
+  justify-content: space-between;
+
+  @media screen and (max-width: $bp-m) {
+    display: block;
+  }
 }
 
 .hero-container {

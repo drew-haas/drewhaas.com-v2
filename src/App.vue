@@ -4,19 +4,16 @@
     <div class="main-view-wrapper">
       <router-view></router-view>
     </div>
-    <Footer></Footer>
   </div>
 </template>
 
 <script>
-import Navigation from "./components/Navigation.vue";
-import Footer from "./components/Footer.vue";
+import Navigation from './components/Navigation';
 
 export default {
-  name: "app",
+  name: 'app',
   components: {
-    Navigation,
-    Footer
+    Navigation
   }
 };
 </script>

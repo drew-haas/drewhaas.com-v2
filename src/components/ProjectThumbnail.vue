@@ -28,13 +28,13 @@
 </template>
 
 <script>
-import { TweenMax, Expo, Power1, Elastic, Back } from "gsap";
-import VueRouter from "vue-router";
-import ProjectDetail from "./ProjectDetail.vue";
+import { TweenMax, Expo, Power1, Elastic, Back } from 'gsap';
+import VueRouter from 'vue-router';
+import ProjectDetail from '../pages/ProjectDetail';
 
 export default {
-  name: "Project",
-  props: ["project", "index"],
+  name: 'Project',
+  props: ['project', 'index'],
   created() {
     /*
      * Global Vars and functions for this Component

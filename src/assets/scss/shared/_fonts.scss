@@ -22,9 +22,3 @@ $font_path: '~@/assets/fonts/';
   font-family: 'Graphik-Medium';
   src: url($font_path + 'Graphik-Medium.otf') format('opentype');
 }
-
-/* Font Variables */
-$font-extra-light: 'Graphik-ThinItalic';
-$font-light: 'Graphik-ExtralightItalic';
-$font-book: 'Avenir';
-$font-medium: 'Graphik-Medium';

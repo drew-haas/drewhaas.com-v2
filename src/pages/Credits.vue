@@ -1,5 +1,5 @@
 <template>
-  <div class="credits-container basic-content-container">
+  <div class="credits-container basic-page-container">
     <div class="tech-stack">
       <h1 class="fade-up-item">Tech Stack</h1>
       <p class="paragraph-smaller fade-up-item">Some of the technologies used to create&nbsp;this&nbsp;website.</p>
@@ -47,10 +47,10 @@
 </template>
 
 <script>
-import { TweenMax, Expo } from "gsap";
+import { TweenMax, Expo } from 'gsap';
 
 export default {
-  name: "Credits",
+  name: 'Credits',
   data: function () {
     return {
       techStack: [

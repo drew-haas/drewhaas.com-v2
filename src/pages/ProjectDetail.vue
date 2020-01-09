@@ -47,7 +47,7 @@
 import { TweenMax, TimelineMax, Expo } from 'gsap';
 
 export default {
-  name: "ProjectDetail",
+  name: 'ProjectDetail',
   computed: { // updates data
     project () {
       return this.$store.state.projects[this.$store.state.acitveProject]
@@ -148,7 +148,7 @@ export default {
 
 <style lang="scss" scoped>
 .project-detail-content-container {
-  margin: 100px auto 200px;
+  margin: 100px auto;
   padding: 0 60px;
   max-width: 1400px;
   width: 100%;
