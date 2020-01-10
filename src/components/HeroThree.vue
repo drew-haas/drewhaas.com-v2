@@ -427,5 +427,9 @@ export default {
 .three-container {
   position: fixed;
   opacity: .5;
+
+  @media screen and (max-width: $bp-s) {
+    display: none;
+  }
 }
 </style>

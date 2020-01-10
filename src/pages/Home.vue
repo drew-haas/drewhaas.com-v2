@@ -1,5 +1,8 @@
 <template>
   <div class="home-container">
+
+    <HeroThree></HeroThree>
+
     <div class="hero-container">
       <div class="hero-copy-container">
         <h1 id="hero-title">hello</h1>
@@ -136,8 +139,9 @@ export default {
   }
 
   h1 {
-    background-color: #000;
+    // background-color: $gray-darkest;
     color: #fff;
+    color: $gray-dark;
     display: inline;
     font-size: 100px;
     font-family: $font-extra-light;
