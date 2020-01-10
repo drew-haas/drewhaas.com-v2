@@ -2,7 +2,7 @@
   <div class="credits-container basic-page-container">
     <div class="tech-stack">
       <h1 class="fade-up-item">Tech Stack</h1>
-      <p class="paragraph-smaller fade-up-item">Some of the technologies used to create&nbsp;this&nbsp;website.</p>
+      <p class="paragraph-smaller fade-up-item">The core technologies used to create&nbsp;this&nbsp;website.</p>
       <div class="icons-container">
         <a
         class="icon fade-up-item"

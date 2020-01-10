@@ -24,7 +24,7 @@ const store = new Vuex.Store({
     projects: [
       {
         title: 'Lake Tahoe',
-        description: 'I love me some Tahoe. Hike up the mountains in the summer and ski down them in the winter.',
+        description: 'Hike up the mountains in the summer and ski down them in the winter.',
         id: 'tahoe',
         featureImage: 'tahoe/featured.jpg',
         life: true,
@@ -63,7 +63,7 @@ const store = new Vuex.Store({
       },
       {
         title: "Apple Product Launch 2019",
-        description: "Very fortunate to work on custom animations and layouts for one of the largest websites in the world.",
+        description: "Very fortunate to work on custom animations and layouts for one of the most visited websites in the world.",
         id: "apple-product-2019",
         reachout: true,
         work: true,
