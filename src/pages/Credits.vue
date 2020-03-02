@@ -1,7 +1,9 @@
 <template>
   <div class="credits-container basic-page-container">
     <div class="tech-stack">
-      <h1 class="fade-up-item">Tech Stack</h1>
+      <div class="title">
+        <h1 class="fade-up-item">Tech Stack</h1>
+      </div>
       <p class="paragraph-smaller fade-up-item">The core technologies used to create&nbsp;this&nbsp;website.</p>
       <div class="icons-container">
         <a
@@ -22,7 +24,9 @@
       </div>
     </div>
     <div class="extra-credit-container">
-      <h2 class="fade-up-item">Credits</h2>
+      <div class="title">
+        <h2 class="fade-up-item">Credits</h2>
+      </div>
       <p class="paragraph-smaller fade-up-item">Companies responsible for some of the posts on&nbsp;this&nbsp;website.</p>
       <div class="icons-container">
         <a
@@ -59,7 +63,7 @@ export default {
         {name: 'Sass', class: 'sass', icon: 'sass.svg', url: 'https://sass-lang.com/'},
         {name: 'GSAP', class: 'gsap', icon: 'gsap.svg', url: 'https://greensock.com/gsap/'},
         // {name: 'WebGl', class: 'webgl', icon: 'webgl.svg', url: 'https://greensock.com/gsap/'},
-        // {name: 'THREE', class: 'three', icon: 'three.png', url: 'https://greensock.com/gsap/'},
+        {name: 'THREE', class: 'three', icon: 'three.png', url: 'https://greensock.com/gsap/'},
         {name: 'Node', class: 'node', icon: 'node.svg', url: 'https://nodejs.org/'},
         {name: 'GitHub', class: 'github', icon: 'github.svg', url: 'https://github.com/'},
         {name: 'Zeit', class: 'zeit', icon: 'zeit.svg', url: 'https://zeit.co/'},
@@ -132,6 +136,10 @@ p {
 .icons-container {
   display: flex;
   flex-wrap: wrap;
+
+  @media screen and (max-width: $bp-s) {
+    justify-content: space-evenly;
+  }
 }
 
 .icon {
@@ -147,6 +155,11 @@ p {
   cursor: pointer;
   position: relative;
   overflow: visible;
+
+  @media screen and (max-width: $bp-s) {
+    width: 46%;
+    margin: 0 0 10px;
+  }
 
   &-image {
     width: 100%;

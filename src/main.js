@@ -34,14 +34,32 @@ const store = new Vuex.Store({
           'snow',
           'hike'
         ],
-        images: [
-          'tahoe-paddleboarder.jpg',
-          'idi-2.jpg',
-          'drew-1.jpg',
-          'lake-1.jpg',
-          'idi-1.jpg',
-          'lake-2.jpg',
-          'tahoe-snow-trees.jpg'
+        sections: [
+          {
+            section: 'image',
+            images: [
+              'tahoe-paddleboarder.jpg',
+            ],
+          },
+          {
+            section: 'image',
+            caption: 'Mt. Tallack Hike',
+            images: [
+              'idi-1.jpg',
+            ],
+          },
+          {
+            section: 'image',
+            images: [
+              'tahoe-snow-trees.jpg',
+            ],
+          },
+          {
+            section: 'image',
+            images: [
+              'lake-1.jpg'
+            ],
+          }
         ]
       },
       {
@@ -50,10 +68,25 @@ const store = new Vuex.Store({
         id: "github",
         featureImage: "github/featured.jpg",
         work: true,
-        images: [
-          'github-1.jpg',
-          'github-2.jpg',
-          'github-3.jpg'
+        sections: [
+          {
+            section: 'image',
+            images: [
+              'github-1.jpg',
+            ],
+          },
+          {
+            section: 'image',
+            images: [
+              'github-2.jpg',
+            ],
+          },
+          {
+            section: 'image',
+            images: [
+              'github-3.jpg',
+            ],
+          }
         ],
         tags: [
           'work',
@@ -69,9 +102,21 @@ const store = new Vuex.Store({
         work: true,
         link: "https://apple.com/watch",
         featureImage: "apple-product-2019/featured.png",
-        images: [
-          'apple-1.png',
-          'apple-2.png'
+        sections: [
+          {
+            section: 'image',
+            caption: 'A hero animation for the Apple Watch Edition page had specific requirements about the animation along with how it would behave responsively. To meet the requirements I used a flex display with percentages and multiple height and width media queries. For the animation I created a dynamic fading component in javascript that matched the fading of the watch image, the background, and the logo. This was all tied together so that if the team decided to add or remove a watch or color it would be as simple as copying and pasting one line and the animations would remain in place.',
+            images: [
+              'apple-1.png',
+            ],
+          },
+          {
+            section: 'image',
+            caption: 'This was a parallaxing image where I measured the height of the image using javascript and made sure the image would only parallax the amount needed. This created a performant and stylish animation that met exact needs from the design team.',
+            images: [
+              'apple-2.png',
+            ],
+          },
         ],
         tags: [
           'website',
@@ -91,11 +136,29 @@ const store = new Vuex.Store({
           'life',
           'mountains'
         ],
-        images: [
-          'road-trip-1.jpg',
-          'road-trip-2.jpg',
-          'road-trip-3.jpg'
-        ]
+        sections: [
+          {
+            section: 'image',
+            caption: 'Lower Antelope Canyon. Page, AZ',
+            images: [
+              'road-trip-1.jpg',
+            ],
+          },
+          {
+            section: 'image',
+            caption: 'Zion National Park, UT',
+            images: [
+              'road-trip-2.jpg',
+            ],
+          },
+          {
+            section: 'image',
+            caption: 'Angels Landing - Zion National Park, UT',
+            images: [
+              'road-trip-3.jpg',
+            ],
+          },
+        ],
       },
       {
         title: "The Laughing Cow",
@@ -115,10 +178,20 @@ const store = new Vuex.Store({
           'sprites',
           'javascript animations'
         ],
-        images: [
-          'image-home.jpg',
-          'image-project-detail.jpg'
-        ]
+        sections: [
+          {
+            section: 'image',
+            images: [
+              'image-home.jpg',
+            ],
+          },
+          {
+            section: 'image',
+            images: [
+              'image-project-detail.jpg'
+            ],
+          },
+        ],
       },
       {
         title: "Design Central",
@@ -128,11 +201,6 @@ const store = new Vuex.Store({
         featureImage: "designcentral/featured.jpg",
         work: true,
         reachout: true,
-        images: [
-          'image-home.jpg',
-          'image-2.jpg',
-          'image-capabilities.jpg'
-        ],
         tags: [
           'website',
           'animation',
@@ -140,7 +208,27 @@ const store = new Vuex.Store({
           'drupal',
           'javascript animations',
           'pattern animation'
-        ]
+        ],
+        sections: [
+          {
+            section: 'image',
+            images: [
+              'image-home.jpg',
+            ],
+          },
+          {
+            section: 'image',
+            images: [
+              'image-2.jpg',
+            ],
+          },
+          {
+            section: 'image',
+            images: [
+              'image-capabilities.jpg',
+            ],
+          },
+        ],
       },
       {
         title: 'Yosemite',
@@ -154,14 +242,44 @@ const store = new Vuex.Store({
           'mountains',
           'hikes'
         ],
-        images: [
-          'glacier-point-3.jpg',
-          'tenaya-lake-1.jpg',
-          'glacier-point-2.jpg',
-          'clouds-rest-1.jpg',
-          'tenaya-lake-2.jpg',
-          'clouds-rest-2.jpg'
-        ]
+        sections: [
+          {
+            section: 'image',
+            images: [
+              'glacier-point-3.jpg',
+            ],
+          },
+          {
+            section: 'image',
+            images: [
+              'tenaya-lake-1.jpg',
+            ],
+          },
+          {
+            section: 'image',
+            images: [
+              'glacier-point-2.jpg',
+            ],
+          },
+          {
+            section: 'image',
+            images: [
+              'clouds-rest-1.jpg',
+            ],
+          },
+          {
+            section: 'image',
+            images: [
+              'tenaya-lake-2.jpg',
+            ],
+          },
+          {
+            section: 'image',
+            images: [
+              'clouds-rest-2.jpg'
+            ],
+          },
+        ],
       },
       {
         title: "Tribue Equine Nutrition",
@@ -180,10 +298,20 @@ const store = new Vuex.Store({
           'drupal',
           'google maps api'
         ],
-        images: [
-          'image-home.jpg',
-          'image-nutrition.jpg'
-        ]
+        sections: [
+          {
+            section: 'image',
+            images: [
+              'image-home.jpg'
+            ],
+          },
+          {
+            section: 'image',
+            images: [
+              'image-nutrition.jpg'
+            ],
+          },
+        ],
       }
     ]
   },

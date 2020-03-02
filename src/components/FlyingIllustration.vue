@@ -533,53 +533,50 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 .illustration-container {
-  /* border: 1px solid red; */
+  display: none;
+
+  @media screen and (max-width: $bp-s) {
+    display: block;
+  }
 }
-  .cls-1 {
-    stroke: #fff;
-  }
+.cls-1 {
+  stroke: #fff;
+}
 
-  .cls-1, .cls-6, .cls-8 {
-    stroke-miterlimit: 10;
-  }
+.cls-1, .cls-6, .cls-8 {
+  stroke-miterlimit: 10;
+}
 
-  .cls-2 {
-    fill: #2addae;
-    /* transform: scale(.5);
-    opacity: 0;
-    transform-origin: 224px 338px; */
-  }
+.cls-2 {
+  fill: #2addae;
+}
 
-  .cls-3 {
-    fill: #d1d1d1;
-  }
+.cls-3 {
+  fill: #d1d1d1;
+}
 
-  .cls-4 {
-    fill: #15c2ff;
-  }
+.cls-4 {
+  fill: #15c2ff;
+}
 
-  .cls-5 {
-    fill: #4885ff;
-  }
+.cls-5 {
+  fill: #4885ff;
+}
 
-  .cls-6 {
-    fill: #fff;
-    stroke: #000;
-  }
+.cls-6 {
+  fill: #fff;
+  stroke: #000;
+}
 
-  .cls-7 {
-    fill: #ff5d5d;
-  }
+.cls-7 {
+  fill: #ff5d5d;
+}
 
-  .cls-8 {
-    fill: none;
-    stroke: #ff0;
-    stroke-width: 3px;
-  }
-
-  .plus-icon {
-    /* opacity: 0; */
-  }
+.cls-8 {
+  fill: none;
+  stroke: #ff0;
+  stroke-width: 3px;
+}
 </style>

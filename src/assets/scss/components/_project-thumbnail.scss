@@ -1,0 +1,120 @@
+.project-thumbnail {
+    font-family: $font-book;
+    width: 90%;
+    max-width: 670px;
+    margin: 0 auto 170px;
+    height: 50vh;
+    max-height: 500px;
+    position: relative;
+    text-align: left;
+    cursor: pointer;
+
+    body.opening-project & {
+        pointer-events: none;
+    }
+
+    &.active {
+        .image-wrapper {
+            filter: grayscale(0%);
+        }
+    }
+
+    @media screen and (max-width: $bp-s) {
+        width: 75%;
+        height: 300px;
+        margin-bottom: 100px;
+    }
+
+    &:nth-child(even) {
+        .project-thumbnail_image {
+            transform: rotate(2deg);
+        }
+    }
+
+    &:nth-child(odd) {
+        .project-thumbnail_image {
+            transform: rotate(-2deg);
+        }
+    }
+
+    &:hover {
+        .image-wrapper {
+            filter: grayscale(0%);
+            transition: filter 0.3s;
+        }
+    }
+
+    &_title {
+        position: absolute;
+        top: 0;
+        left: -37px;
+        writing-mode: vertical-rl;
+        transform: rotate(180deg);
+        font-family: $font-light;
+
+        @media screen and (max-width: $bp-s) {
+            left: -34px;
+        }
+
+        h2 {
+            font-size: 20px;
+            margin: 0;
+            color: $gray-dark;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-weight: bold;
+
+            @media screen and (max-width: $bp-s) {
+                font-size: 16px;
+            }
+        }
+    }
+
+    &_description {
+        max-width: 430px;
+    }
+
+    .image-wrapper {
+        width: 85%;
+        height: 80%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        filter: grayscale(100%);
+        transition: filter 0.3s;
+        pointer-events: none;
+
+        .project-thumbnail_image {
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+    }
+
+    &_number {
+        line-height: 1;
+        font-size: 82px;
+        font-family: $font-light;
+        color: $gray-medium;
+        position: absolute;
+        bottom: -40px;
+        right: -40px;
+
+        .number {
+            display: inline-block;
+        }
+    }
+
+    .project-bg {
+        // position: absolute;
+        background-color: #f1f1f1;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+    }
+}

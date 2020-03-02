@@ -131,6 +131,10 @@ export default {
       mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
       mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
 
+      // camera.position.x = camera.position.x + (mouse.x * 5);
+      // camera.position.y = camera.position.y + (mouse.y * 5);
+      // console.log(camera.position.x, camera.position.y);
+
     }
 
     function generateMaterials() {

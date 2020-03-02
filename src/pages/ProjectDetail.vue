@@ -1,46 +1,57 @@
 <template>
-  <div class="project-detail-container" :class="'project-detail-' + project.id">
+    <div class="project-detail-container" :class="'project-detail-' + project.id">
 
-    <div class="featured-image-wrapper" :style="{backgroundImage: 'url(' + require('@/assets/images/projects/' + project.featureImage) + ')'}" ></div>
+        <div class="featured-image-wrapper" :style="{backgroundImage: 'url(' + require('@/assets/images/projects/' + project.featureImage) + ')'}" ></div>
 
-    <div class="project-detail-content-container content-container">
-      <div class="title fade-up-item">
-        <h1>{{project.title}}</h1>
-      </div>
+        <div class="project-detail-content-container content-container">
+            <div class="title fade-up-item">
+                <h1>{{project.title}}</h1>
+            </div>
 
-      <div class="description fade-up-item">
-        <p>{{project.description}}</p>
-        <p v-if="project.reachout === true">Please reach out to learn more about the project and my role.</p>
-      </div>
+            <div class="description fade-up-item">
+                <p>{{project.description}}</p>
+                <p v-if="project.reachout === true">Please reach out to learn more about the project and my role.</p>
+            </div>
 
-      <div v-if="project.link" class="link-container">
-        <a :href="project.link" target="_blank" class="fade-up-item main-link">VIEW THE SITE</a>
-      </div>
+            <div v-if="project.link" class="link-container">
+                <a :href="project.link" target="_blank" class="fade-up-item main-link">VIEW THE SITE</a>
+            </div>
 
-      <div v-if="project.tags" class="tags-container">
-        <div class="tag fade-up-item" v-for="(tag, index) in project.tags" v-bind:key="index">{{tag}}</div>
-      </div>
+            <div v-if="project.tags" class="tags-container">
+                <div class="tag fade-up-item" v-for="(tag, index) in project.tags" v-bind:key="index">{{tag}}</div>
+            </div>
 
-      <div v-if="project.images" class="images-container">
-        <div class="image-wrapper" v-for="(image, index) in project.images" :key="index">
-          <img class="image" :src="require('@/assets/images/projects/' + project.id + '/' + image)">
+            <!-- Loop through Sections -->
+            <div v-if="project.sections" class="sections-container">
+                <div class="section" v-for="(section, index) in project.sections" :key="index" :class="section.section">
+                    <div class="images-container">
+                        <div class="image-wrapper" v-for="(image, index) in section.images" :key="index">
+                        <!-- <div class="image-wrapper" v-for="(image, index) in section.images" :key="index" :style="{backgroundImage: 'url(' + require('@/assets/images/projects/' + project.id + '/' + image) + ')'}"> -->
+                            <img class="image" :src="require('@/assets/images/projects/' + project.id + '/' + image)">
+                        </div>
+                    </div>
+
+                    <div v-if="section.caption" class="caption">
+                        <p>{{section.caption}}</p>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
 
-    <div class="project-detail-navigation">
-      <div class="navigation-item-wrapper previous" v-on:click="openProject('previous', 'clickSound')">
-        <div class="project-detail-background"></div>
-        <div class="navigation-image" :style="{backgroundImage: 'url(' + require('@/assets/images/projects/' + prevProject.featureImage) + ')'}"></div>
-        <h2 class="navigation-title">Previous</h2>
-      </div>
-      <div class="navigation-item-wrapper next" v-on:click="openProject('next', 'clickSound')">
-        <div class="project-detail-background"></div>
-        <div class="navigation-image" :style="{backgroundImage: 'url(' + require('@/assets/images/projects/' + nextProject.featureImage) + ')'}"></div>
-        <h2 class="navigation-title">Next</h2>
-      </div>
+        <div class="project-detail-navigation">
+            <div class="navigation-item-wrapper previous" v-on:click="openProject('previous', 'clickSound')">
+                <div class="project-detail-background"></div>
+                <div class="navigation-image" :style="{backgroundImage: 'url(' + require('@/assets/images/projects/' + prevProject.featureImage) + ')'}"></div>
+                <h2 class="navigation-title">Previous</h2>
+            </div>
+
+            <div class="navigation-item-wrapper next" v-on:click="openProject('next', 'clickSound')">
+                <div class="project-detail-background"></div>
+                <div class="navigation-image" :style="{backgroundImage: 'url(' + require('@/assets/images/projects/' + nextProject.featureImage) + ')'}"></div>
+                <h2 class="navigation-title">Next</h2>
+            </div>
+        </div>
     </div>
-  </div>
 </template>
 
 <script>
@@ -145,234 +156,3 @@ export default {
   }
 };
 </script>
-
-<style lang="scss" scoped>
-.project-detail-content-container {
-  margin: 100px auto;
-  padding: 0 60px;
-  max-width: 1400px;
-  width: 100%;
-  box-sizing: border-box;
-
-  @media screen and (max-width: $bp-s) {
-    margin: 60px auto;
-    padding: 0 20px;
-  }
-
-  .main-link, .tag {
-    color: $gray-dark;
-    font-family: $font-medium;
-    text-transform: uppercase;
-    font-family: $font-medium;
-    letter-spacing: 3.5px;
-    font-size: 11px;
-    display: inline-block;
-
-    @media screen and (max-width: $bp-s) {
-      font-size: 10px;
-    }
-  }
-
-  .main-link {
-    padding: 11px 13px;
-    background-color: #fff;
-    position: relative;
-    transition: .5s color;
-
-    &:before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      transform: scaleX(0);
-      transition: .4s transform cubic-bezier(0.165, 0.84, 0.44, 1);
-      background-color: #000;
-      z-index: -1;
-    }
-
-    &:hover {
-      color: #fff;
-      transition: .5s color;
-
-      &:before {
-        transform: scaleX(1);
-        transition: .4s transform cubic-bezier(0.165, 0.84, 0.44, 1);
-      }
-    }
-  }
-
-  .tags-container {
-    margin-top: 40px;
-  }
-
-  .tag {
-    background: #e0e0e0;
-    border-radius: 20px;
-    padding: 12px 14px 10px 16px;
-    margin: 0 15px 15px 0;
-  }
-}
-
-.featured-image-wrapper {
-  width: 100%;
-  height: $imageH;
-  background-size: cover;
-  background-position: center;
-}
-
-.title {
-  max-width: 80%;
-  font-family: $font-medium;
-  text-transform: uppercase;
-
-  @media screen and (max-width: $bp-s) {
-    max-width: 100%;
-  }
-
-  h1 {
-    font-size: 65px;
-    margin: 0 0 22px;
-    color: $gray-dark;
-    line-height: 1;
-    font-family: $font-light;
-    font-weight: lighter;
-    line-height: 1.2;
-
-    @media screen and (max-width: $bp-s) {
-      font-size: 50px;
-    }
-  }
-}
-
-.description {
-  max-width: 700px;
-  margin-bottom: 60px;
-
-  p {
-    font-size: 18px;
-    line-height: 2;
-
-    @media screen and (max-width: $bp-s) {
-      font-size: 16px;
-    }
-  }
-}
-
-.images-container {
-  margin-top: 160px;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-
-  @media screen and (max-width: $bp-s) {
-    margin-top: 80px;
-  }
-}
-
-.image-wrapper {
-  width: 100%;
-  margin: 0 auto;
-  margin: 0 0 120px;
-
-  @media screen and (max-width: $bp-s) {
-    margin-bottom: 30px;
-  }
-
-  .image {
-    display: block;
-    width: 100%;
-  }
-}
-
-.fade-up-item, .image-wrapper {
-  opacity: 0;
-  transform: translateY(20px);
-}
-
-.project-detail-navigation {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 60px;
-  color: $gray-medium;
-  margin: 0 auto 60px;
-  width: calc(100% - 120px);
-  max-width: 1400px;
-
-  @media screen and (max-width: $bp-s) {
-    margin-bottom: 30px;
-    width: 100%;
-    padding: 0 20px;
-    box-sizing: border-box;
-    display: block;
-  }
-
-  .navigation-item-wrapper {
-    cursor: pointer;
-    position: relative;
-    box-sizing: border-box;
-    height: 230px;
-
-    @media screen and (max-width: $bp-s) {
-      padding: 0;
-      height: 120px;
-      margin-bottom: 20px;
-    }
-
-    &:hover {
-      .navigation-image {
-        &:not(.active) {
-          opacity: 1;
-          transition: opacity .3s;
-        }
-      }
-    }
-
-    .project-detail-background {
-      background-color: $gray-medium;
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      top: 0;
-      left: 0;
-    }
-  }
-
-  .navigation-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-    filter: grayscale(100%);
-    opacity: 0;
-
-    &.active {
-      filter: grayscale(0%);
-      opacity: 1;
-    }
-  }
-
-  .navigation-title {
-    font-family: $font-light;
-    font-weight: lighter;
-    font-size: 60px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    margin: 0;
-    position: relative;
-    font-style: italic;
-    transition: transform .3s;
-    display: inline-block;
-    color: #fff;
-
-    @media screen and (max-width: $bp-s) {
-      font-size: 40px;
-    }
-  }
-}
-</style>
