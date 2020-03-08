@@ -4,12 +4,12 @@
 
 <script>
 // import all THREE dependencies
-import * as THREE from '../assets/scripts/three/three.module.js';
-import { GUI } from '../assets/scripts/three/dat.gui.module.js';
-import { OrbitControls } from '../assets/scripts/three/OrbitControls.js';
-import { MarchingCubes } from '../assets/scripts/three/MarchingCubes.js';
-import { ToonShaderDotted } from '../assets/scripts/three/ToonShader.js';
-// import { ToonShader1, ToonShader2, ToonShaderHatching, ToonShaderDotted } from '../assets/scripts/three/ToonShader.js';
+import * as THREE from '../../js/three/three.module';
+import { GUI } from '../../js/three/dat.gui.module.js';
+import { OrbitControls } from '../../js/three/OrbitControls.js';
+import { MarchingCubes } from '../../js/three/MarchingCubes.js';
+import { ToonShaderDotted } from '../../js/three/ToonShader.js';
+// import { ToonShader1, ToonShader2, ToonShaderHatching, ToonShaderDotted } from '../../js/three/ToonShader.js';
 
 export default {
   name: "HomeThree",

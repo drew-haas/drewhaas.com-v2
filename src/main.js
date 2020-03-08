@@ -2,13 +2,10 @@ import Vue from 'vue'
 import App from './App.vue'
 import VueRouter from 'vue-router'
 import Vuex from 'vuex'
-import Home from './pages/Home.vue'
-import Projects from './components/Projects.vue'
-import ProjectDetail from './pages/ProjectDetail.vue'
-import Credits from './pages/Credits.vue'
-import Work from './pages/Work.vue'
-import Life from './pages/Life.vue'
-import 'es6-promise/auto'
+import Home from './vue/pages/Home.vue'
+import Projects from './vue/components/Projects.vue'
+import ProjectDetail from './vue/pages/ProjectDetail.vue'
+import Credits from './vue/pages/Credits.vue'
 // import createPersistedState from 'vuex-persistedstate'
 
 Vue.config.productionTip = false;
@@ -353,14 +350,6 @@ const routes = [{
   {
     path: '/projects/:projectId',
     component: ProjectDetail,
-  },
-  {
-    path: '/work',
-    component: Work,
-  },
-  {
-    path: '/life',
-    component: Life,
   },
   {
     path: '/credits',

@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import Navigation from './components/Navigation';
+import Navigation from './vue/components/Navigation';
 
 export default {
     name: 'app',
