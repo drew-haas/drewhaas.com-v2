@@ -39,13 +39,13 @@
         </div>
 
         <div class="project-detail-navigation">
-            <div class="navigation-item-wrapper previous" v-on:click="openProject('previous', 'clickSound')">
+            <div class="navigation-item-wrapper previous" v-on:click="openProject('previous')">
                 <div class="project-detail-background"></div>
                 <div class="navigation-image" :style="{backgroundImage: 'url(' + require('@/assets/images/projects/' + prevProject.featureImage) + ')'}"></div>
                 <h2 class="navigation-title">Previous</h2>
             </div>
 
-            <div class="navigation-item-wrapper next" v-on:click="openProject('next', 'clickSound')">
+            <div class="navigation-item-wrapper next" v-on:click="openProject('next')">
                 <div class="project-detail-background"></div>
                 <div class="navigation-image" :style="{backgroundImage: 'url(' + require('@/assets/images/projects/' + nextProject.featureImage) + ')'}"></div>
                 <h2 class="navigation-title">Next</h2>
@@ -61,13 +61,13 @@ export default {
   name: 'ProjectDetail',
   computed: { // updates data
     project () {
-      return this.$store.state.projects[this.$store.state.acitveProject]
+      return this.$store.state.posts.allPosts[this.$store.state.posts.acitveProject]
     },
     prevProject () {
-      return this.$store.state.projects[this.$store.state.prevProject]
+      return this.$store.state.posts.allPosts[this.$store.state.posts.prevProject]
     },
     nextProject () {
-      return this.$store.state.projects[this.$store.state.nextProject]
+      return this.$store.state.posts.allPosts[this.$store.state.posts.nextProject]
     }
   },
   beforeCreate() {
@@ -76,9 +76,9 @@ export default {
 
     // check if url matches active project
     // if no match then update active project index
-    // TOOD: this needs to be redirect to 404 if it doesn't match any project
-    if (this.$store.state.projects[this.$store.state.acitveProject].id !== this.$route.params.projectId) {
-      this.$store.state.projects.forEach((el, i) => {
+    // TODO: this needs to be redirect to 404 if it doesn't match any project
+    if (this.$store.state.posts.allPosts[this.$store.state.posts.acitveProject].id !== this.$route.params.projectId) {
+      this.$store.state.posts.allPosts.forEach((el, i) => {
         if (el.id === this.$route.params.projectId) {
           this.$store.commit('updateActiveProject', i); // use mutation to update state
         }
@@ -113,11 +113,11 @@ export default {
     TweenMax.staggerTo('.image-wrapper', 1, {delay: .1, opacity: 1, y: 0, ease: Expo.easeOut}, .2);
   },
   methods: {
-    openProject(direction, soundId) {
+    openProject(direction) {
       // TODO: use index as function argument instead of direction
       // grab all animating objects
       const backgrounds = document.querySelectorAll('.project-detail-background');
-      let index = direction === 'previous' ? this.$store.state.prevProject : this.$store.state.nextProject; // update new active index
+      let index = direction === 'previous' ? this.$store.state.posts.prevProject : this.$store.state.posts.nextProject; // update new active index
       let image = document.querySelector('.' + direction + ' .navigation-image');
       let title = document.querySelector('.' + direction + ' .navigation-title');
       let rect = image.getBoundingClientRect();
@@ -132,7 +132,7 @@ export default {
       this.tl = new TimelineMax({onComplete:() => {
         this.$store.commit('updateActiveProject', index); // update the state - active project
         window.scrollTo(0, 0); // making sure we go to top of document
-        this.$router.push('/projects/' + this.$store.state.projects[index].id).catch(err => {}); // changes the url
+        this.$router.push('/projects/' + this.$store.state.posts.allPosts[index].id).catch(err => {}); // changes the url
         TweenMax.set(resetItems, {clearProps:"all"}); // resets all item styles
         document.querySelector('body').classList.remove('disable-scrolling', 'opening-project'); // enables scrolling
       }});

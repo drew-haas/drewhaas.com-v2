@@ -15,7 +15,7 @@ export default {
     computed: {
         // TODO: add functionality to grab TYPES of projects
         projects () {
-            return this.$store.state.projects
+            return this.$store.state.posts.allPosts
         }
     }
 }

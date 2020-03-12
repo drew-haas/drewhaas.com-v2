@@ -240,8 +240,8 @@ export default {
                 * Route to clicked Project Item!
                 */
                 document.querySelector('body').classList.remove('disable-scrolling', 'opening-project');
-                this.$store.commit('updateActiveProject', index); // use mutation to track state
-                this.$router.push({ path: '/projects/' + projectId});
+                this.$store.commit('updateActiveProject', index); // use mutation to update state
+                this.$router.push({ path: '/projects/' + projectId}); // route
             }
             });
         },
