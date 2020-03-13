@@ -429,11 +429,15 @@ export default {
 
 <style lang="scss" scoped>
 .three-container {
-  position: fixed;
-  opacity: .5;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    opacity: .5;
+    left: 0;
+    top: 0;
 
-  @media screen and (max-width: $bp-s) {
-    display: none;
-  }
+    @media screen and (max-width: $bp-s) {
+        display: none;
+    }
 }
 </style>

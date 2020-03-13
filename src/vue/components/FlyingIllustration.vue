@@ -534,13 +534,13 @@ export default {
 </script>
 
 <style lang="scss">
-.illustration-container {
-  display: none;
+// .illustration-container {
+//   display: none;
 
-  @media screen and (max-width: $bp-s) {
-    display: block;
-  }
-}
+//   @media screen and (max-width: $bp-s) {
+//     display: block;
+//   }
+// }
 .cls-1 {
   stroke: #fff;
 }

@@ -1,8 +1,5 @@
 <template>
     <div class="home-container">
-        <!-- Include Meta Balls THREE.js -->
-        <!-- <HeroThree></HeroThree> -->
-
         <div class="hero-container">
             <div class="hero-copy-container">
                 <h1 id="hero-title">Hello</h1>
