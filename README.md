@@ -1,4 +1,6 @@
-# drewhaas.com
+# [drewhaas.com](https://drewhaas.com/)
+
+## [Currently Hosted Here](https://drewhaascom-v2.drewhaas.now.sh)
 
 ## Project setup
 ```

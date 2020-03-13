@@ -1,0 +1,35 @@
+/* Color Scheme */
+// TODO: standardize these colors
+$red: rgb(255, 98, 98);
+$green: rgb(37, 175, 141);
+$blue: dodgerblue;
+$pink: #F19D94;
+
+/* Gray Color Scheme */
+$gray-lighter: #f6f6f6;
+$gray-light: #e7e7e7;
+$gray-medium: #ccc;
+$gray-dark: #888;
+$gray-darkest: #222;
+
+/* Breakpoints */
+// breakpoints should be used with max-width's (non-mobile first)
+$bp-xs: 480px;
+$bp-s: 767px;
+$bp-m: 1024px;
+$bp-l: 1200px;
+$bp-xl: 1400px;
+
+/* Sizing */
+$navbar-height: 60px;
+$imageW: 960px;
+$imageH: 400px;
+
+/* Animations */
+$easeOut: cubic-bezier(0.165, 0.84, 0.44, 1);
+
+/* Font Variables */
+$font-extra-light: 'Graphik-ThinItalic';
+$font-light: 'Graphik-ExtralightItalic';
+$font-book: 'Avenir';
+$font-medium: 'Graphik-Medium';
