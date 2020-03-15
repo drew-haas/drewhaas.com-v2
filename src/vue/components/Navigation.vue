@@ -56,12 +56,13 @@ export default {
 			navigationOpen: false,
 			filteredBy: 'all'
         };
+
         this.navBg = this.$el.querySelector('.menu-bg');
         this.navigation = document.querySelector('.navigation');
         this.menuIcon = document.querySelector('.menu-icon');
         this.body = document.querySelector('body');
-        this.menuTl = new TimelineMax({ paused: true });
         this.tl = new TimelineMax({ paused: true });
+        this.menuTl;
 
         // call Init Function
         this._initNavigation();
@@ -72,7 +73,7 @@ export default {
 		*/
 		_initNavigation() {
 			// Add Event Listeners Here
-			// window.addEventListener('resize', this._resizeHandler); TODO: make sure the nav animation resets on window resize
+			window.addEventListener('resize', this._resizeHandler); // TODO: make sure the nav animation resets on window resize
 
 			// Call Initial Functions Here
 			this._createTimelines();
@@ -82,17 +83,19 @@ export default {
 		* Create Animation Timelines to be played later
 		*/
 		_createTimelines() {
-			this.menuTl
-			.to(this.navBg, 0.5, { width: '100vw', ease: Expo.easeInOut })
-			.to(this.navBg, 0.5, { height: '100vh', ease: Expo.easeInOut }, '-=0.15')
-			.staggerTo(document.querySelectorAll('.nav-item-wrapper'), 0.5, { y: 0, opacity: 1, ease: Expo.easeOut }, .1, '-=.3')
-			.staggerTo(document.querySelectorAll('.social-list .icon'), .5, {y: 0, opacity: 1, ease: Expo.easeOut }, .1, '-=.5');
+            this.menuTl = new TimelineMax({ paused: true });
+
+            this.menuTl
+            .to(this.navBg, .5, { width: '100vw', ease: Expo.easeInOut })
+            .to(this.navBg, .5, { height: '100vh', ease: Expo.easeInOut }, '-=0.15')
+            .staggerTo(document.querySelectorAll('.nav-item-wrapper'), 0.5, { y: 0, opacity: 1, ease: Expo.easeOut }, .1, '-=.3')
+            .staggerTo(document.querySelectorAll('.social-list .icon'), .5, {y: 0, opacity: 1, ease: Expo.easeOut }, .1, '-=.5');
 		},
 
 		/*
 		* Route to $path Given after animation has run
 		*/
-		_routeTo(path, soundId) {
+		_routeTo(path) {
 			// Navigation is Open
 			if (this.state.navigationOpen) {
 				// Close Nav then route
@@ -105,25 +108,39 @@ export default {
 		},
 
 		/*
-		* Open Navigation
+        * Open Navigation
+        * optional animation attribute | true | false
 		*/
-		_openNav() {
+		_openNav(animation = true) {
+            console.log('opened');
 			this.navigation.classList.add('open');
 			this.menuIcon.classList.add('open');
 			this.body.classList.add('disable-scrolling');
-			this.state.navigationOpen = true;
-			this.menuTl.play();
+            this.state.navigationOpen = true;
+
+            if (animation) {
+                this.menuTl.play();
+            } else {
+                this.menuTl.progress(1);
+            }
 		},
 
 		/*
-		* Close Navigation
+        * Close Navigation
+        * optional animation attribute | true | false
 		*/
-		_closeNav() {
+		_closeNav(animation = true) {
+            console.log('closed');
 			this.navigation.classList.remove('open');
 			this.menuIcon.classList.remove('open');
 			this.body.classList.remove('disable-scrolling');
-			this.state.navigationOpen = false;
-			this.menuTl.reverse();
+            this.state.navigationOpen = false;
+
+            if (animation) {
+                this.menuTl.reverse();
+            } else {
+                this.menuTl.pause(0);
+            }
 		},
 
 		/*
@@ -137,7 +154,13 @@ export default {
 		* Resize Event
 		*/
 		_resizeHandler() {
-			// console.log('resize up');
+            if (!this.state.navigationOpen) {
+                this._createTimelines();
+            } else {
+                // TODO: Find a way to keep the nav open while closing the screen without the animation breaking
+                this._closeNav(false);
+                this._createTimelines();
+            }
 		}
 	}
 };

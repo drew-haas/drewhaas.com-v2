@@ -205,6 +205,10 @@
     display: flex;
     justify-content: center;
 
+    @media screen and (max-width: $bp-s) {
+        bottom: 60px;
+    }
+
     .icon {
         opacity: 0;
         transform: translateY(20px);
