@@ -24,8 +24,7 @@
     .hero-container {
         min-height: 100vh;
         width: 100vw;
-        max-width: 1400px;
-        margin: 0 auto;
+        margin: 0 auto 80px;
         position: relative;
         display: flex;
         align-items: center;
@@ -34,7 +33,6 @@
             flex-direction: column-reverse;
             height: auto;
             min-height: 0;
-            margin-bottom: 80px;
         }
 
         .hero-copy-container {
@@ -62,7 +60,6 @@
     }
 
     .scroll-image {
-        z-index: 1;
         opacity: 1;
         transform: matrix(1, 0, 0, 1, 0, 0);
 
@@ -73,9 +70,14 @@
 }
 
 .flying-drew-container {
-    width: 50vw;
-    position: relative;
-    left: 30px;
+    width: 100%;
+    max-width: 700px;
+    position: absolute;
+    height: auto;
+    pointer-events: none;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 
     @media screen and (max-width: $bp-s) {
         width: 80%;

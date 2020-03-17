@@ -1,14 +1,16 @@
 <template>
     <div class="home-container">
         <div class="hero-container">
-            <div class="hero-copy-container">
+
+            <SlidingText></SlidingText>
+
+            <!-- <div class="hero-copy-container">
                 <h1 id="hero-title">Hello</h1>
                 <p class="hero-subtitle">My name's Drew and I'm a Web Developer with a focus on design and animation. Feel free to reach out and talk shop or shoot the shit. Currently Employed by <a href="https://www.criticalmass.com/" target="_blank">Critical Mass</a> in Sunnyvale, California.</p>
-            </div>
+            </div> -->
 
             <div class="flying-drew-container">
-                <!-- Include SVG -->
-                <FlyingIllustration></FlyingIllustration>
+                <!-- <FlyingIllustration></FlyingIllustration> -->
 
                 <div class="scroll-image">
                     <img :src="require('@/assets/images/home/img-drew-flying.png')" alt="Drew flying through the website"/>
@@ -16,15 +18,15 @@
             </div>
         </div>
 
-        <!-- Include Projects -->
         <Projects></Projects>
 
     </div>
 </template>
 
 <script>
-import HeroThree from "../components/HeroThree.vue";
+// import HeroThree from "../components/HeroThree.vue";
 import Projects from "../components/Projects.vue";
+import SlidingText from "../components/SlidingText.vue";
 import FlyingIllustration from '../components/FlyingIllustration.vue';
 import { TweenMax, TimelineMax, Expo } from "gsap";
 
@@ -32,7 +34,8 @@ export default {
     name: "Home",
     components: {
         Projects,
-        HeroThree,
+        // HeroThree,
+        SlidingText,
         FlyingIllustration
     },
 
