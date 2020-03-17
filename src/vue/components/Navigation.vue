@@ -112,7 +112,6 @@ export default {
         * optional animation attribute | true | false
 		*/
 		_openNav(animation = true) {
-            console.log('opened');
 			this.navigation.classList.add('open');
 			this.menuIcon.classList.add('open');
 			this.body.classList.add('disable-scrolling');
@@ -130,7 +129,6 @@ export default {
         * optional animation attribute | true | false
 		*/
 		_closeNav(animation = true) {
-            console.log('closed');
 			this.navigation.classList.remove('open');
 			this.menuIcon.classList.remove('open');
 			this.body.classList.remove('disable-scrolling');
