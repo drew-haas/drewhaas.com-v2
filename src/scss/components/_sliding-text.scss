@@ -29,7 +29,7 @@
         }
 
 
-        &:nth-child(5), &:nth-child(6), &:nth-last-of-type(2) {
+        &:nth-last-of-type(2), &:nth-last-of-type(3) {
             span {
                 background: $gray-darkest;
                 -webkit-background-clip: unset;

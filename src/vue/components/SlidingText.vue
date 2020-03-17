@@ -35,14 +35,14 @@ export default  {
                 "Gosto muito de te ver leãozinho Caminhando sob o sol Gosto muito de você leãozinho ",
                 "O we dont give a damn for the whole state of Michigan The whole state of Michigan the whole state of Michigan We dont give a damn for the whole state of Michigan were from Ohio ",
                 "The mind tricks the body tricks The mind tricks the body tricks The mind tricks the body tricks The body tricks the mind ",
-                "Welcome to my website Welcome to my website Welcome to my website Welcome to my website Welcome to my website Welcome to my website Welcome to my website Welcome to my website Welcome to my website ",
-                "Web Developer in San Francisco California Web Developer in San Francisco California Web Developer in San Francisco California Web Developer in San Francisco California ",
                 "I wish that I knew what i know now when i was younger I wish that I knew what i know now when i was younger ",
+                "Welcome to my playground. I'm a web developer with a focus on design and animation. Welcome to my playground. I'm a web developer with a focus on design and animation. ",
                 "Gosto muito de te ver leãozinho Caminhando sob o sol Gosto muito de você leãozinho ",
+                "I wish that I knew what i know now when i was younger I wish that I knew what i know now when i was younger ",
                 "O we dont give a damn for the whole state of Michigan The whole state of Michigan the whole state of Michigan We dont give a damn for the whole state of Michigan were from Ohio ",
                 "The mind tricks the body tricks The mind tricks the body tricks The mind tricks the body tricks The body tricks the mind ",
-                "Welcome to my playground. I'm a web developer with a focus on design and animation. ",
-                "Posts from my work and life below Posts from my work and life below Posts from my work and life below Posts from my work and life below Posts from my work and life below",
+                "Web Developer in San Francisco Web Developer in San Francisco Web Developer in San Francisco Web Developer in San Francisco Web Developer in San Francisco ",
+                "Blog Posts Below Blog Posts Below Blog Posts Below Blog Posts Below Blog Posts Below Blog Posts Below Blog Posts Below ",
             ]
         }
     },
