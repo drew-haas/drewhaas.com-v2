@@ -1,7 +1,5 @@
 .sliding-text-container {
     width: 100%;
-    // left: 50%;
-    // transform: translateX(-50%);
     height: 100vh;
     position: relative;
     display: flex;
@@ -12,31 +10,32 @@
     box-sizing: border-box;
 
     .text-wrapper {
-        // font-family: Helvetica, sans-serif;
         font-family: $font-medium;
         font-weight: 900;
         color: #fff;
         text-transform: uppercase;
         letter-spacing: 11px;
         font-size: 21px;
-        // font-size: 65px;
         white-space: nowrap;
 
-        > span {
+        @media screen and (max-width: $bp-s) {
+            font-size: 18px;
+        }
+
+        span {
             background: -webkit-linear-gradient(left, #ff4545 0%,#2989d8 28%,#2addae 50%,#2addae 52%,#2989d8 72%,#ff4545 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            // color: $gray-dark;
-            // background-color: $gray-darkest;
         }
 
-        // &:nth-of-type(odd) {
-        //     transform: translateX(-20%);
-        // }
 
-        // &:nth-of-type(even) {
-        //     transform: translateX(20%);
-        // }
+        &:nth-child(5), &:nth-child(6), &:nth-last-of-type(2) {
+            span {
+                background: $gray-darkest;
+                -webkit-background-clip: unset;
+                -webkit-text-fill-color: unset;
+            }
+        }
     }
 
     .hover-bg {
