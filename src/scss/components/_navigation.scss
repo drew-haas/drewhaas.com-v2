@@ -124,6 +124,10 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+
+        @media screen and (max-width: $bp-s) {
+            padding-bottom: 100px;
+        }
     }
 
   .nav-item {
@@ -206,7 +210,7 @@
     justify-content: center;
 
     @media screen and (max-width: $bp-s) {
-        bottom: 60px;
+        bottom: 100px;
     }
 
     .icon {
