@@ -39,7 +39,7 @@
             height: 100%;
             transform: scaleX(0);
             transition: .4s transform cubic-bezier(0.165, 0.84, 0.44, 1);
-            background-color: #000;
+            background: linear-gradient(to right, #14c2ff  0%, #2addae 50%, #ff4545 100%);;
             z-index: -1;
         }
 
