@@ -8,9 +8,10 @@
         width: auto;
         white-space: nowrap;
         transform: translateX(-580px);
-        opacity: .5;
         pointer-events: none;
         font-size: 270px;
+        font-family: 'editionregular';
+        color: #fff;
 
         @media screen and (max-width: $bp-s) {
             opacity: 1;
@@ -19,9 +20,12 @@
             font-size: 130px;
         }
 
-        > span {
-            font-family: 'editionregular';
-            color: #fff;
+        span {
+            opacity: .5;
+
+            &.main {
+                opacity: 1;
+            }
         }
     }
 
@@ -42,7 +46,7 @@
     }
 
     .hero-copy-container {
-        margin: 50px 0 30vh;
+        margin: 20px 0 30vh;
         opacity: 1;
         transform: translate3d(0,0,0);
 
@@ -64,6 +68,10 @@
             padding: 0 0 12px;
             color: $gray-darkest;
         }
+    }
+
+    .btn-indicator {
+        margin-top: 10px;
     }
 
     .logo-abstract {

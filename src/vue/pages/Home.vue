@@ -4,7 +4,7 @@
             <HeroThree></HeroThree>
 
             <div class="sliding-text" aria-hidden="true">
-                <span>DrewHaas DrewHaas DrewHaas DrewHaas DrewHaas DrewHaas</span>
+                <span>DrewHaas <span class="main">DrewHaas</span> DrewHaas DrewHaas DrewHaas DrewHaas</span>
             </div>
 
             <div class="hero-copy-container">
@@ -12,6 +12,7 @@
                 <p class="hero-text">Front End Developer</p>
                 <p class="hero-text">Columbus, OH - San Francisco, CA</p>
                 <p class="hero-text">1992 - Present</p>
+                <div class="btn-box btn-indicator">More to come soon</div>
             </div>
 
             <div class="logo-abstract">
