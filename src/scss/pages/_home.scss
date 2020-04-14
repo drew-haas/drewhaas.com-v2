@@ -7,7 +7,8 @@
         left: 0;
         width: auto;
         white-space: nowrap;
-        transform: translateX(-580px);
+        // transform: translateX(-580px);
+        left: -580px;
         pointer-events: none;
         font-size: 270px;
         font-family: 'editionregular';
