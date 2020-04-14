@@ -1,8 +1,6 @@
 <template>
     <div class="home-container">
         <div class="hero-container">
-            <HeroThree></HeroThree>
-
             <div class="sliding-text" aria-hidden="true">
                 <span>DrewHaas <span class="main">DrewHaas</span> DrewHaas DrewHaas DrewHaas DrewHaas</span>
             </div>
@@ -33,14 +31,12 @@
 </template>
 
 <script>
-import HeroThree from '../components/HeroThree';
 import Projects from '../components/Projects.vue';
 import { TweenMax, TimelineMax, Expo } from 'gsap';
 
 export default {
     name: 'Home',
     components: {
-        HeroThree,
         Projects,
     },
 
