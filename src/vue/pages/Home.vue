@@ -87,7 +87,7 @@ export default {
                 });
 
                 TweenMax.to(this.slidingText, 2, {
-                    x: -scrollTop ,
+                    x: -scrollTop,
                     opacity: opacity,
                     ease: Expo.easeOut
                 })
@@ -104,12 +104,3 @@ export default {
     }
 };
 </script>
-
-<style lang="scss">
-.scroll-image {
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 50%;
-}
-</style>

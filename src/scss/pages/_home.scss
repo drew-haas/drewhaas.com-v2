@@ -111,4 +111,11 @@
             width: calc(100% + 60px);
         }
     }
+
+    .scroll-image {
+        position: absolute;
+        right: 0;
+        top: 100px;
+        width: 50%;
+    }
 }
