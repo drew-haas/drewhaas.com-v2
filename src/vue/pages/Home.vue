@@ -1,6 +1,7 @@
 <template>
     <div class="home-container">
         <div class="hero-container">
+            <HeroThree/>
             <div class="sliding-text" aria-hidden="true">
                 <span>DrewHaas <span class="main">DrewHaas</span> DrewHaas DrewHaas DrewHaas DrewHaas</span>
             </div>
@@ -36,11 +37,13 @@
 <script>
 import Projects from '../components/Projects.vue';
 import { TweenMax, TimelineMax, Expo } from 'gsap';
+import HeroThree from '../components/HeroThree';
 
 export default {
     name: 'Home',
     components: {
         Projects,
+        HeroThree
     },
 
     beforeCreate() {
@@ -87,7 +90,7 @@ export default {
                 });
 
                 TweenMax.to(this.slidingText, 2, {
-                    x: -scrollTop,
+                    x: -itemRotation,
                     opacity: opacity,
                     ease: Expo.easeOut
                 })
