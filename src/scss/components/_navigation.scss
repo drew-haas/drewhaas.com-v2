@@ -39,6 +39,10 @@
         .logo {
             width: 80px;
             padding-left: 17px;
+
+            @media screen and (max-width: $bp-s) {
+                padding-left: 19px;
+            }
         }
     }
 
@@ -138,7 +142,6 @@
     &-large {
         font-size: 90px;
         text-transform: uppercase;
-        font-family: $font-extra-light;
 
         @media screen and (max-width: $bp-s) {
             font-size: 50px;

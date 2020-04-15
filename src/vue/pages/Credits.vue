@@ -150,7 +150,9 @@ p {
   flex-wrap: wrap;
 
   @media screen and (max-width: $bp-s) {
-    justify-content: space-evenly;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 12px;
   }
 }
 
@@ -169,8 +171,8 @@ p {
   overflow: visible;
 
   @media screen and (max-width: $bp-s) {
-    width: 46%;
-    margin: 0 0 10px;
+      width: auto;
+    margin: 0;
   }
 
   &-image {
@@ -184,6 +186,12 @@ p {
     height: 100%;
     padding: 20px;
     box-sizing: border-box;
+
+    @media screen and (max-width: $bp-s) {
+        margin: 0 auto;
+        width: auto;
+        max-width: 84%;
+    }
   }
 
   &.skycatchfire {

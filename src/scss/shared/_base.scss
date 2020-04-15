@@ -86,10 +86,6 @@ a {
     color: $gray-dark;
 }
 
-.edition {
-    font-family: 'editionregular';
-}
-
 .basic-page-container {
     margin: 100px auto 200px;
     padding: 0 60px;
@@ -116,14 +112,6 @@ a {
     }
 }
 
-.hero-container {
-    h1 .letter {
-        display: inline-block;
-        transform: translateY(100%);
-        opacity: 0;
-    }
-}
-
 .title {
     max-width: 80%;
     font-family: $font-medium;
@@ -146,6 +134,73 @@ a {
             font-size: 50px;
         }
     }
+}
+
+.visually-hidden {
+    display: none;
+}
+
+.btn-box {
+    padding: 11px 13px;
+    color: $gray-dark;
+    font-family: $font-medium;
+    text-transform: uppercase;
+    font-family: $font-medium;
+    letter-spacing: 3.5px;
+    font-size: 11px;
+    display: inline-block;
+
+    @media screen and (max-width: $bp-s) {
+        font-size: 10px;
+    }
+
+    &.btn-indicator {
+        border: 1px solid #fff;
+        color: #fff;
+    }
+
+    &.btn-link {
+        background-color: #fff;
+        position: relative;
+        transition: .5s color;
+
+        &:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transform: scaleX(0);
+            transition: .4s transform cubic-bezier(0.165, 0.84, 0.44, 1);
+            background: $gradient;
+            z-index: -1;
+        }
+
+        &:hover {
+            color: #fff;
+            transition: .5s color;
+
+            &:before {
+                transform: scaleX(1);
+                transition: .4s transform cubic-bezier(0.165, 0.84, 0.44, 1);
+            }
+        }
+    }
+}
+
+.btn-round {
+    color: $gray-dark;
+    font-family: $font-medium;
+    text-transform: uppercase;
+    font-family: $font-medium;
+    letter-spacing: 3.5px;
+    font-size: 11px;
+    display: inline-block;
+    background: $btn-round-gray;
+    border-radius: 20px;
+    padding: 12px 14px 10px 16px;
+    margin: 0 15px 15px 0;
 }
 
 // dat gui

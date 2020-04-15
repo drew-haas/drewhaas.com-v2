@@ -1,18 +1,30 @@
 <template>
     <div class="home-container">
         <div class="hero-container">
-            <div class="hero-copy-container">
-                <h1 id="hero-title">Hello</h1>
-                <p class="hero-subtitle">My name's Drew and I'm a Web Developer with a focus on design and animation. Feel free to reach out and talk shop or shoot the shit. Currently Employed by <a href="https://www.criticalmass.com/" target="_blank">Critical Mass</a> in Sunnyvale, California.</p>
+            <HeroThree/>
+            <div class="sliding-text" aria-hidden="true">
+                <span>DrewHaas <span class="main">DrewHaas</span> DrewHaas DrewHaas DrewHaas DrewHaas</span>
             </div>
 
-            <div class="flying-drew-container">
-                <!-- Include SVG -->
-                <FlyingIllustration></FlyingIllustration>
+            <div class="hero-copy-container">
+                <h1 class="hero-text visually-hidden">Drew Haas</h1>
+                <p class="hero-text">Front End Developer</p>
+                <p class="hero-text">Columbus, OH - San Francisco, CA</p>
+                <p class="hero-text">1992 - Present</p>
+            </div>
 
-                <div class="scroll-image">
-                    <img :src="require('@/assets/images/home/img-drew-flying.png')" alt="Drew flying through the website"/>
-                </div>
+            <div class="logo-abstract">
+                <img :src="require('@/assets/images/logo-abstract.svg')" alt="Abstract Logo Shapes">
+            </div>
+
+            <div class="posts-text">
+                <p>Posts Below</p>
+            </div>
+
+            <div class="g-line"></div>
+
+            <div class="scroll-image">
+                <img  :src="require('@/assets/images/home/img-drew-flying.png')" alt="Drew flying through the website">
             </div>
         </div>
 
@@ -23,17 +35,15 @@
 </template>
 
 <script>
-import HeroThree from "../components/HeroThree.vue";
-import Projects from "../components/Projects.vue";
-import FlyingIllustration from '../components/FlyingIllustration.vue';
-import { TweenMax, TimelineMax, Expo } from "gsap";
+import Projects from '../components/Projects.vue';
+import { TweenMax, TimelineMax, Expo } from 'gsap';
+import HeroThree from '../components/HeroThree';
 
 export default {
-    name: "Home",
+    name: 'Home',
     components: {
         Projects,
-        HeroThree,
-        FlyingIllustration
+        HeroThree
     },
 
     beforeCreate() {
@@ -42,63 +52,57 @@ export default {
     },
 
     mounted() {
-        // Add Event Listeners
-        window.addEventListener("scroll", this._handleScroll);
-
-        // Global Page Variables
+        // Define dom elements
         this.rotationEl = document.querySelector('.scroll-image');
-        this.illustrationTl = new TimelineMax();
+        this.dividerLine = document.querySelector('.g-line');
+        this.slidingText = document.querySelector('.sliding-text');
+
+        let r = this.dividerLine.getBoundingClientRect();
+        this.scrollCatch = r.top;
+
+        // Add Event Listeners
+        window.addEventListener('scroll', this._handleScroll);
+        window.addEventListener('resize', this._handleResize);
 
         // Initialize Home Page
-        this._initHome();
-    },
-
-    destroyed() {
-        window.removeEventListener("scroll", this._handleScroll);
+        // this._initHome();
     },
 
     methods: {
         /*
-        * Initialize Home
+        * Handle Scroll Animations
         */
-        _initHome() {
-            // set h1 to individual chars and animate
-            if (document.getElementById('hero-title')) {
-                let title = document.querySelector('h1');
-                title.innerHTML = this._wrapString(title.innerHTML).join('');
+        _handleScroll(event) {
+            if (window.scrollY >= this.scrollCatch) {
+                return
+            } else {
+                let scrollTop = event.target.scrollingElement.scrollTop;
+                let itemRotation = scrollTop * 0.2;
+                let opacity = 1 - itemRotation / 100;
+                let slideX = scrollTop;
 
-                var tl = new TimelineMax();
-                tl.staggerTo('.letter', 0.7, { delay: 0.2, opacity: 1, y: '0', ease: Expo.easeOut }, 0.04)
-                    .to('.hero-subtitle', 0.7, { opacity: 1, y: '0', ease: Expo.easeOut }, '-=0.6');
+                TweenMax.to(this.rotationEl, 2, {
+                    x: itemRotation * 1.75 + "px",
+                    y: itemRotation * 1.5 + "px",
+                    opacity: opacity,
+                    rotation: itemRotation,
+                    ease: Expo.easeOut
+                });
+
+                TweenMax.to(this.slidingText, 2, {
+                    x: -itemRotation,
+                    opacity: opacity,
+                    ease: Expo.easeOut
+                })
             }
         },
 
         /*
-        * Wrap String characters into individual spans
+        * Handle Resize
         */
-        _wrapString(string) {
-            let newString = [];
-            string = string.split('');
-            string.forEach(element => newString.push('<span class="letter">' + element + '</span>'));
-
-            return newString;
-        },
-
-        /*
-        * Handle Scroll Animations
-        */
-        _handleScroll(event) {
-            let scrollTop = event.target.scrollingElement.scrollTop;
-            let itemRotation = scrollTop * 0.2;
-            let opacity = 1 - itemRotation / 100;
-
-            TweenMax.to(this.rotationEl, 2, {
-                x: itemRotation * 1.75 + "px",
-                y: itemRotation * 1.5 + "px",
-                opacity: opacity,
-                rotation: itemRotation,
-                ease: Expo.easeOut
-            });
+        _handleResize(event) {
+            let r = this.dividerLine.getBoundingClientRect();
+            this.scrollCatch = r.top;
         }
     }
 };

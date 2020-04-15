@@ -14,11 +14,11 @@
             </div>
 
             <div v-if="project.link" class="link-container">
-                <a :href="project.link" target="_blank" class="fade-up-item main-link">VIEW THE SITE</a>
+                <a :href="project.link" target="_blank" class="fade-up-item btn-box btn-link">VIEW THE SITE</a>
             </div>
 
             <div v-if="project.tags" class="tags-container">
-                <div class="tag fade-up-item" v-for="(tag, index) in project.tags" v-bind:key="index">{{tag}}</div>
+                <div class="btn-round fade-up-item" v-for="(tag, index) in project.tags" v-bind:key="index">{{tag}}</div>
             </div>
 
             <!-- Loop through Sections -->
