@@ -24,3 +24,9 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+### Other Notes:
+- Some dependencies were added to keep the GitHub Security Alerts in check (minimist, acorn, kind-of, serialize-javascript)
+
+### Other Documentation for this project:
+- work in progress
