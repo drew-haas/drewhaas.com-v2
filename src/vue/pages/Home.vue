@@ -2,13 +2,12 @@
     <div class="home-container">
         <div class="hero-container">
             <HeroThree/>
-            <div class="sliding-text" aria-hidden="true">
-                <span>DrewHaas <span class="main">DrewHaas</span> DrewHaas DrewHaas DrewHaas DrewHaas</span>
-            </div>
+
+            <div class="sliding-text" aria-hidden="true">drewhaas drewhaas drewhaas drewhaas drewhaas drewhaas</div>
 
             <div class="hero-copy-container">
                 <h1 class="hero-text visually-hidden">Drew Haas</h1>
-                <p class="hero-text">Front End Developer</p>
+                <p class="hero-text">Web Developer, Designer, Creative</p>
                 <p class="hero-text">Columbus, OH - San Francisco, CA</p>
                 <p class="hero-text">1992 - Present</p>
             </div>
@@ -18,7 +17,7 @@
             </div>
 
             <div class="posts-text">
-                <p>Posts Below</p>
+                <p>{{ filterText }} Posts Below</p>
             </div>
 
             <div class="g-line"></div>
@@ -28,6 +27,12 @@
             </div>
         </div>
 
+        <div class="actions-container">
+            <div class="filter filter-all active" v-on:click="updateCurrentPosts('all', $event)">All</div>
+            <div class="filter filter-work" v-on:click="updateCurrentPosts('work', $event)">Work</div>
+            <div class="filter filter-life" v-on:click="updateCurrentPosts('life', $event)">Life</div>
+        </div>
+
         <!-- Include Projects -->
         <Projects></Projects>
 
@@ -35,8 +40,8 @@
 </template>
 
 <script>
-import Projects from '../components/Projects.vue';
 import { TweenMax, TimelineMax, Expo } from 'gsap';
+import Projects from '../components/Projects.vue';
 import HeroThree from '../components/HeroThree';
 
 export default {
@@ -44,6 +49,11 @@ export default {
     components: {
         Projects,
         HeroThree
+    },
+    data: function () {
+        return {
+            filterText: 'All'
+        }
     },
 
     beforeCreate() {
@@ -53,56 +63,26 @@ export default {
 
     mounted() {
         // Define dom elements
-        this.rotationEl = document.querySelector('.scroll-image');
-        this.dividerLine = document.querySelector('.g-line');
-        this.slidingText = document.querySelector('.sliding-text');
-
-        let r = this.dividerLine.getBoundingClientRect();
-        this.scrollCatch = r.top;
-
-        // Add Event Listeners
-        window.addEventListener('scroll', this._handleScroll);
-        window.addEventListener('resize', this._handleResize);
-
-        // Initialize Home Page
-        // this._initHome();
+        this.filters = document.querySelectorAll('.filter');
+        this.updateCurrentPosts('all');
     },
 
     methods: {
-        /*
-        * Handle Scroll Animations
-        */
-        _handleScroll(event) {
-            if (window.scrollY >= this.scrollCatch) {
-                return
+        updateCurrentPosts(postsFilter, e) {
+            // update filter classes
+            this.filters.forEach(el => {el.classList.remove('active')});
+
+            if (e != undefined) {
+                e.target.classList.add('active');
+                this.filterText = e.target.innerHTML;
             } else {
-                let scrollTop = event.target.scrollingElement.scrollTop;
-                let itemRotation = scrollTop * 0.2;
-                let opacity = 1 - itemRotation / 100;
-                let slideX = scrollTop;
-
-                TweenMax.to(this.rotationEl, 2, {
-                    x: itemRotation * 1.75 + "px",
-                    y: itemRotation * 1.5 + "px",
-                    opacity: opacity,
-                    rotation: itemRotation,
-                    ease: Expo.easeOut
-                });
-
-                TweenMax.to(this.slidingText, 2, {
-                    x: -itemRotation,
-                    opacity: opacity,
-                    ease: Expo.easeOut
-                })
+                // default to all
+                let allFilter = document.querySelector('.filter-all');
+                allFilter.classList.add('active');
             }
-        },
 
-        /*
-        * Handle Resize
-        */
-        _handleResize(event) {
-            let r = this.dividerLine.getBoundingClientRect();
-            this.scrollCatch = r.top;
+            // run mutation
+            this.$store.commit('updateCurrentPosts', postsFilter);
         }
     }
 };

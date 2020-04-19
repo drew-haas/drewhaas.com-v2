@@ -1,6 +1,4 @@
-# [drewhaas.com](https://drewhaas.com/)
-
-## [Currently Hosted Here](https://drewhaascom-v2.drewhaas.now.sh)
+# My Personal Website [drewhaas.com](https://drewhaas.com/)
 
 ## Project setup
 ```
@@ -24,3 +22,9 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+### Other Notes:
+- Some dependencies were added to keep the GitHub Security Alerts in check (minimist, acorn, kind-of, serialize-javascript)
+
+### Other Documentation for this project:
+- work in progress

@@ -2,22 +2,15 @@
     overflow: hidden;
 
     .sliding-text {
-        position: absolute;
-        top: 110px;
-        left: 0;
         width: auto;
         white-space: nowrap;
-        // transform: translateX(-580px);
-        left: -580px;
+        transform: translateX(-637px);
         pointer-events: none;
         font-size: 270px;
         font-family: 'editionregular';
         color: #fff;
 
         @media screen and (max-width: $bp-s) {
-            opacity: 1;
-            top: 100px;
-            transform: translateX(20px);
             font-size: 130px;
         }
 
@@ -31,22 +24,23 @@
     }
 
     .hero-container {
-        min-height: 100vh;
         width: 100vw;
         max-width: 1400px;
-        margin: 0 auto 180px;
-        padding: 400px 60px 90px;
+        margin: 0 auto;
+        padding: 110px 60px 0;
         position: relative;
         box-sizing: border-box;
 
         @media screen and (max-width: $bp-s) {
-            padding: 225px 20px 0 20px;
+            padding: 100px 20px 0 20px;
             min-height: none;
             margin-bottom: 0;
         }
     }
 
     .hero-copy-container {
+        position: relative;
+        z-index: 1;
         margin: 20px 0 30vh;
         opacity: 1;
         transform: translate3d(0,0,0);
@@ -105,11 +99,7 @@
     .g-line {
         height: 2px;
         width: 100%;
-        background: linear-gradient(to right, #14c2ff  0%, #2addae 50%, #ff4545 100%);
-
-        @media screen and (max-width: $bp-s) {
-            width: calc(100% + 60px);
-        }
+        background: $gradient;
     }
 
     .scroll-image {
@@ -117,5 +107,59 @@
         right: 0;
         top: 100px;
         width: 50%;
+    }
+
+    .actions-container {
+        position: relative;
+        font-style: italic;
+        margin: 50px auto 200px;
+        display: flex;
+        width: 100vw;
+        max-width: 1400px;
+        padding: 0 60px;
+        position: relative;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+
+        @media screen and (max-width: $bp-s) {
+            padding: 0 20px 100px;
+            margin: 20px 0 0;
+        }
+
+        .line {
+            height: 400px;
+            width: 3px;
+            background: $gradient-vert;
+        }
+    }
+
+    .filter {
+        font-family: $font-light;
+        cursor: pointer;
+        line-height: 1;
+        margin-right: 20px;
+        font-size: 30px;
+
+        &-all {
+            &:hover, &.active {
+                color: $red;
+            }
+        }
+
+        &-work {
+            &:hover, &.active {
+                color: $green;
+            }
+        }
+
+        &-life {
+            &:hover, &.active {
+                color: $blue;
+            }
+        }
+
+        @media screen and (max-width: $bp-s) {
+            font-size: 22px;
+        }
     }
 }
