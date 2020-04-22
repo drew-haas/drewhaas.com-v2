@@ -12,13 +12,10 @@
 
         @media screen and (max-width: $bp-s) {
             font-size: 130px;
-        }
+            transform: translateX(-4px);
 
-        span {
-            opacity: .5;
-
-            &.main {
-                opacity: 1;
+            span {
+                display: none;
             }
         }
     }
@@ -61,7 +58,6 @@
         @media screen and (max-width: $bp-s) {
             font-size: 20px;
             padding: 0 0 12px;
-            color: $gray-darkest;
         }
     }
 
@@ -92,7 +88,6 @@
         @media screen and (max-width: $bp-s) {
             font-size: 22px;
             padding: 0 0 30px;
-            color: $gray-darkest;
         }
     }
 
@@ -124,6 +119,8 @@
         @media screen and (max-width: $bp-s) {
             padding: 0 20px 100px;
             margin: 20px 0 0;
+            position: sticky;
+            top: 0;
         }
 
         .line {

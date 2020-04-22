@@ -1,9 +1,9 @@
 <template>
     <div class="home-container">
         <div class="hero-container">
-            <HeroThree/>
+            <!-- <HeroThree/> -->
 
-            <div class="sliding-text" aria-hidden="true">drewhaas drewhaas drewhaas drewhaas drewhaas drewhaas</div>
+            <div class="sliding-text" aria-hidden="true">drewhaas <span>drewhaas drewhaas drewhaas drewhaas drewhaas</span></div>
 
             <div class="hero-copy-container">
                 <h1 class="hero-text visually-hidden">Drew Haas</h1>

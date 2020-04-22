@@ -7,9 +7,14 @@ html, body {
     color: $gray-dark;
     background-color: $gray-light;
     background-color: #e8e8e8;
+    pointer-events: auto;
 
     &.disable-scrolling {
         overflow: hidden;
+    }
+
+    &.opening-project {
+        pointer-events: none;
     }
 }
 
@@ -173,7 +178,7 @@ a {
             height: 100%;
             transform: scaleX(0);
             transition: .4s transform cubic-bezier(0.165, 0.84, 0.44, 1);
-            background: $gradient;
+            background: #000;
             z-index: -1;
         }
 
