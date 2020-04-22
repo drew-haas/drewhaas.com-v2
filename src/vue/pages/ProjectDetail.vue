@@ -9,7 +9,7 @@
             </div>
 
             <div class="description fade-up-item">
-                <p>{{project.description}}</p>
+                <p v-html="project.description"></p>
                 <p v-if="project.reachout === true">Please reach out to learn more about the project and my role.</p>
             </div>
 
@@ -31,7 +31,7 @@
                     </div>
 
                     <div v-if="section.caption" class="caption">
-                        <p>{{section.caption}}</p>
+                        <p v-html="section.caption"></p>
                     </div>
                 </div>
             </div>
