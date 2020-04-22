@@ -119,6 +119,10 @@
     display: flex;
     justify-content: center;
 
+    @media screen and (max-width: $bp-s) {
+        flex-direction: column;
+    }
+
     &.open {
         pointer-events: auto;
     }
@@ -130,47 +134,47 @@
         align-items: center;
 
         @media screen and (max-width: $bp-s) {
-            padding-bottom: 100px;
+            padding-bottom: 60px;
         }
     }
 
-  .nav-item {
-    display: block;
-    overflow: hidden;
-    cursor: pointer;
+    .nav-item {
+        display: block;
+        overflow: hidden;
+        cursor: pointer;
 
-    &-large {
-        font-size: 90px;
-        text-transform: uppercase;
+        &-large {
+            font-size: 90px;
+            text-transform: uppercase;
 
-        @media screen and (max-width: $bp-s) {
-            font-size: 50px;
-            margin-bottom: 20px;
-        }
-    }
-
-    &-small {
-        font-size: 17px;
-        margin-top: 20px;
-
-        &:hover {
-            color: $green;
+            @media screen and (max-width: $bp-s) {
+                font-size: 50px;
+                margin-bottom: 20px;
+            }
         }
 
-        @media screen and (max-width: $bp-s) {
-        font-size: 14px;
-        }
-    }
+        &-small {
+            font-size: 17px;
+            margin-top: 20px;
 
-    &.link-blue {
-        .nav-item-wrapper:before {
-            background-color: $blue;
+            &:hover {
+                color: $green;
+            }
+
+            @media screen and (max-width: $bp-s) {
+            font-size: 14px;
+            }
         }
 
-        .nav-item-wrapper:hover {
-            color: $blue;
+        &.link-blue {
+            .nav-item-wrapper:before {
+                background-color: $blue;
+            }
+
+            .nav-item-wrapper:hover {
+                color: $blue;
+            }
         }
-    }
 
         &-wrapper {
             display: block;
@@ -213,7 +217,8 @@
     justify-content: center;
 
     @media screen and (max-width: $bp-s) {
-        bottom: 100px;
+        bottom: 0;
+        position: relative;
     }
 
     .icon {

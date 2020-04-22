@@ -18,9 +18,11 @@
 </template>
 
 <script>
-import { TweenMax, Expo, Power1, Elastic, Back } from 'gsap';
-import VueRouter from 'vue-router';
-import ProjectDetail from '../pages/ProjectDetail';
+import { TweenMax, Expo, Power1, Elastic, Back } from 'gsap'
+import VueRouter from 'vue-router'
+import getMousePos from '../../helpers/getMousePos'
+import getSizeAndPosition from '../../helpers/getSizeAndPosition'
+import ProjectDetail from '../pages/ProjectDetail'
 
 export default {
     name: 'Project',
