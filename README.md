@@ -1,6 +1,6 @@
-## Personal Website for [drewhaas.com](https://drewhaas.com/)
+## Personal Website to be deployed at [drewhaas.com](https://drewhaas.com/)
 
-Currently hosted at [drewhaas.now.sh/](https://drewhaas.now.sh/) thanks to [Zeit](https://zeit.co/).
+Currently hosted at [drewhaas.now.sh](https://drewhaas.now.sh/) thanks to [Zeit](https://zeit.co/).
 
 ## Project setup
 ```
