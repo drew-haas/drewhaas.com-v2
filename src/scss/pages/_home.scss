@@ -1,25 +1,6 @@
 .home-container {
     overflow: hidden;
 
-    .sliding-text {
-        width: auto;
-        white-space: nowrap;
-        transform: translateX(-637px);
-        pointer-events: none;
-        font-size: 270px;
-        font-family: 'editionregular';
-        color: #fff;
-
-        @media screen and (max-width: $bp-s) {
-            font-size: 130px;
-            transform: translateX(-4px);
-
-            span {
-                display: none;
-            }
-        }
-    }
-
     .hero-container {
         width: 100vw;
         max-width: 1400px;
@@ -39,25 +20,26 @@
         position: relative;
         z-index: 1;
         margin: 20px 0 30vh;
-        opacity: 1;
-        transform: translate3d(0,0,0);
+        max-width: 500px;
 
         @media screen and (max-width: $bp-s) {
             margin-bottom: 14vh;
         }
     }
 
-    .hero-text {
-        font-size: 25px;
-        color: $gray-dark;
-        font-family: $font-extra-light;
-        padding: 0 0 14px;
-        margin: 0;
-        line-height: 1;
+    .hero-title {
+        text-transform: uppercase;
+    }
 
-        @media screen and (max-width: $bp-s) {
-            font-size: 20px;
-            padding: 0 0 12px;
+    .hero-copy {
+        margin-top: 0;
+
+        span {
+            display: block;
+            font-family: $font-light;
+            font-size: 74px;
+            font-weight: lighter;
+            margin: 0;
         }
     }
 
@@ -68,27 +50,10 @@
     .logo-abstract {
         max-width: 130px;
         margin-bottom: 100px;
-        opacity: 1;
-        transform: translate3d(0,0,0);
     }
 
     .posts-text {
-        opacity: 1;
-        transform: translate3d(0,0,0);
-    }
-
-    .posts-text p {
-        font-size: 30px;
-        color: $gray-dark;
-        font-family: $font-light;
-        padding: 0 0 40px;
-        margin: 0;
-        line-height: 1;
-
-        @media screen and (max-width: $bp-s) {
-            font-size: 22px;
-            padding: 0 0 30px;
-        }
+        margin-bottom: 20px;
     }
 
     .g-line {
@@ -107,7 +72,7 @@
     .actions-container {
         position: relative;
         font-style: italic;
-        margin: 50px auto 200px;
+        margin: 50px auto 100px;
         display: flex;
         width: 100vw;
         max-width: 1400px;
@@ -131,28 +96,42 @@
     }
 
     .filter {
-        font-family: $font-light;
         cursor: pointer;
-        line-height: 1;
         margin-right: 20px;
-        font-size: 30px;
 
         &-all {
-            &:hover, &.active {
+            &:hover {
                 color: $red;
+            }
+
+            &.active {
+                color: white;
+                background-color: $red;
             }
         }
 
         &-work {
-            &:hover, &.active {
+            &:hover {
                 color: $green;
+            }
+
+            &.active {
+                background-color: $green;
             }
         }
 
         &-life {
-            &:hover, &.active {
+            &:hover {
                 color: $blue;
             }
+
+            &.active {
+                background-color: $blue;
+            }
+        }
+
+        &.active {
+            color: white;
         }
 
         @media screen and (max-width: $bp-s) {

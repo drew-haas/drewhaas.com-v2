@@ -17,16 +17,12 @@
 
 		<nav class="navigation">
 			<ul>
-				<li class="nav-item nav-item-small">
-					<span class="nav-item-wrapper">
-						<a href="mailto:andrewfhaas@gmail.com?Subject=Hey%20There" target="_top"><code>andrewfhaas@gmail.com</code></a>
-					</span>
+				<li class="nav-item nav-item-small typography-subtitle">
+					<span class="nav-item-wrapper" v-on:click="_routeTo('/')">Home</span>
 				</li>
 
-				<li class="nav-item nav-item-small">
-					<span class="nav-item-wrapper" v-on:click="_routeTo('/credits')">
-						<code>credits</code>
-					</span>
+				<li class="nav-item nav-item-small typography-subtitle">
+					<span class="nav-item-wrapper" v-on:click="_routeTo('/credits')">Credits and More</span>
 				</li>
 			</ul>
 

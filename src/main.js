@@ -11,4 +11,4 @@ new Vue({
   render: h => h(App)
 }).$mount('#app')
 
-console.log('%cThanks for visiting :)', 'color: #fff; background-color: #000; line-height: 1.7; padding: 5px 10px;');
+console.log('%cThanks for visiting', 'color: #fff; background-color: #000; line-height: 1.7; padding: 5px 10px;');
