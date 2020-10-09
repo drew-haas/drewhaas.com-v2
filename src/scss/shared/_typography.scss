@@ -1,0 +1,29 @@
+// ------------------------------
+// Typography Styles Only
+// ------------------------------
+.typography-title {
+    font-size: 65px;
+    font-weight: lighter;
+    line-height: 1.2;
+
+    @media screen and (max-width: $bp-s) {
+        font-size: 50px;
+    }
+}
+
+.typography-subtitle {
+    font-family: "Graphik-ExtralightItalic";
+    font-size: 20px;
+    margin: 0;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-weight: bold;
+}
+
+.typography-body {
+    font-size: 21px;
+    font-family: 'Avenir';
+    line-height: 2;
+    color: $gray-dark;
+}

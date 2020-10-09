@@ -32,7 +32,7 @@ html, body {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
 }
 
-h1, h2 {
+h1, h2, h3 {
     font-family: $font-light;
     font-size: 74px;
     font-weight: lighter;
@@ -119,25 +119,10 @@ a {
 
 .title {
     max-width: 80%;
-    font-family: $font-medium;
     text-transform: uppercase;
 
     @media screen and (max-width: $bp-s) {
         max-width: 100%;
-    }
-
-    h1, h2 {
-        font-size: 65px;
-        margin: 0 0 22px;
-        color: $gray-dark;
-        line-height: 1;
-        font-family: $font-light;
-        font-weight: lighter;
-        line-height: 1.2;
-
-        @media screen and (max-width: $bp-s) {
-            font-size: 50px;
-        }
     }
 }
 

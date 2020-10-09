@@ -1,15 +1,11 @@
 <template>
     <div class="home-container">
+        <HeroThree/>
+
         <div class="hero-container">
-            <!-- <HeroThree/> -->
-
-            <div class="sliding-text" aria-hidden="true">drewhaas <span>drewhaas drewhaas drewhaas drewhaas drewhaas</span></div>
-
             <div class="hero-copy-container">
-                <h1 class="hero-text visually-hidden">Drew Haas</h1>
-                <p class="hero-text">Web Developer, Designer, Creative</p>
-                <p class="hero-text">Columbus, OH - San Francisco, CA</p>
-                <p class="hero-text">1992 - Present</p>
+                <h1 class="hero-title visually-hidden">Drew Haas personal website and portfolio.</h1>
+                <p class="hero-copy"><span class="typography-title">Hello,</span>{{decoder(heroCopy)}}</p>
             </div>
 
             <div class="logo-abstract">
@@ -17,25 +13,24 @@
             </div>
 
             <div class="posts-text">
-                <p>{{ filterText }} Posts Below</p>
+                <p class="typography-subtitle"><span>{{ filterText }}</span> Posts Below</p>
             </div>
 
             <div class="g-line"></div>
 
             <div class="scroll-image">
-                <img  :src="require('@/assets/images/home/img-drew-flying.png')" alt="Drew flying through the website">
+                <img :src="require('@/assets/images/home/img-drew-flying.png')" alt="Drew flying through the website">
             </div>
         </div>
 
         <div class="actions-container">
-            <div class="filter filter-all active" v-on:click="updateCurrentPosts('all', $event)">All</div>
-            <div class="filter filter-work" v-on:click="updateCurrentPosts('work', $event)">Work</div>
-            <div class="filter filter-life" v-on:click="updateCurrentPosts('life', $event)">Life</div>
+            <div class="btn-round filter filter-all active" v-on:click="updateCurrentPosts('all', $event)">All</div>
+            <div class="btn-round filter filter-work" v-on:click="updateCurrentPosts('work', $event)">Work</div>
+            <div class="btn-round filter filter-life" v-on:click="updateCurrentPosts('life', $event)">Life</div>
         </div>
 
         <!-- Include Projects -->
         <Projects></Projects>
-
     </div>
 </template>
 
@@ -43,6 +38,7 @@
 import { TweenMax, TimelineMax, Expo } from 'gsap';
 import Projects from '../components/Projects.vue';
 import HeroThree from '../components/HeroThree';
+import decoder from '../../helpers/decoder';
 
 export default {
     name: 'Home',
@@ -52,7 +48,9 @@ export default {
     },
     data: function () {
         return {
-            filterText: 'All'
+            decoder,
+            filterText: "All",
+            heroCopy: "my name is Drew. I'm a web developer and digital creative currently living in San Francisco. This website is a playground to bolster my development skills and a chance to share my interests and&nbsp;projects."
         }
     },
 
