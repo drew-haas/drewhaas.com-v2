@@ -162,10 +162,6 @@
             &:hover {
                 color: $green;
             }
-
-            @media screen and (max-width: $bp-s) {
-            font-size: 14px;
-            }
         }
 
         &.link-blue {

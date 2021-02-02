@@ -20,7 +20,7 @@
     }
 
     @media screen and (max-width: $bp-s) {
-        width: 75%;
+        width: 88%;
         height: 300px;
         margin-bottom: 100px;
     }
@@ -57,7 +57,7 @@
             position: relative;
             writing-mode: inherit;
             transform: rotate(0);
-            padding: 0 10px;
+            top: 10px;
         }
 
         h2 {
@@ -112,8 +112,11 @@
         }
 
         @media screen and (max-width: $bp-s) {
-            bottom: auto;
-            top: -20px;
+            // bottom: auto;
+            // top: -45px;
+            // right: -2px;
+            // font-size: 40px;
+            display: none;
         }
     }
 

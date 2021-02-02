@@ -29,14 +29,27 @@
 
     .hero-title {
         text-transform: uppercase;
+
+        @media screen and (max-width: $bp-s) {
+            margin-bottom: 12px;
+        }
     }
 
     .hero-copy {
         margin-top: 0;
 
+        @media screen and (max-width: $bp-s) {
+            font-size: 18px;
+            line-height: 1.7;
+        }
+
         span {
             display: block;
             margin: 0;
+
+            @media screen and (max-width: $bp-s) {
+                margin-bottom: 10px;
+            }
         }
     }
 
@@ -47,10 +60,21 @@
     .logo-abstract {
         max-width: 130px;
         margin-bottom: 100px;
+
+        @media screen and (max-width: $bp-s) {
+            max-width: 76px;
+            margin-bottom: 19px;
+        }
     }
 
     .posts-text {
         margin-bottom: 20px;
+
+        @media screen and (max-width: $bp-s) {
+            .typography-subtitle {
+                font-size: 17px;
+            }
+        }
     }
 
     .g-line {
@@ -64,6 +88,10 @@
         right: 0;
         top: 100px;
         width: 50%;
+
+        @media screen and (max-width: $bp-s) {
+            display: none;
+        }
     }
 
     .actions-container {
@@ -95,6 +123,10 @@
     .filter {
         cursor: pointer;
         margin-right: 20px;
+
+        @media screen and (max-width: $bp-s) {
+            margin-right: 14px;
+        }
 
         &-all {
             &:hover {

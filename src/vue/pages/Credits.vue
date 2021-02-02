@@ -5,7 +5,7 @@
 
         <div class="credits-row-container">
             <div class="title">
-                <h1 class="fade-up-item">Tech Stack</h1>
+                <h1 class="typography-title fade-up-item">Tech Stack</h1>
             </div>
 
             <p class="credit-description typography-body-reduced fade-up-item">The core technologies used to create&nbsp;this&nbsp;website.</p>
@@ -26,7 +26,7 @@
 
         <div class="credits-row-container">
             <div class="title">
-                <h2 class="fade-up-item">Credits</h2>
+                <h2 class="typography-title fade-up-item">Credits</h2>
             </div>
 
             <p class="credit-description typography-body-reduced fade-up-item">Companies responsible for some of the posts on&nbsp;this&nbsp;website. And a special thanks to Codrops for the animation and design inspiration.</p>
@@ -47,7 +47,7 @@
 
         <div class="credits-row-container">
             <div class="title">
-                <h2 class="fade-up-item">Additional Projects</h2>
+                <h2 class="typography-title fade-up-item">Additional Projects</h2>
             </div>
 
             <p class="credit-description typography-body-reduced fade-up-item">Here are some additional websites I have played a large role on and enjoyed creating.</p>

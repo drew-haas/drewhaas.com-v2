@@ -1,6 +1,6 @@
 <template>
     <div class="home-container">
-        <!-- <HeroThree/> -->
+        <HeroThree/>
 
         <div class="hero-container">
             <div class="hero-copy-container">
