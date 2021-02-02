@@ -2,9 +2,11 @@
 // Typography Styles Only
 // ------------------------------
 .typography-title {
-    font-size: 65px;
+    font-family: $font-light;
+    font-size: 74px;
     font-weight: lighter;
     line-height: 1.2;
+    margin: 0;
 
     @media screen and (max-width: $bp-s) {
         font-size: 50px;
@@ -26,4 +28,19 @@
     font-family: 'Avenir';
     line-height: 2;
     color: $gray-dark;
+}
+
+.typography-body-reduced {
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.typography-caption {
+    line-height: 1.5;
+    font-family: monospace;
+    font-size: 16px;
+
+    @media screen and (max-width: $bp-s) {
+        font-size: 12px;
+    }
 }

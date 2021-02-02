@@ -36,9 +36,6 @@
 
         span {
             display: block;
-            font-family: $font-light;
-            font-size: 74px;
-            font-weight: lighter;
             margin: 0;
         }
     }
@@ -132,10 +129,6 @@
 
         &.active {
             color: white;
-        }
-
-        @media screen and (max-width: $bp-s) {
-            font-size: 22px;
         }
     }
 }

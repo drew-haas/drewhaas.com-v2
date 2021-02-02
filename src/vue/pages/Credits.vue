@@ -8,7 +8,7 @@
                 <h1 class="fade-up-item">Tech Stack</h1>
             </div>
 
-            <p class="paragraph-smaller fade-up-item">The core technologies used to create&nbsp;this&nbsp;website.</p>
+            <p class="credit-description typography-body-reduced fade-up-item">The core technologies used to create&nbsp;this&nbsp;website.</p>
 
             <div class="icons-container">
                 <a class="icon fade-up-item" :class="item.class" v-for="(item, index) in techStack" :key="index" :href="item.url" target="_blank"
@@ -29,7 +29,7 @@
                 <h2 class="fade-up-item">Credits</h2>
             </div>
 
-            <p class="paragraph-smaller fade-up-item">Companies responsible for some of the posts on&nbsp;this&nbsp;website. And a special thanks to Codrops for the animation and design inspiration.</p>
+            <p class="credit-description typography-body-reduced fade-up-item">Companies responsible for some of the posts on&nbsp;this&nbsp;website. And a special thanks to Codrops for the animation and design inspiration.</p>
 
             <div class="icons-container">
                 <a class="icon fade-up-item" :class="item.class" v-for="(item, index) in extraCredits" :key="index" :href="item.url" target="_blank"
@@ -50,7 +50,7 @@
                 <h2 class="fade-up-item">Additional Projects</h2>
             </div>
 
-            <p class="paragraph-smaller fade-up-item">Here are some additional websites I have played a large role on and enjoyed creating.</p>
+            <p class="credit-description typography-body-reduced fade-up-item">Here are some additional websites I have played a large role on and enjoyed creating.</p>
 
             <div class="icons-container">
                 <a class="icon fade-up-item" :class="item.class" v-for="(item, index) in extraProjects" :key="index" :href="item.url" target="_blank"
@@ -160,7 +160,8 @@ export default {
   margin-top: 150px;
 }
 
-p {
+.credit-description {
+  margin: 10px 0 40px;
   max-width: 550px;
 }
 
