@@ -5,12 +5,12 @@
 
         <div class="project-detail-content-container content-container">
             <div class="title fade-up-item">
-                <h1>{{project.title}}</h1>
+                <h1 class="typography-title">{{project.title}}</h1>
             </div>
 
             <div class="description fade-up-item">
-                <p v-html="project.description"></p>
-                <p v-if="project.reachout === true">Please reach out to learn more about the project and my role.</p>
+                <p class="typography-body-reduced" v-html="project.description"></p>
+                <p class="typography-body-reduced" v-if="project.reachout === true">Please reach out to learn more about the project and my role.</p>
             </div>
 
             <div v-if="project.link" class="link-container">
@@ -31,7 +31,7 @@
                     </div>
 
                     <div v-if="section.caption" class="caption">
-                        <p v-html="section.caption"></p>
+                        <p class="typography-caption" v-html="section.caption"></p>
                     </div>
                 </div>
             </div>

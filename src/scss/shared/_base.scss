@@ -44,10 +44,8 @@ p {
     line-height: 2;
     color: $gray-dark;
 
-    &.paragraph-smaller {
-        font-size: 18px;
-        line-height: 1.5;
-        margin: 10px 0 40px;
+    @media screen and (max-width: $bp-s) {
+        font-size: 17px;
     }
 
     a {

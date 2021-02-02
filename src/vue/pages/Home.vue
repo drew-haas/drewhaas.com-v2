@@ -5,7 +5,7 @@
         <div class="hero-container">
             <div class="hero-copy-container">
                 <h1 class="hero-title visually-hidden">Drew Haas personal website and portfolio.</h1>
-                <p class="hero-copy"><span class="typography-title">Hello,</span>{{decoder(heroCopy)}}</p>
+                <p class="hero-copy typography-body"><span class="typography-title">Hello,</span>{{decoder(heroCopy)}}</p>
             </div>
 
             <div class="logo-abstract">
@@ -50,7 +50,7 @@ export default {
         return {
             decoder,
             filterText: "All",
-            heroCopy: "my name is Drew. I'm a web developer and digital creative currently living in San Francisco. This website is a playground to bolster my development skills and a chance to share my interests and&nbsp;projects."
+            heroCopy: "My name is Drew. I'm a Web Developer and digital creative currently living in San Francisco. This website is a playground to bolster my development skills and to share my interests and&nbsp;projects."
         }
     },
 
