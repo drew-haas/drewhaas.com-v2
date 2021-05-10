@@ -17,7 +17,7 @@
     "fibers": "^5.0.0",
     "http-proxy": ">=1.18.1",
     "kind-of": "^6.0.3",
-    "lodash": "^4.17.20",
+    "lodash": "^4.17.21",
     "minimist": "^1.2.5",
     "node-forge": ">=0.10.0",
     "node-sass": "^4.14.1",
