@@ -100,7 +100,7 @@ const _posts = [
     },
     {
         id: "tribute",
-        title: "Tribue Equine Nutrition",
+        title: "Tribute Equine Nutrition",
         description: "The coolest horse feed website you'll find. A lot of custom solutions went into this such as a product locator using Google Maps API and a large set of data, a nutrition selector to determine which feed is right for your horse, and various custom javascript and css animations. Created by/under Bonfire Red.",
         link: "https://tributeequinenutrition.com/",
         featureImage: "tribute/featured.jpg",
